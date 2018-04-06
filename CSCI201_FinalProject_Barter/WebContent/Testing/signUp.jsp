@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.mysql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,15 +31,27 @@
         </div>
         <br />
         
-        <form name="logInForm" method="post" action="validate.jsp">
-            <p style="font-weight:bold;">Log In</p>
+        <form name="signUpForm">
+            <p style="font-weight:bold;">Sign Up</p>
             
-            <label class="logInLabel">username</label><input type="text" name="username"><br />
+            <label class="signUpLabel">first name</label><input type="text" id="firstName" name="firstName"><br />
             
-            <label class="logInLabel">password</label><input type="text" name="password"><br />
+            <label class="signUpLabel">last name</label><input type="text" id="lastName" name="lastName"><br />
+            
+            <label class="signUpLabel">email</label><input type="text" id="email" name="email"><br />
+            
+            <label class="signUpLabel">profile picture</label><input type="file" name="profilePicture"><br />
+            
+            <label class="signUpLabel">location (zip)</label><input type="text" name="location"><br />
+            
+            <label class="signUpLabel">username</label><input type="text" name="username"><br />
+            
+            <label class="signUpLabel">password</label><input type="text" name="password"><br />
+            
+            <label class="signUpLabel">confirm password</label><input type="text" name="confirmPassword"><br />
             
             <br />
-            <input type="submit" value="log in"><br />
+            <input type="submit" value="sign up"><br />
         </form>
         
         <br />
