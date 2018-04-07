@@ -13,7 +13,7 @@ public class Util {
 		conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/studentGrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/barterdb?user=root&password=root&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
 			System.out.println("cnfe: " + cnfe.getMessage());
 		} catch (SQLException sqle) {
@@ -31,12 +31,16 @@ public class Util {
 		try {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT u.first_name, u.last_name, u.email, u.profile_image, u.location, u.username, u.password" + 
-					" FROM User u " +
+					" FROM Users u " +
 					" WHERE username=?");
 			ps.setString(1, username);
 			rs = ps.executeQuery();
 			
-			//ResultSet should only ever have one row
+			if (!rs.next()) { //check for empty result set
+				return user;
+			}
+			
+			//result set should only ever have one row
 			user = new User(rs.getString("username"), rs.getString("password"),
 					rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"),
 					rs.getString("profile_image"), rs.getString("location"));
