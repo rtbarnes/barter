@@ -4,149 +4,156 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <head>
         <title>Current Barters</title>
+        <link href="/style/header.css" type="text/css" rel="stylesheet" />
+        <link href="/style/footer.css" type="text/css" rel="stylesheet" />
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     </head>
     
     <body>
         
         <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-                <img src="" name="barterLogoThumbnail" id="barterLogoThumbnail">
+                <img src="/stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
                 
-                <form name="searchBar" id="searchBar" style="position:fixed; top: 2%; display:inline;">
-                    <input type="text" placeholder="Search Barters"><button type="submit">search</button>
+                <form name="searchForm" id="searchForm">
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
                 </form>
                 
-                <div id="linkContainer" name="linkContainer" style="display:inline;float:right;">
-                    <a name="button1" id="button1" href="">button1</a>
+                <div id="linkContainer" name="linkContainer">
+                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
 
-                    <a name="button2" id="button2" href="">button2</a>
+                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
 
-                    <a name="button3" id="button3" href="">button3</a>
+                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
 
-                    <a name="button4" id="button4" href="">button4</a>
+                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
                 </div>
                 
             </div>
         </div>
         <br />
         
-        <p style="font-size: 300%; text-align:center;">username's Trades</p>
+        <div name="mainContent" id="mainContent" style="margin-top:80px; margin-bottom:40px;">
         
-        <div name="onGoingTradesContainer" id="onGoingTradesContainer">
-            <p style="font-weight:bold;">
-                Ongoing Trades
-            </p>
-            
-            <table name="onGoingTradesTable" id="onGoingTradesTable">
-                <tr class="anOnGoingTrade">
-                    <td name="onGoingTradeItem" id="onGoingTradeItem">
-                        <span class="toFromLabel">FROM: Seller Name</span><span>XX.XX.XX</span><br />
-                        <span class="tradeDescription">Item Name for Item Name</span><br />
-                    </td>
-                </tr>
-                <tr class="anOnGoingTrade">
-                    <td name="onGoingTradeItem" id="onGoingTradeItem">
-                        <span class="toFromLabel">TO: Seller Name</span><span>XX.XX.XX</span><br />
-                        <span class="tradeDescription">Item Name for Item Name</span><br />
-                    </td>
-                </tr>
-            </table>
-            
-        </div>
-    
-        <div name="offerContainer" id="offerContainer">
-            <p style="font-weight:bold;">Offer</p>
-        
-            <table name="itemContainer" id="itemContainer">
-                <tr>
-                    <td>
-                        <img src="" name="yourItemImg" id="yourItemImg">
-                        <span class="itemName">Your Item</span><br />
-                        <button id="changeItem" name="changeItem">Change</button>
-                    </td>
-                    <td>
-                        <img src="" name="arrow" id="arrow">
-                        <span>arrow</span>
-                    </td>
-                    <td>
-                        <img src="" name="sellerItemImg" id="sellerItemImg">
-                        <span class="itemName">Seller's Item</span><br />
-                    </td>
-                </tr>
-            </table>
+            <p style="font-size: 300%; text-align:center;">username's Trades</p>
+
+            <div name="onGoingTradesContainer" id="onGoingTradesContainer">
+                <p style="font-weight:bold;">
+                    Ongoing Trades
+                </p>
+
+                <table name="onGoingTradesTable" id="onGoingTradesTable">
+                    <tr class="anOnGoingTrade">
+                        <td name="onGoingTradeItem" id="onGoingTradeItem">
+                            <span class="toFromLabel">FROM: Seller Name</span><span>XX.XX.XX</span><br />
+                            <span class="tradeDescription">Item Name for Item Name</span><br />
+                        </td>
+                    </tr>
+                    <tr class="anOnGoingTrade">
+                        <td name="onGoingTradeItem" id="onGoingTradeItem">
+                            <span class="toFromLabel">TO: Seller Name</span><span>XX.XX.XX</span><br />
+                            <span class="tradeDescription">Item Name for Item Name</span><br />
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div name="offerContainer" id="offerContainer">
+                <p style="font-weight:bold;">Offer</p>
+
+                <table name="itemContainer" id="itemContainer">
+                    <tr>
+                        <td>
+                            <img src="" name="yourItemImg" id="yourItemImg">
+                            <span class="itemName">Your Item</span><br />
+                            <button id="changeItem" name="changeItem">Change</button>
+                        </td>
+                        <td>
+                            <img src="" name="arrow" id="arrow">
+                            <span>arrow</span>
+                        </td>
+                        <td>
+                            <img src="" name="sellerItemImg" id="sellerItemImg">
+                            <span class="itemName">Seller's Item</span><br />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+
+                <table name="acceptRejectContainer" id="acceptRejectContainer">
+                    <tr>
+                        <td>
+                            <button id="accept" name="accept">accept</button>
+                        </td>
+                        <td>
+                            <button id="reject" name="reject">reject</button>
+                        </td>
+                    </tr>
+                </table>
+                <br />    
+            </div>
+
+            <div name="availableInventoryContainer" id="availableInventoryContainer">
+                <p style="font-weight:bold;">Available Inventory</p>
+
+                <table id="availableInventoryTable" name="availableInventoryTable">
+                    <tr>
+                        <td>
+                            <img src="" id="inventoryThumb" name="inventoryThumb">
+                        </td>
+                        <td>
+                            <span class="inventoryName">Item Name</span><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="" id="inventoryThumb" name="inventoryThumb">
+                        </td>
+                        <td>
+                            <span class="inventoryName">Item Name</span><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="" id="inventoryThumb" name="inventoryThumb">
+                        </td>
+                        <td>
+                            <span class="inventoryName">Item Name</span><br />
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
             <br />
-            
-            <table name="acceptRejectContainer" id="acceptRejectContainer">
-                <tr>
-                    <td>
-                        <button id="accept" name="accept">accept</button>
-                    </td>
-                    <td>
-                        <button id="reject" name="reject">reject</button>
-                    </td>
-                </tr>
-            </table>
-            <br />    
-        </div>
-        
-        <div name="availableInventoryContainer" id="availableInventoryContainer">
-            <p style="font-weight:bold;">Available Inventory</p>
-            
-            <table id="availableInventoryTable" name="availableInventoryTable">
-                <tr>
-                    <td>
-                        <img src="" id="inventoryThumb" name="inventoryThumb">
-                    </td>
-                    <td>
-                        <span class="inventoryName">Item Name</span><br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="" id="inventoryThumb" name="inventoryThumb">
-                    </td>
-                    <td>
-                        <span class="inventoryName">Item Name</span><br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="" id="inventoryThumb" name="inventoryThumb">
-                    </td>
-                    <td>
-                        <span class="inventoryName">Item Name</span><br />
-                    </td>
-                </tr>
-            </table>
+            <div name="messagesContainer" id="messagesContainer">
+                <table name="messagesTable" id="messagesTable">
+                    <tr>
+                        <td name="senderName" id="senderName">sellerusername: </td>
+                        <td name="message" id="message">oh hi mark</td>
+                    </tr>
+                    <tr>
+                        <td name="senderName" id="senderName">sellerusername: </td>
+                        <td name="message" id="message">i did not hit her</td>
+                    </tr>
+                    <tr>
+                        <td name="senderName" id="senderName">username: </td>
+                        <td name="message" id="message">lisa</td>
+                    </tr>
+                </table>
+
+                <form name="sendMessage" id="sendMessage">
+                    <input type="text" name="sendMessageInput" id="sendMessageInput">
+                    <input type="submit" value="Send">
+                </form>
+            </div>
         
         </div>
-        
-        <br />
-        <div name="messagesContainer" id="messagesContainer">
-            <table name="messagesTable" id="messagesTable">
-                <tr>
-                    <td name="senderName" id="senderName">sellerusername: </td>
-                    <td name="message" id="message">oh hi mark</td>
-                </tr>
-                <tr>
-                    <td name="senderName" id="senderName">sellerusername: </td>
-                    <td name="message" id="message">i did not hit her</td>
-                </tr>
-                <tr>
-                    <td name="senderName" id="senderName">username: </td>
-                    <td name="message" id="message">lisa</td>
-                </tr>
-            </table>
             
-            <form name="sendMessage" id="sendMessage">
-                <input type="text" name="sendMessageInput" id="sendMessageInput">
-                <input type="submit" value="Send">
-            </form>
-        </div>
-        
         <br />
         <div name="footerContainer" id="footerContainer">
-            <div class="footer" name="footer" id="footer" style="width:100%; position:fixed; bottom:2%; text-align:center;">
+            <div class="footer" name="footer" id="footer">
                 <span name="copyright" id="copyright">copyright Barter 2018</span>
                 <a name="contactUs" id="contactUs" href="">Contact Us</a>
             </div>
