@@ -25,10 +25,12 @@ public class UserInfoServlet extends HttpServlet {
 		String query = request.getParameter("username");
 		Util util = new Util();
 		User user = util.getUserByUsername(query);
-		Gson gson = new GsonBuilder().create();
 		
+		Gson gson = new GsonBuilder().create();
 		PrintWriter pw = response.getWriter();
 		gson.toJson(user, pw);
+
+		util.close();
 		pw.flush();
 		pw.close();
 	}

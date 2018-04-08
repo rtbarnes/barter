@@ -15,9 +15,9 @@ public class Util {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/barterdb?user=root&password=root&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
-			System.out.println("cnfe: " + cnfe.getMessage());
+			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
-			System.out.println("sqle: " + sqle.getMessage());
+			sqle.printStackTrace();
 		}
 	}
 	
@@ -57,5 +57,13 @@ public class Util {
 			}
 		}
 		return user;
+	}
+	
+	public void close() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
