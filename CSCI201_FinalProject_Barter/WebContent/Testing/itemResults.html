@@ -3,152 +3,157 @@
     
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <head>
-        <title>Page Title</title>
+        <title>Search Results</title>
+        <link href="style/header.css" type="text/css" rel="stylesheet" />
+        <link href="style/footer.css" type="text/css" rel="stylesheet" />
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     </head>
     
     <body>
         
         <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-                <img src="" name="barterLogoThumbnail" id="barterLogoThumbnail">
+                <img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
                 
-                <form name="searchBar" id="searchBar" style="position:fixed; top: 2%; display:inline;">
-                    <input type="text" placeholder="Search Barters"><button type="submit">search</button>
+                <form name="searchForm" id="searchForm">
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
                 </form>
                 
-                <div id="linkContainer" name="linkContainer" style="display:inline;float:right;">
-                    <a name="button1" id="button1" href="">button1</a>
+                <div id="linkContainer" name="linkContainer">
+                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
 
-                    <a name="button2" id="button2" href="">button2</a>
+                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
 
-                    <a name="button3" id="button3" href="">button3</a>
+                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
 
-                    <a name="button4" id="button4" href="">button4</a>
+                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
                 </div>
                 
             </div>
         </div>
         <br />
         
-        <div name="filterContainer" id="filterContainer">
-            <p style="font-weight:bold;">Search Filters</p>
-            
-            <form name="filtersForm" id="filtersForm">
-                <p>Display By:</p>
-                <select>
-                    <option value="mostRecent">Most Recent</option>
-                    <option value="nearbt">Nearby</option>
-                </select>
+        <div name="mainContent" id="mainContent" style="margin-top:80px; margin-bottom:40px;">
 
-                <p>Category:</p>
-                <select>
-                    <option value="any">Any</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="services">Services</option>
-                    <option value="electronics">Electronics</option>
-                </select>
-            </form>
+            <div name="filterContainer" id="filterContainer">
+                <p style="font-weight:bold;">Search Filters</p>
+
+                <form name="filtersForm" id="filtersForm">
+                    <p>Display By:</p>
+                    <select>
+                        <option value="mostRecent">Most Recent</option>
+                        <option value="nearbt">Nearby</option>
+                    </select>
+
+                    <p>Category:</p>
+                    <select>
+                        <option value="any">Any</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="services">Services</option>
+                        <option value="electronics">Electronics</option>
+                    </select>
+                </form>
+            </div>
+
+            <br />
+            <div name="resultsContainer" id="resultsContainer">
+                <table name="resultsTable" id="resultsTable">
+                    <tr>
+                        <td>
+                            <table class="itemResultTable">
+                                <tr>
+                                    <td><img src="" name="resultThumb" id="resultThumb"></td>
+                                    <td>
+                                        <span class="itemResultLabel">Item Name</span><br />
+                                        <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
+                                    </td>
+                                    <td>
+                                        <span name="sellerName" id="sellerName">Seller Name</span>
+                                        <img src="" name="sellerThumb" id="sellerThumb">
+                                        <br />
+                                        <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
+                                        <br />
+                                        <br />
+                                        <span name="datePosted" id="datePosted">Posted X Days Ago</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="itemResultTable">
+                                <tr>
+                                    <td><img src="" name="resultThumb" id="resultThumb"></td>
+                                    <td>
+                                        <span class="itemResultLabel">Item Name</span><br />
+                                        <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
+                                    </td>
+                                    <td>
+                                        <span name="sellerName" id="sellerName">Seller Name</span>
+                                        <img src="" name="sellerThumb" id="sellerThumb">
+                                        <br />
+                                        <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
+                                        <br />
+                                        <br />
+                                        <span name="datePosted" id="datePosted">Posted X Days Ago</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="itemResultTable">
+                                <tr>
+                                    <td><img src="" name="resultThumb" id="resultThumb"></td>
+                                    <td>
+                                        <span class="itemResultLabel">Item Name</span><br />
+                                        <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
+                                    </td>
+                                    <td>
+                                        <span name="sellerName" id="sellerName">Seller Name</span>
+                                        <img src="" name="sellerThumb" id="sellerThumb">
+                                        <br />
+                                        <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
+                                        <br />
+                                        <br />
+                                        <span name="datePosted" id="datePosted">Posted X Days Ago</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="itemResultTable">
+                                <tr>
+                                    <td><img src="" name="resultThumb" id="resultThumb"></td>
+                                    <td>
+                                        <span class="itemResultLabel">Item Name</span><br />
+                                        <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
+                                    </td>
+                                    <td>
+                                        <span name="sellerName" id="sellerName">Seller Name</span>
+                                        <img src="" name="sellerThumb" id="sellerThumb">
+                                        <br />
+                                        <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
+                                        <br />
+                                        <br />
+                                        <span name="datePosted" id="datePosted">Posted X Days Ago</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
-        
-        <br />
-        <div name="resultsContainer" id="resultsContainer">
-            <table name="resultsTable" id="resultsTable">
-                <tr>
-                    <td>
-                        <table class="itemResultTable">
-                            <tr>
-                                <td><img src="" name="resultThumb" id="resultThumb"></td>
-                                <td>
-                                    <span class="itemResultLabel">Item Name</span><br />
-                                    <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
-                                </td>
-                                <td>
-                                    <span name="sellerName" id="sellerName">Seller Name</span>
-                                    <img src="" name="sellerThumb" id="sellerThumb">
-                                    <br />
-                                    <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
-                                    <br />
-                                    <br />
-                                    <span name="datePosted" id="datePosted">Posted X Days Ago</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="itemResultTable">
-                            <tr>
-                                <td><img src="" name="resultThumb" id="resultThumb"></td>
-                                <td>
-                                    <span class="itemResultLabel">Item Name</span><br />
-                                    <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
-                                </td>
-                                <td>
-                                    <span name="sellerName" id="sellerName">Seller Name</span>
-                                    <img src="" name="sellerThumb" id="sellerThumb">
-                                    <br />
-                                    <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
-                                    <br />
-                                    <br />
-                                    <span name="datePosted" id="datePosted">Posted X Days Ago</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="itemResultTable">
-                            <tr>
-                                <td><img src="" name="resultThumb" id="resultThumb"></td>
-                                <td>
-                                    <span class="itemResultLabel">Item Name</span><br />
-                                    <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
-                                </td>
-                                <td>
-                                    <span name="sellerName" id="sellerName">Seller Name</span>
-                                    <img src="" name="sellerThumb" id="sellerThumb">
-                                    <br />
-                                    <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
-                                    <br />
-                                    <br />
-                                    <span name="datePosted" id="datePosted">Posted X Days Ago</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="itemResultTable">
-                            <tr>
-                                <td><img src="" name="resultThumb" id="resultThumb"></td>
-                                <td>
-                                    <span class="itemResultLabel">Item Name</span><br />
-                                    <span class="itemResultDescription" name="description" id="description">Narwhal irony meggings distillery. Dreamcatcher chillwave sustainable la croix pour-over kinfolk taiyaki four loko pabst flexitarian you probably haven't heard of them mustache raw denim hammock. Lumbersexual cornhole ramps squid. Master cleanse crucifix offal, marfa put a bird on it tofu pitchfork.</span><br />
-                                </td>
-                                <td>
-                                    <span name="sellerName" id="sellerName">Seller Name</span>
-                                    <img src="" name="sellerThumb" id="sellerThumb">
-                                    <br />
-                                    <span name="sellerRating" id="sellerRating">Rating: X.xx</span>
-                                    <br />
-                                    <br />
-                                    <span name="datePosted" id="datePosted">Posted X Days Ago</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        
-        
         
         <br />
         <div name="footerContainer" id="footerContainer">
-            <div class="footer" name="footer" id="footer" style="width:100%; position:fixed; bottom:2%; text-align:center;">
+            <div class="footer" name="footer" id="footer">
                 <span name="copyright" id="copyright">copyright Barter 2018</span>
                 <a name="contactUs" id="contactUs" href="">Contact Us</a>
             </div>
