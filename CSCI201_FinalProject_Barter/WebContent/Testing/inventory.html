@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inventory</title>
+		<link rel="stylesheet" type="text/css" href="accountCSS/accountLeft.css"/>
+        <link rel="stylesheet" type="text/css" href="style/header.css" />
+        <link rel="stylesheet" type="text/css" href="style/footer.css"/>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+		<style type="text/css">
+			.detailHeader{
+				width: 550px;
+				margin-left: auto;
+				margin-right: auto;
+				/*margin-top: 50px;*/
+				padding-top: 25px;
+				text-align: center;
+				font:  bold 45px arial;
+				border-bottom: 3px solid #005AC3;
+			}
+			#inventoryList{
+				width: 790px;
+				height: 650px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 20px;
+				/*background-color: pink;*/
+				overflow-x: hidden;
+			}
+			.itemDiv{
+				width: 770px;
+				height: 90px;
+				background-color: white;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			.editLink{
+				/*background-color: green;*/
+				margin-bottom: 7px;
+				/*text-decoration: none;*/
+			}
+			.editLink a{
+				font: 17px arial;
+				color: grey;
+				text-decoration: none;
+			}
+			.imgDiv{
+				width: 60px;
+				height: 60px;
+				background-color: blue;
+				float: left;
+			}
+			.itemImg{
+				width: 60px;
+			}
+			.nameLink{
+				font: bold 17px arial;
+				text-decoration: none;
+
+				color: #1B1464;
+			}
+			.detailDiv{
+				width: 680px;
+				height: 70px;
+				float: left;
+				/*background-color: red;*/
+				margin-left: 15px;
+				/*overflow: auto;*/
+			}
+			.description{
+				font-size: 13px;
+			}
+		</style>
+	</head>
+	<body>
+	 <div name="headerContainer" id="headerContainer">
+            <div class="header" name="header" id="header">
+                <img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
+                
+                <form name="searchForm" id="searchForm">
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
+                </form>
+                
+                <div id="linkContainer" name="linkContainer">
+                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
+
+                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
+
+                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
+
+                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                </div>
+             
+            </div>
+        </div>
+		<div id="mainContainer"> 
+			<div id="leftContainer">
+				<div id="userHeader">
+					<div id="imgDiv"> 
+						<img src="test.jpg" id="userImg">
+					</div>
+					<div id="nameDiv">Qingshen's account</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+
+				<div id="accountInfoDiv">
+					<div class="headers">Account Information</div>
+					<div class="buttonDiv">
+						<a href="#" class="anchorBtn textStyle">View/Edit Info</a>
+					</div>
+					<div class="buttonDiv">
+						<a href="#" class="anchorBtn textStyle">Change Password</a>
+					</div>
+				</div>
+				
+				<div id="inventoryDiv">
+					<div class="headers">Barter Inventory</div>
+					<div class="buttonDiv">
+						<a href="#" class="anchorBtn textStyle">View Inventory</a>
+					</div>
+				</div>
+				
+				<div id="tradesDiv">
+					<div class="headers">Trades</div>
+					<div class="buttonDiv">
+						<a href="#" class="anchorBtn textStyle">Edit Trades</a>
+					</div>
+				</div>
+				
+				<div id="delete">
+					<div class="headers">Delete</div>
+					<div class="buttonDiv" id="deleteBtn">
+						<a href="#" class="anchorBtn textStyle">Delete Account</a>
+					</div>
+				</div>
+			</div>
+			<div id="rightContainer">
+				<div id="accountInfoHeader" class="detailHeader">
+					USERNAME's Inventory
+				</div>
+				<!-- ========================================================= -->
+				<div id="inventoryList">
+
+
+					<!-- =============A single item=========================== -->
+					<div class="itemDiv">
+						<div class="editLink">
+							<a href="#">Edit/Remove</a> 
+						</div>
+						<div class="imgDiv">
+							<img src="test.jpg" class="itemImg">
+						</div>
+						<div class="detailDiv">
+							<a href="#" class="nameLink">Item Name</a>
+							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
+						</div>
+					</div>
+					<!-- ==============A single item========================== -->
+					<div class="itemDiv">
+						<div class="editLink">
+							<a href="#">Edit/Remove</a> 
+						</div>
+						<div class="imgDiv">
+							<img src="test.jpg" class="itemImg">
+						</div>
+						<div class="detailDiv">
+							<a href="#" class="nameLink">Item Name</a>
+							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
+						</div>
+					</div>
+					<!-- ===============A single item========================= -->
+					<div class="itemDiv">
+						<div class="editLink">
+							<a href="#">Edit/Remove</a> 
+						</div>
+						<div class="imgDiv">
+							<img src="test.jpg" class="itemImg">
+						</div>
+						<div class="detailDiv">
+							<a href="#" class="nameLink">Item Name</a>
+							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
+						</div>
+					</div>
+					<!-- ===================================================== -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
