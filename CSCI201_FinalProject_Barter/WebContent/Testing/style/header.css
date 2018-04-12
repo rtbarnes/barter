@@ -1,4 +1,4 @@
-
+/* BEGIN STYLE FOR HEADER */
 #headerContainer {
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0,0,0,0.23);
@@ -59,3 +59,4 @@
     letter-spacing: 0;
     text-decoration: none;
 }
+/* END STYLE FOR HEADER */

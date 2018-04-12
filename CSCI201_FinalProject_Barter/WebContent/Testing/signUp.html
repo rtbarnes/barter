@@ -4,13 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <head>
         <title>Sign Up for Barter!</title>
-<<<<<<< HEAD
-        <link href="/style/header.css" type="text/css" rel="stylesheet" />
-        <link href="/style/footer.css" type="text/css" rel="stylesheet" />
-=======
+        <link href="style/signUp.css" type="text/css" rel="stylesheet" />
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
->>>>>>> nathan
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     </head>
     
@@ -18,11 +14,7 @@
         
         <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-<<<<<<< HEAD
-                <img src="/stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
-=======
-                <img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
->>>>>>> nathan
+                <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm">
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
@@ -44,27 +36,64 @@
         
         <div name="mainContent" id="mainContent" style="margin-top:80px; margin-bottom:40px;">
         
+            <img src="stock%20images/barterword.png" name="barterLogo" id="barterLogo" style="width: 250px;height: 310px;">
+            
             <form name="signUpForm">
-                <p style="font-weight:bold;">Sign Up</p>
+                <p name="signUpHeading" id="signUpHeading">Sign Up</p><br />
 
-                <label class="signUpLabel">first name</label><input type="text" id="firstName" name="firstName"><br />
-
-                <label class="signUpLabel">last name</label><input type="text" id="lastName" name="lastName"><br />
-
-                <label class="signUpLabel">email</label><input type="text" id="email" name="email"><br />
-
-                <label class="signUpLabel">profile picture</label><input type="file" name="profilePicture"><br />
-
-                <label class="signUpLabel">location (zip)</label><input type="text" name="location"><br />
-
-                <label class="signUpLabel">username</label><input type="text" name="username"><br />
-
-                <label class="signUpLabel">password</label><input type="text" name="password"><br />
-
-                <label class="signUpLabel">confirm password</label><input type="text" name="confirmPassword"><br />
+                <table name="signUpTable" id="signUpTable">
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">first name</label></div><input type="text" class="signUpInput" id="firstName" name="firstName"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">last name</label></div><input type="text" class="signUpInput" id="lastName" name="lastName"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">email</label></div><input type="text" class="signUpInput" id="email" name="email"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">profile picture</label></div><input type="file" name="pictureUpload" id="pictureUpload"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">location (zip)</label></div><input type="text" class="signUpInput" name="location"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">username</label></div><input type="text" class="signUpInput" name="username"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">password</label></div><input type="password" class="signUpInput" name="password"><br />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="signUpTD">
+                            <div class="labelContainer"><label class="signUpLabel">confirm password</label></div><input type="password" class="signUpInput" name="confirmPassword"><br />
+                         </td>
+                    </tr>
+                    
+                </table>
 
                 <br />
-                <input type="submit" value="sign up"><br />
+                <input type="submit" value="sign up" id="submitButton"><br />
             </form>
         
         </div>

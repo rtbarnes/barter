@@ -3,6 +3,7 @@
     font-family: Avenir-Heavy;
 }
 
+/* BEGIN STYLE FOR CONTACT US DISPLAY */
 #contactUsHeading {
     font-family: Avenir-Heavy;
     font-size: 40px;
@@ -50,4 +51,4 @@
     font-size: 18px;
     color: white;
 }
-
+/* END STYLE FOR CONTACT US DISPLAY */

@@ -1,3 +1,4 @@
+/* BEGIN STYLE FOR FOOTER */
 .footer {
     background: #FFFFFF;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
@@ -23,3 +24,4 @@
     letter-spacing: 0;
     text-decoration: none;
 }
+/* END STYLE FOR FOOTER */
