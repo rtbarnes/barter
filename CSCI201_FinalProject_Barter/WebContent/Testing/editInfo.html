@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="accountCSS/accountLeft.css"/>
         <link rel="stylesheet" type="text/css" href="style/header.css" />
         <link rel="stylesheet" type="text/css" href="style/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="style/postItem.css"/>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 		<style type="text/css">
 			.detailHeader{
@@ -116,16 +117,12 @@
 					Edit Information
 				</div>
 
-				<form action="#" method="POST">
+				<form action="#" name="editForm" method="POST">
 
 					<div class="infoDiv">
 						<div class="titleFont">First name: </div>
 						<div class="infoFont">
-<<<<<<< HEAD
 							<input type="text" class="inputStyle" name="firstName">
-=======
-							<input type="password" class="inputStyle" name="newPass">
->>>>>>> parent of e550953... final pages
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -133,11 +130,7 @@
 					<div class="infoDiv">
 						<div class="titleFont">Last name: </div>
 						<div class="infoFont">
-<<<<<<< HEAD
 							<input type="text" class="inputStyle" name="lastName">
-=======
-							<input type="password" class="inputStyle" name="newPass">
->>>>>>> parent of e550953... final pages
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -145,11 +138,7 @@
 					<div class="infoDiv">
 						<div class="titleFont">Email: </div>
 						<div class="infoFont">
-<<<<<<< HEAD
 							<input type="text" class="inputStyle" name="email">
-=======
-							<input type="password" class="inputStyle" name="newPass">
->>>>>>> parent of e550953... final pages
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -157,11 +146,7 @@
 					<div class="infoDiv">
 						<div class="titleFont">Location: </div>
 						<div class="infoFont">
-<<<<<<< HEAD
 							<input type="text" class="inputStyle" name="location">
-=======
-							<input type="password" class="inputStyle" name="newPass">
->>>>>>> parent of e550953... final pages
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -169,14 +154,21 @@
 					<div class="infoDiv">
 						<div class="titleFont">Username: </div>
 						<div class="infoFont">
-<<<<<<< HEAD
 							<input type="text" class="inputStyle" name="username">
-=======
-							<input type="password" class="inputStyle" name="newPass">
->>>>>>> parent of e550953... final pages
 						</div>
 					</div>
 					<div class="clear"></div>
+
+					<div class="infoDiv">
+						<div class="titleFont">Change Picture</div>
+						<div class="buttonDiv" id="chooseBtn">
+							<div class="fileInputDiv">
+								<div id="buttonText" class="textStyle">Open</div>
+								<input type="file" id="fileInput" name="itemImage" onchange="javascript: document.getElementById ('fileName').value = this.value"/>
+							</div>
+						</div>
+						<div><input type="text" name="fileName" readonly="readonly" id="fileName" class="inputStyle"></div>
+					</div>
 
 					<div class="buttonDiv">
 						<button type="submit" class="textStyle" id="changeBtn">Submit</button>
