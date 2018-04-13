@@ -7,9 +7,10 @@ public class User {
 	private String email;
 	private String profileImage;
 	private String location;
+	private int userID;
 	
 	public User (String username, String password, String firstName, String lastName, String email, 
-			String profileImage, String location) {
+			String profileImage, String location, int userID) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -17,6 +18,16 @@ public class User {
 		this.email = email;
 		this.profileImage = profileImage;
 		this.location = location;
+		this.userID = userID;
+	}
+
+	
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 	public String getUsername() {
