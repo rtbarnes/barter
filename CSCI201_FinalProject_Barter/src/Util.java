@@ -59,7 +59,43 @@ public class Util {
 		}
 		return user;
 	}
-	
+	public User getUserByUsername(int user_id) {
+		
+		User user = null;
+		
+		Statement st = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			st = conn.createStatement();
+			ps = conn.prepareStatement(" SELECT u.first_name, u.last_name, u.email, u.profile_image, u.location, u.username, u.password, u.user_id" + 
+					" FROM Users u " +
+					" WHERE user_id=?");
+			ps.setInt(1, user_id);
+			rs = ps.executeQuery();
+			
+			if (!rs.next()) { //check for empty result set
+				return user;
+			}
+			
+			//result set should only ever have one row
+			user = new User(rs.getString("username"), rs.getString("password"),
+					rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"),
+					rs.getString("profile_image"), rs.getString("location"), rs.getInt("user_id"));
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (st != null) st.close();
+				
+			} catch (SQLException sqle) {
+				System.out.println("closing: " + sqle.getMessage());
+			}
+		}
+		return user;
+	}
 	public ArrayList<Item> getAllItems() {
 		
 		ArrayList<Item> items = new ArrayList<Item>();
@@ -94,7 +130,7 @@ public class Util {
 		}
 		return items;
 	}
-	public Item getItemByItemId(int item_Id) {
+	public Item getItemByItemId(int item_id) {
 		Item item = null;
 		Statement st = null;
 		PreparedStatement ps = null;
@@ -103,7 +139,9 @@ public class Util {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT i.item_id, i.user_id, i.item_name, i.description, i.image, i.category_id, i.sold" + 
 					" FROM Items i "+
-				" WHERE item_Id=?");
+				" WHERE item_id=?");
+			ps.setInt(1, item_id);
+			
 			rs = ps.executeQuery();
 			
 			if (!rs.next()) { //check for empty result set
@@ -129,7 +167,7 @@ public class Util {
 		
 		return item;
 	}
-	public Trades getTradeByTradesId(int trade_Id) {
+	public Trades getTradeByTradesId(int trade_id) {
 		Trades trade = null;
 		Statement st = null;
 		PreparedStatement ps = null;
@@ -138,7 +176,8 @@ public class Util {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" + 
 					" FROM Trades t "+
-				" WHERE trade_Id=?");
+				" WHERE trade_id=?");
+			ps.setInt(1, trade_id);
 			rs = ps.executeQuery();
 			
 			if (!rs.next()) { //check for empty result set
@@ -165,7 +204,7 @@ public class Util {
 		return trade;
 	}
 
-	public ArrayList<Trades> getTradesByReqId() {
+	public ArrayList<Trades> getTradesByReqId(int req_user_id) {
 		
 		ArrayList<Trades> trades = new ArrayList<Trades>();
 		
@@ -176,7 +215,8 @@ public class Util {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" +
 					 " FROM Trades t " + 
-					" WHERE req_user_Id=?"); 
+					" WHERE req_user_id=?"); 
+			ps.setInt(1, req_user_id);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -201,7 +241,7 @@ public class Util {
 		return trades;
 	}
 	
-	public ArrayList<Trades> getTradesByRecId() {
+	public ArrayList<Trades> getTradesByRecId(int rec_user_id) {
 		
 		ArrayList<Trades> trades = new ArrayList<Trades>();
 		
@@ -212,7 +252,8 @@ public class Util {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" +
 					 " FROM Trades t " + 
-					" WHERE rec_user_Id=?"); 
+					" WHERE rec_user_id=?"); 
+			ps.setInt(1, rec_user_id);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
