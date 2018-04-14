@@ -18,5 +18,7 @@
 		-->	
 		
 		<img alt="sdfs" src="<%=imagePath %>">
+		<img alt="sdfs" src="users//user_10.png">
+		<img alt="sdfs" src="users//user_11.png">
 	</body>
 </html>
