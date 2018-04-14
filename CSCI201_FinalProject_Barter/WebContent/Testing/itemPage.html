@@ -17,7 +17,7 @@
                 <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm">
-                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
@@ -28,6 +28,10 @@
                     <a class="headerButtons" name="button3" id="button3" href="">button3</a>
 
                     <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                    
+                    <a class="headerButtons" name="button5" id="button5" href="" style="display: none;">button5</a>
+
+                    <a class="headerButtons" name="button6" id="button6" href="" style="display: none;">button6</a>
                 </div>
                 
             </div>
@@ -69,7 +73,7 @@
                         
                         <br />
                         <span name="zipCode" id="zipCode" style="font-weight:bold; font-size: 35px; color: #1B1464;">XXXXX</span><br />
-                        <span name="sellerName" id="sellerName" style="font-weight:bold; font-size: 20px; color: #1B1464;">Seller Name</span><br />
+                        <span name="traderName" id="traderName" style="font-weight:bold; font-size: 20px; color: #1B1464;">Trader Name</span><br />
                         <span name="rating" id="rating" style="font-weight:bold; font-size: 15px; color: #1B1464;">Rating: X.xx</span><br />
                     </td>
                 </tr>
@@ -77,7 +81,7 @@
 
             <br />
             <div name="relatedContainer" id="relatedContainer" style="width: 1050px; margin-left:auto; margin-right:auto;">
-                <span style="font-weight:bold; font-size: 25px; color: #1B1464;">Check Out These Other Trades!</span><br />
+                <span style="font-weight:bold; font-size: 25px; color: #1B1464;">Check Out These Other Items!</span><br />
                 <table name="relatedTable" id="relatedTable">
                     <tr>
                         <td>
@@ -88,10 +92,10 @@
                                         <a name="itemName1" id="itemName1" class="itemName" href="">Item Name</a>
                                         <p name="itemDescription1" id="itemDescription1" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
                                     </td>
-                                    <td class="sellerInfo">
+                                    <td class="traderInfo">
                                         <span name="zipCode1" id="zipCode1" class="relatedZips">XXXXX</span><br />
-                                        <span name="sellerName1" id="sellerName1" class="relatedSeller">Seller Name</span><br />
-                                        <span name="sellerRating1" id="sellerRating1" class="relatedSeller">X.xx</span><br />
+                                        <span name="traderName1" id="traderName1" class="relatedtrader">Trader Name</span><br />
+                                        <span name="traderRating1" id="traderRating1" class="relatedtrader">X.xx</span><br />
                                     </td>
                                 </tr>
                             </table>
@@ -104,10 +108,10 @@
                                         <a name="itemName2" id="itemName2" class="itemName" href="">Item Name</a>
                                         <p name="itemDescription2" id="itemDescription2" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
                                     </td>
-                                    <td class="sellerInfo">
+                                    <td class="traderInfo">
                                         <span name="zipCode2" id="zipCode2" class="relatedZips">XXXXX</span><br />
-                                        <span name="sellerName2" id="sellerName2" class="relatedSeller">Seller Name</span><br />
-                                        <span name="sellerRating2" id="sellerRating2" class="relatedSeller">X.xx</span><br />
+                                        <span name="traderName2" id="traderName2" class="relatedtrader">Trader Name</span><br />
+                                        <span name="traderRating2" id="traderRating2" class="relatedtrader">X.xx</span><br />
                                     </td>
                                 </tr>
                             </table>
@@ -122,10 +126,10 @@
                                         <a name="itemName3" id="itemName3" class="itemName" href="">Item Name</a>
                                         <p name="itemDescription3" id="itemDescription3" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
                                     </td>
-                                    <td class="sellerInfo">
+                                    <td class="traderInfo">
                                         <span name="zipCode3" id="zipCode3" class="relatedZips">XXXXX</span><br />
-                                        <span name="sellerName3" id="sellerName3" class="relatedSeller">Seller Name</span><br />
-                                        <span name="sellerRating3" id="sellerRating3" class="relatedSeller">X.xx</span><br />
+                                        <span name="traderName3" id="traderName3" class="relatedtrader">Trader Name</span><br />
+                                        <span name="traderRating3" id="traderRating3" class="relatedtrader">X.xx</span><br />
                                     </td>
                                 </tr>
                             </table>
@@ -138,10 +142,10 @@
                                         <a name="itemName4" id="itemName4" class="itemName" href="">Item Name</a>
                                         <p name="itemDescription4" id="itemDescription4" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
                                     </td>
-                                    <td class="sellerInfo">
+                                    <td class="traderInfo">
                                         <span name="zipCode4" id="zipCode4" class="relatedZips">XXXXX</span><br />
-                                        <span name="sellerName4" id="sellerName4" class="relatedSeller">Seller Name</span><br />
-                                        <span name="sellerRating4" id="sellerRating4" class="relatedSeller">X.xx</span><br />
+                                        <span name="traderName4" id="traderName4" class="relatedtrader">Trader Name</span><br />
+                                        <span name="traderRating4" id="traderRating4" class="relatedtrader">X.xx</span><br />
                                     </td>
                                 </tr>
                             </table>
