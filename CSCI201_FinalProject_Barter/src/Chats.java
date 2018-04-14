@@ -1,30 +1,14 @@
 
-public class Chats {
-	private int msgId;
-	private String msgText;
+public class Chats{
 	private int chatId;
+	private String reqUserId;
+	private int recUserId;
 
-	public Chats (int msgId, String msgText, int chatId ) {
-		this.msgId = msgId;
-		this.msgText = msgText;
-		this.chatId  = chatId ;
+	public Chats (int chatId, String reqUserId, int recUserId ) {
+		this.chatId =chatId;
+		this.reqUserId = reqUserId;
+		this.recUserId  = recUserId;	
 		
-	}
-
-	public int getMsgId() {
-		return msgId;
-	}
-
-	public void setMsgId(int msgId) {
-		this.msgId = msgId;
-	}
-
-	public String getMsgText() {
-		return msgText;
-	}
-
-	public void setMsgText(String msgText) {
-		this.msgText = msgText;
 	}
 
 	public int getChatId() {
@@ -34,6 +18,23 @@ public class Chats {
 	public void setChatId(int chatId) {
 		this.chatId = chatId;
 	}
+
+	public String getReqUserId() {
+		return reqUserId;
+	}
+
+	public void setReqUserId(String reqUserId) {
+		this.reqUserId = reqUserId;
+	}
+
+	public int getRecUserId() {
+		return recUserId;
+	}
+
+	public void setRecUserId(int recUserId) {
+		this.recUserId = recUserId;
+	}
 	
 }
+	
 
