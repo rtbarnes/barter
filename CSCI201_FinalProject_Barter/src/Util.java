@@ -59,7 +59,7 @@ public class Util {
 		}
 		return user;
 	}
-	public User getUserByUsername(int user_id) {
+	public User getUserByUserId(int user_id) {
 		
 		User user = null;
 		
@@ -167,7 +167,7 @@ public class Util {
 		
 		return item;
 	}
-	public Trades getTradeByTradesId(int trade_id) {
+	public Trades getTradesByTradesId(int trade_id) {
 		Trades trade = null;
 		Statement st = null;
 		PreparedStatement ps = null;

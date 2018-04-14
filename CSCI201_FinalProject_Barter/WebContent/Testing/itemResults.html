@@ -226,11 +226,10 @@
         </div>
         
         <script>
-		$.ajax({
+		var itemList = $.ajax({
 			url: '../ItemResultsServlet',
 			dataType: "json",
 			success: function (data) {
-				console.log(data);
 				var i = 0;
 				$('#resultsTable .itemResultTable').each( function() {
 					if(i >= data.length) return false;
@@ -239,9 +238,11 @@
 					$this.find('#description').text(data[i].description);
 					i++;
 				});
+				return data.responseJSON;
 			},
 			type: 'POST',
 		});
+		console.log(itemList);
 		
 		</script>
         
