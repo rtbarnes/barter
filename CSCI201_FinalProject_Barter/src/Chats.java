@@ -34,7 +34,7 @@ public class Chats{
 	public void setRecUserId(int recUserId) {
 		this.recUserId = recUserId;
 	}
-	
+	CM
 }
 	
 
