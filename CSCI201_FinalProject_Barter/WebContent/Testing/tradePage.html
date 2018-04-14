@@ -17,7 +17,7 @@
                 <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm">
-                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
@@ -28,8 +28,12 @@
                     <a class="headerButtons" name="button3" id="button3" href="">button3</a>
 
                     <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                    
+                    <a class="headerButtons" name="button5" id="button5" href="" style="display: none;">button5</a>
+
+                    <a class="headerButtons" name="button6" id="button6" href="" style="display: none;">button6</a>
                 </div>
-                
+        
             </div>
         </div>
         <br />
@@ -45,79 +49,31 @@
                 
                 <div name="tableTradeContainer" id="tableTradeContainer">
                     <table name="onGoingTradesTable" id="onGoingTradesTable">
+                        
+                    <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
+                                <div class="fromLabel">FROM: Trader Name</div><div class="dateLabel">XX.XX.XX</div><br />
                                 <div class="tradeDescription">Item Name for Item Name</div><br />
                             </a>
                         </td>
                     </tr>
+                        
+                    <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
-                                <div class="toLabel">TO: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
+                                <div class="toLabel">TO: Trader Name</div><div class="dateLabel">XX.XX.XX</div><br />
                                 <div class="tradeDescription">Item Name for Item Name</div><br />
                             </a>
                         </td>
                     </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="anOnGoingTrade">
-                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-                            <a href="" class="tradeItemLink">
-                                <div class="fromLabel">FROM: Seller Name</div><div class="dateLabel">XX.XX.XX</div><br />
-                                <div class="tradeDescription">Item Name for Item Name</div><br />
-                            </a>
-                        </td>
-                    </tr>
+                        
+                        
+                    <!-- add more trades to column here -->
                     
+                        
                 </table>
                 </div>
                 
@@ -137,8 +93,8 @@
                                     <img src="stock%20images/tradearrow.png" name="arrow" id="arrow">
                                 </td>
                                 <td>
-                                    <img src="stock%20images/blackbox.png" name="sellerItemImg" id="sellerItemImg">
-                                    <p class="itemName" style="float: right;">Seller's Item</p>
+                                    <img src="stock%20images/blackbox.png" name="traderItemImg" id="traderItemImg">
+                                    <p class="itemName" style="float: right;">Trader's Item</p>
                                 </td>
                             </tr>
                         </table>
@@ -146,11 +102,22 @@
 
                         <table name="acceptRejectTable" id="acceptRejectTable">
                             <tr>
+                                <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="accept" name="accept" style="background-color: #61B400;">accept</button>
+                                    <button class="tradeButton" id="accept" name="accept">accept</button>
                                 </td>
                                 <td>
-                                    <button class="tradeButton" id="reject" name="reject" style="background-color: #AF0000;">reject</button>
+                                    <button class="tradeButton" id="reject" name="reject">reject</button>
+                                </td>
+                                
+                                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
+                                <td>
+                                    <button class="tradeButton" id="send" name="send">send</button>
+                                </td>
+                                
+                                <!-- IF VIEWING A SENT TRADE "TO" SOMEONE -->
+                                <td>
+                                    <button class="tradeButton" id="sent" name="sent">sent</button>
                                 </td>
                             </tr>
                         </table>
@@ -158,31 +125,81 @@
                     </div>
             </div>
 
-            <div name="sellerInfoContainer" id="sellerInfoContainer">
-                <p class="innerHeading">About the Seller</p>
-
-                <table id="sellerInfoTable" name="sellerInfoTable">
+            <div name="rightHandContainer" id="rightHandContainer">
+                <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                <p class="innerHeading" id="aboutMessage">About the Trader</p>
+                
+                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
+                <p class="innerHeading" id="inventoryMessage">Available Inventory</p>
+                
+                
+                <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                <table id="traderInfoTable" name="traderInfoTable">
                     <tr>
-                        <td class="sellerInfoTD">
-                            <img src="stock%20images/blackbox.png" id="sellerThumb" name="sellerThumb">
+                        <td class="traderInfoTD">
+                            <img src="stock%20images/blackbox.png" id="traderThumb" name="traderThumb">
                         </td>
                     </tr>
                     <tr>
-                        <td class="sellerInfoTD">
-                            <br /><span class="sellerInfo">Seller Name</span><br />
+                        <td class="traderInfoTD">
+                            <br /><span class="traderInfo">Trader Name</span><br />
                         </td>
                     </tr>
                     <tr>
-                        <td class="sellerInfoTD">
-                            <span class="sellerInfo" style="font-size: 18px; color: #4A4A4A;">Zip Code</span><br />
+                        <td class="traderInfoTD">
+                            <span class="traderInfo" style="font-size: 18px; color: #4A4A4A;">Zip Code</span><br />
                         </td>
                     </tr>
                     <tr>
-                        <td class="sellerInfoTD">
-                            <span class="sellerInfo" style="font-size: 18px; color: #4A4A4A;">X.XX Rating</span><br />
+                        <td class="traderInfoTD">
+                            <span class="traderInfo" style="font-size: 18px; color: #4A4A4A;">X.XX Rating</span><br />
                         </td>
                     </tr>
                 </table>
+                
+                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
+                <div name="inventoryTableContainer" id="inventoryTableContainer">
+                    
+                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
+                    <label class="container">Item One
+                      <input type="radio" checked="checked" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Two
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Three
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Four
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Five
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Six
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Seven
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Eight
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    <!-- populate more inventory items here -->
+                    
+                    <!-- IF TRADE HAS BEEN SENT ALREADY -->
+                    <p name="tradeSentMessage" id="tradeSentMessage">Trade Sent.</p>
+                    
+                </div>
 
             </div>
 
@@ -191,7 +208,7 @@
                 <div name="tableContainer" id="tableContainer">
                     <table name="messagesTable" id="messagesTable">
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
@@ -199,35 +216,35 @@
                             <td class="messageTD"><div name="message" id="message">ah jeez rick</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                         <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">sellerusername:</div></td>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
                     </table>

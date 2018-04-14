@@ -82,7 +82,7 @@
     font-size: 11px;
 }
 
-.sellerInfo {
+.traderInfo {
     width: 80px;
 }
 
@@ -97,9 +97,9 @@
     color: #1B1464;
 }
 
-.relatedSeller {
+.relatedtrader {
     color: #1B1464;
-    font-size: 14px;
+    font-size: 13px;
 }
 /* END STYLE FOR RELATED ITEMS DISPLAY */
 
