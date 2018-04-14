@@ -7,6 +7,7 @@
         <link href="style/itemResults.css" type="text/css" rel="stylesheet" />
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     </head>
     
@@ -223,6 +224,26 @@
                 <a name="contactUs" id="contactUs" href="">Contact Us</a>
             </div>
         </div>
+        
+        <script>
+		$.ajax({
+			url: '../ItemResultsServlet',
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				var i = 0;
+				$('#resultsTable .itemResultTable').each( function() {
+					if(i >= data.length) return false;
+					$this = $(this);
+					$this.find('#itemLink').text(data[i].itemName);
+					$this.find('#description').text(data[i].description);
+					i++;
+				});
+			},
+			type: 'POST',
+		});
+		
+		</script>
         
     </body>
 </html>
