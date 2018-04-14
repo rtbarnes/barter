@@ -20,6 +20,8 @@ import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
+import com.sun.javafx.scene.traversal.Hueristic2D;
+
 public class DBUtil {
 	Connection conn = null;
 	ResultSet rs = null;
@@ -37,10 +39,21 @@ public class DBUtil {
 			System.out.println("SQLe: " + e.getMessage());
 		}
 	}
+
+	public void close() {
+		try {
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+	}
 	
 	// add a new user
-	public void addUser(String firstName, String lastName, String email, 
-			String imagePath, String location, String username, String password) {
+	public int addUser(String firstName, String lastName, String email, 
+		String imagePath, String location, String username, String password) {
+		
 		try {
 			String sql = "INSERT INTO users "
 					+ "(first_name, last_name, email, profile_image, location, username, password)\r\n" + 
@@ -58,6 +71,23 @@ public class DBUtil {
 			// TODO: handle exception
 			System.out.println("sqle: " + e.getMessage());
 			e.printStackTrace();
+		}
+		return getLatestUserId();
+	}
+	// update user image
+	public void updateUserPicture(int userId, String imagePath) {
+		String sql = "UPDATE users " + 
+						"SET profile_image = ?" + 
+						" WHERE user_id = ?;";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, imagePath);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("sql exception in updateUserPicture: " + e.getMessage()); 
+		} catch(Exception exception) {
+			System.out.println("exception in updateUserPicture: " + exception.getMessage());
 		}
 	}
 	
@@ -96,6 +126,43 @@ public class DBUtil {
 		return newUser;
 	}
 
+	// return a User object if found, otherwise return null
+	public User getUserByUserId(int queryUserId) {
+		int userId = 0;
+		String firstName = null;
+		String lastName = null;
+		String email = null;
+		String profileImage = null;
+		String location = null;
+		String password = null;
+		String username = null;
+		
+		try {
+			String sql = "SELECT user_id, first_name, last_name, email, profile_image, location, username, password " + 
+							"FROM users " + 
+							"WHERE user_id = ?;";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, queryUserId);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				userId = rs.getInt("user_id");
+				firstName = rs.getString("first_name");
+				lastName = rs.getString("last_name");
+				email = rs.getString("email");
+				profileImage = rs.getString("profile_image");
+				username = rs.getString("username");
+				location = rs.getString("location");
+				password = rs.getString("password");
+			}
+		} catch (SQLException e) {
+			System.out.println("sqle: " + e.getMessage());
+			e.printStackTrace();
+		}  catch (Exception e) {
+			System.out.println("exception in getuserByUsername(): " + e.getMessage());
+		}
+		User newUser = new User(username, password, firstName, lastName, email, profileImage, location, userId);
+		return newUser;
+	}
 	// get the user_id the most recently added user
 	public int getLatestUserId() {
 		int userId = 0;
@@ -132,7 +199,6 @@ public class DBUtil {
 		}
 		return itemId;
 	}
-	
 	
 	// insert a new item into database and return the item_id of it
 	public int additem(int userId, String itemName, String description, int categoryId) {
@@ -180,15 +246,6 @@ public class DBUtil {
 		}
 	}
 	
-	public void close() {
-		try {
-			rs.close();
-			ps.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO: handle exception
-		}
-	}
 }
 
 
