@@ -59,6 +59,7 @@ public class Util {
 		}
 		return user;
 	}
+	
 	public User getUserByUserId(int user_id) {
 		
 		User user = null;
@@ -66,6 +67,7 @@ public class Util {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		
 		try {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT u.first_name, u.last_name, u.email, u.profile_image, u.location, u.username, u.password, u.user_id" + 
@@ -96,6 +98,7 @@ public class Util {
 		}
 		return user;
 	}
+	
 	public ArrayList<Item> getAllItems() {
 		
 		ArrayList<Item> items = new ArrayList<Item>();
@@ -130,6 +133,7 @@ public class Util {
 		}
 		return items;
 	}
+	
 	public Item getItemByItemId(int item_id) {
 		Item item = null;
 		Statement st = null;
@@ -167,6 +171,7 @@ public class Util {
 		
 		return item;
 	}
+	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;
 		Statement st = null;
@@ -279,8 +284,7 @@ public class Util {
 		}
 		return trades;
 	}
-	
-		
+
 	
 	public void close() {
 		try {
