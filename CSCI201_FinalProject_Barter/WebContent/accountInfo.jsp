@@ -12,7 +12,7 @@
 	<body>
 	<%
 		String username = (String) request.getAttribute("username");
-		String profileImage = (String) request.getAttribute("");
+		String profileImage = (String) request.getAttribute("profileImage");
 	
 		String firstName = (String) request.getAttribute("firstName");
 		String lastName = (String) request.getAttribute("lastName");
@@ -53,7 +53,7 @@
 				<div id="accountInfoDiv">
 					<div class="headers">Account Information</div>
 					<div class="buttonDiv">
-						<a href="AccountInfo" class="anchorBtn textStyle">View/Edit Info</a>
+						<a href="DisplayAccountInfo" class="anchorBtn textStyle">View/Edit Info</a>
 					</div>
 					<div class="buttonDiv">
 						<a href="#" class="anchorBtn textStyle">Change Password</a>
