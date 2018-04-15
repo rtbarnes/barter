@@ -27,29 +27,33 @@ public class logInValidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pageTo= null;
+		String pageTo= "";
 		PrintWriter out = response.getWriter(); 
-		String un=request.getParameter("username");
-		String pw=request.getParameter("password");
-			Util UtilObject= new Util();
-			User UserObject = UtilObject.getUserByUsername(un);
+		String un=request.getParameter("username").trim();
+		String pw=request.getParameter("password").trim();
+//			Util UtilObject= new Util();
+			DBUtil dbUtil = new DBUtil();
+			User UserObject = dbUtil.getUserByUsername(un);
+
 			if(UserObject== null)
 			{
 				//person isnt in system
 				String message = "Please sign up first!";
 				request.setAttribute("message", message);
-				pageTo = "/LogIn.jsp";
+				pageTo = "/logIn.html";
+				System.out.println("not existent");
 				
 			}
-			else if(UserObject.getUsername()==un){
-				if(UserObject.getPassword()!=pw){
+			else if(UserObject.getUsername().equals(un)){
+				if(!UserObject.getPassword().equals(pw)){
 					//wrong password
 					String message = "Please try again!";
 					request.setAttribute("message", message);
-					pageTo = "/LogIn.jsp";
+					pageTo = "/logIn.html";
 				}
 				else{
-					pageTo = "/ItemResults.jsp";
+					pageTo = "/itemResults.html";
+					System.out.println("success");
 				}
 			}
 		
