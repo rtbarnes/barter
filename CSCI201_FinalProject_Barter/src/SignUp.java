@@ -1,6 +1,7 @@
 
 import java.io.File;
 import java.io.IOException;
+import java.rmi.dgc.Lease;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.GroupLayout.Alignment;
 
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
@@ -17,6 +19,9 @@ import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
+/**
+ * Servlet implementation class SignUp
+ */
 @WebServlet("/SignUp")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -79,11 +84,7 @@ public class SignUp extends HttpServlet {
 
 		// for testing. it will direct to some other page with more parameters
 		request.setAttribute("imagePath", "users\\user_" + userId + ".png");
-<<<<<<< HEAD
-		String pageTo = "/test.jsp";
-=======
 		String pageTo = "/logIn.html";
->>>>>>> dee6746595b8a685790951d54067bccd51489a13
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 	}
