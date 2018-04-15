@@ -1,3 +1,4 @@
+package servlets;
 
 
 import java.io.File;
@@ -19,6 +20,8 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
 import com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV;
+
+import helpers.DBUtil;
 
 @WebServlet("/PostItem")
 public class PostItem extends HttpServlet {

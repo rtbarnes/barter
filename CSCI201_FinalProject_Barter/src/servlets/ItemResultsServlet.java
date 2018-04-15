@@ -1,3 +1,4 @@
+package servlets;
 
 
 import java.io.IOException;
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import helpers.Util;
+import model.Item;
 
 @WebServlet("/ItemResultsServlet")
 public class ItemResultsServlet extends HttpServlet {

@@ -1,3 +1,4 @@
+package servlets;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,8 @@ import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
+
+import helpers.DBUtil;
 
 /**
  * Servlet implementation class SignUp

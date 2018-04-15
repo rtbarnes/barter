@@ -1,3 +1,4 @@
+package helpers;
 
 
 import java.io.File;
@@ -21,6 +22,8 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
 import com.sun.javafx.scene.traversal.Hueristic2D;
+
+import model.User;
 
 public class DBUtil {
 	Connection conn = null;
