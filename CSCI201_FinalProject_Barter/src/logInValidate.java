@@ -31,9 +31,9 @@ public class logInValidate extends HttpServlet {
 		PrintWriter out = response.getWriter(); 
 		String un=request.getParameter("username").trim();
 		String pw=request.getParameter("password").trim();
-//			Util UtilObject= new Util();
-			DBUtil dbUtil = new DBUtil();
-			User UserObject = dbUtil.getUserByUsername(un);
+			Util UtilObject= new Util();
+//			DBUtil dbUtil = new DBUtil();
+			User UserObject = UtilObject.getUserByUsername(un);
 
 			if(UserObject== null)
 			{
@@ -50,6 +50,7 @@ public class logInValidate extends HttpServlet {
 					String message = "Please try again!";
 					request.setAttribute("message", message);
 					pageTo = "/logIn.html";
+					System.out.println("wrong password");
 				}
 				else{
 					pageTo = "/itemResults.html";
