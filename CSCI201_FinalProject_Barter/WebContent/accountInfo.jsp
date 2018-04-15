@@ -39,6 +39,7 @@
                 
             </div>
         </div>
+		
 		<div id="mainContainer"> 
 			<div id="leftContainer">
 				<div id="userHeader">
@@ -49,7 +50,7 @@
 					<div class="clear"></div>
 				</div>
 				<div class="clear"></div>
-
+				
 				<div id="accountInfoDiv">
 					<div class="headers">Account Information</div>
 					<div class="buttonDiv">
