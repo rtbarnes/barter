@@ -11,7 +11,13 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>	</head>
 	<body>
 	<%
-		
+		String username = (String) request.getAttribute("username");
+		String profileImage = (String) request.getAttribute("");
+	
+		String firstName = (String) request.getAttribute("firstName");
+		String lastName = (String) request.getAttribute("lastName");
+		String email = (String) request.getAttribute("email");
+		String location = (String) request.getAttribute("location");
 	%>
 	 <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
@@ -37,9 +43,9 @@
 			<div id="leftContainer">
 				<div id="userHeader">
 					<div id="imgDiv"> 
-						<img src="items\\item_13.png" id="userImg">
+						<img src="<%=profileImage %>" id="userImg">
 					</div>
-					<div id="nameDiv">Qingshen's account</div>
+					<div id="nameDiv"><%=username %>'s account</div>
 					<div class="clear"></div>
 				</div>
 				<div class="clear"></div>
@@ -47,7 +53,7 @@
 				<div id="accountInfoDiv">
 					<div class="headers">Account Information</div>
 					<div class="buttonDiv">
-						<a href="AccountInfo?" class="anchorBtn textStyle">View/Edit Info</a>
+						<a href="AccountInfo" class="anchorBtn textStyle">View/Edit Info</a>
 					</div>
 					<div class="buttonDiv">
 						<a href="#" class="anchorBtn textStyle">Change Password</a>
@@ -81,31 +87,31 @@
 				</div>
 				<div class="infoDiv">
 					<div class="titleFont">First Name: </div>
-					<div class="infoFont">firstName</div>
+					<div class="infoFont"><%=firstName %></div>
 				</div>
 				<div class="clear"></div>
 
 				<div class="infoDiv">
 					<div class="titleFont">Last Name: </div>
-					<div class="infoFont">lastName</div>
+					<div class="infoFont"><%=lastName %></div>
 				</div>
 				<div class="clear"></div>
 
 				<div class="infoDiv">
 					<div class="titleFont">Email: </div>
-					<div class="infoFont">123@123.com</div>
+					<div class="infoFont"><%=email %></div>
 				</div>
 				<div class="clear"></div>
 
 				<div class="infoDiv">
 					<div class="titleFont">Location: </div>
-					<div class="infoFont">3113 orchar ave, 90000</div>
+					<div class="infoFont"><%=location %></div>
 				</div>
 				<div class="clear"></div>
 
 				<div class="infoDiv">
 					<div class="titleFont">Username: </div>
-					<div class="infoFont">myUsername</div>
+					<div class="infoFont"><%=username %></div>
 				</div>
 				<div class="clear"></div>
 
