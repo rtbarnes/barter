@@ -1,6 +1,6 @@
 import java.sql.Date;
 
-public class Trades {
+public class Trade {
 	
 	private int tradeId;
 	private int reqUserId;
@@ -11,7 +11,7 @@ public class Trades {
 	private int status;
 	private int chatId;
 	
-	public Trades(int tradeId, int reqUserId, int recUserId, int reqItemId, int recItemId, 
+	public Trade(int tradeId, int reqUserId, int recUserId, int reqItemId, int recItemId, 
 			Date date, int status,int chatId ) {
 		this.tradeId = tradeId;
 		this.reqUserId= reqUserId;

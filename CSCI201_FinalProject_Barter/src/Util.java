@@ -203,8 +203,8 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 		
 		return item;
 	}
-	public Trades getTradesByTradesId(int trade_id) {
-		Trades trade = null;
+	public Trade getTradeByTradeId(int trade_id) {
+		Trade trade = null;
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -220,7 +220,7 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 				return trade;
 			}
 			
-			trade = new Trades(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+			trade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
 					rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
 					rs.getInt("status"), rs.getInt("chat_id"));
 			
@@ -240,9 +240,9 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 		return trade;
 	}
 
-	public ArrayList<Trades> getTradesByReqId(int req_user_id) {
+	public ArrayList<Trade> getTradesByReqId(int req_user_id) {
 		
-		ArrayList<Trades> trades = new ArrayList<Trades>();
+		ArrayList<Trade> trades = new ArrayList<Trade>();
 		
 		Statement st = null;
 		PreparedStatement ps = null;
@@ -256,9 +256,10 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-			 Trades newTrade = new Trades(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
 						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
 						rs.getInt("status"), rs.getInt("chat_id"));
+				trades.add(newTrade);
 			}
 			return trades;
 			
@@ -277,9 +278,9 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 		return trades;
 	}
 	
-	public ArrayList<Trades> getTradesByRecId(int rec_user_id) {
+	public ArrayList<Trade> getTradesByRecId(int rec_user_id) {
 		
-		ArrayList<Trades> trades = new ArrayList<Trades>();
+		ArrayList<Trade> trades = new ArrayList<Trade>();
 		
 		Statement st = null;
 		PreparedStatement ps = null;
@@ -293,9 +294,10 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-			 Trades newTrade = new Trades(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
 						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
 						rs.getInt("status"), rs.getInt("chat_id"));
+				trades.add(newTrade);
 			}
 			return trades;
 			
