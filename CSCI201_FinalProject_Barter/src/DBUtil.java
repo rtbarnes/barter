@@ -74,6 +74,7 @@ public class DBUtil {
 		}
 		return getLatestUserId();
 	}
+	
 	// update user image
 	public void updateUserPicture(int userId, String imagePath) {
 		String sql = "UPDATE users " + 
@@ -164,6 +165,7 @@ public class DBUtil {
 		User newUser = new User(username, password, firstName, lastName, email, profileImage, location, userId);
 		return newUser;
 	}
+	
 	// get the user_id the most recently added user
 	public int getLatestUserId() {
 		int userId = 0;

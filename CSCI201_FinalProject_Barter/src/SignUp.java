@@ -35,12 +35,15 @@ public class SignUp extends HttpServlet {
 		String password = "";
 		int userId = 0;
 		FileItem imageItem = null;
+		
 		if (!ServletFileUpload.isMultipartContent(request)) {
             System.out.println("Error: form must be set as enctype=multipart/form-data");
             return;
         }
+		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 	    ServletFileUpload upload = new ServletFileUpload(factory);
+	    
 	    try {
 
 			List<FileItem> items = upload.parseRequest(new ServletRequestContext(request));
@@ -67,14 +70,15 @@ public class SignUp extends HttpServlet {
 					imageItem = item;
 				}
 			}
-				ServletContext context = getServletContext();
-				String fullPath = context.getRealPath("/users");
-				DBUtil dbUtil = new DBUtil();
-				userId = dbUtil.addUser(firstName, lastName, email, "a", location, username, password);
-				File uploadDir = new File(fullPath + "\\user_" + userId + ".png");
-				imageItem.write(uploadDir);
-				dbUtil.updateUserPicture(userId, "users\\user_" + userId + ".png");
-				dbUtil.close();
+			
+			ServletContext context = getServletContext();
+			String fullPath = context.getRealPath("/users");
+			DBUtil dbUtil = new DBUtil();
+			userId = dbUtil.addUser(firstName, lastName, email, "a", location, username, password);
+			File uploadDir = new File(fullPath + "\\user_" + userId + ".png");
+			imageItem.write(uploadDir);
+			dbUtil.updateUserPicture(userId, "users\\user_" + userId + ".png");
+			dbUtil.close();
 			
 	    } catch (FileUploadException e) {
 			System.out.println("Upload fail: " + e.getMessage());
