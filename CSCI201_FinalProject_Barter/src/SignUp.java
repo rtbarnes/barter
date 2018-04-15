@@ -84,7 +84,7 @@ public class SignUp extends HttpServlet {
 
 		// for testing. it will direct to some other page with more parameters
 		request.setAttribute("imagePath", "users\\user_" + userId + ".png");
-		String pageTo = "/logIn.jsp";
+		String pageTo = "/logIn.html";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 	}
