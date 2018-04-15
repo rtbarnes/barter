@@ -14,7 +14,9 @@ public class Util {
 		conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojantrades?user=root&password=root&useSSL=false");
+
+			//conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
 			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
@@ -59,6 +61,7 @@ public class Util {
 		}
 		return user;
 	}
+	
 	public User getUserByUserId(int user_id) {
 		
 		User user = null;
@@ -66,6 +69,7 @@ public class Util {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		
 		try {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT u.first_name, u.last_name, u.email, u.profile_image, u.location, u.username, u.password, u.user_id" + 
@@ -96,6 +100,7 @@ public class Util {
 		}
 		return user;
 	}
+	
 	public ArrayList<Item> getAllItems() {
 		
 		ArrayList<Item> items = new ArrayList<Item>();
@@ -130,42 +135,44 @@ public class Util {
 		}
 		return items;
 	}
-public ArrayList<Item> getItemsByUserId(int userId) {
-		
-		ArrayList<Item> items = new ArrayList<Item>();
-		
-		Statement st = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			st = conn.createStatement();
-			ps = conn.prepareStatement(" SELECT item_id, user_id, item_name, description, image, category_id, sold" + 
-					" FROM Items "
-					+ "WHERE user_id = ?");
-			ps.setInt(1, userId);
-			rs = ps.executeQuery();
+
+	public ArrayList<Item> getItemsByUserId(int userId) {
 			
-			while(rs.next()) {
-				Item newItem = new Item(rs.getInt("item_id"), rs.getInt("user_id"), rs.getString("item_name"),
-						rs.getString("description"), rs.getString("image"), rs.getInt("category_id"), rs.getBoolean("sold"));
-				items.add(newItem);
-			}
-			return items;
+			ArrayList<Item> items = new ArrayList<Item>();
 			
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-		} finally {
+			Statement st = null;
+			PreparedStatement ps = null;
+			ResultSet rs = null;
 			try {
-				if (rs != null) rs.close();
-				if (st != null) st.close();
+				st = conn.createStatement();
+				ps = conn.prepareStatement(" SELECT item_id, user_id, item_name, description, image, category_id, sold" + 
+						" FROM Items "
+						+ "WHERE user_id = ?");
+				ps.setInt(1, userId);
+				rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					Item newItem = new Item(rs.getInt("item_id"), rs.getInt("user_id"), rs.getString("item_name"),
+							rs.getString("description"), rs.getString("image"), rs.getInt("category_id"), rs.getBoolean("sold"));
+					items.add(newItem);
+				}
+				return items;
 				
 			} catch (SQLException sqle) {
-				System.out.println("closing: " + sqle.getMessage());
+				sqle.printStackTrace();
+			} finally {
+				try {
+					if (rs != null) rs.close();
+					if (st != null) st.close();
+					
+				} catch (SQLException sqle) {
+					System.out.println("closing: " + sqle.getMessage());
+				}
+				
 			}
-			
+			return items;
 		}
-		return items;
-	}
+
 	public Item getItemByItemId(int item_id) {
 		Item item = null;
 		Statement st = null;
@@ -203,6 +210,7 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 		
 		return item;
 	}
+	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;
 		Statement st = null;
@@ -315,8 +323,7 @@ public ArrayList<Item> getItemsByUserId(int userId) {
 		}
 		return trades;
 	}
-	
-		
+
 	
 	public void close() {
 		try {

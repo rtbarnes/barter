@@ -59,4 +59,11 @@
     letter-spacing: 0;
     text-decoration: none;
 }
+
+#searchButton {
+    border:none;
+    display:inline;
+    vertical-align:middle;
+    background-color: white;
+}
 /* END STYLE FOR HEADER */
