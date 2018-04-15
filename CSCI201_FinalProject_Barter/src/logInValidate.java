@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,29 +26,37 @@ import javax.servlet.ServletException;
 public class logInValidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
-    public logInValidate() {
-        super();
-       
-    }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pageTo= null;
+		PrintWriter out = response.getWriter(); 
 		String un=request.getParameter("username");
 		String pw=request.getParameter("password");
-		Util UtilObject= new Util();
-		User UserObject = UtilObject.getUserByUsername(un);
-		if(UserObject== null)
-		{
-			//person isnt in system
-		}
-		else if(UserObject.getUsername()==un){
-			if(UserObject.getPassword()!=pw){
-				//wrong password
+			Util UtilObject= new Util();
+			User UserObject = UtilObject.getUserByUsername(un);
+			if(UserObject== null)
+			{
+				//person isnt in system
+				String message = "Please sign up first!";
+				request.setAttribute("message", message);
+				pageTo = "/LogIn.jsp";
+				
 			}
-			else{
-				//success
+			else if(UserObject.getUsername()==un){
+				if(UserObject.getPassword()!=pw){
+					//wrong password
+					String message = "Please try again!";
+					request.setAttribute("message", message);
+					pageTo = "/LogIn.jsp";
+				}
+				else{
+					pageTo = "/ItemResults.jsp";
+				}
 			}
-		}
 		
-		doGet(request, response);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+		dispatcher.forward(request, response);
+		
 	}
 
 }
