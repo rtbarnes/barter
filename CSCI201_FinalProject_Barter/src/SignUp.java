@@ -20,9 +20,6 @@ import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
-/**
- * Servlet implementation class SignUp
- */
 @WebServlet("/SignUp")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -85,7 +82,7 @@ public class SignUp extends HttpServlet {
 
 		// for testing. it will direct to some other page with more parameters
 		request.setAttribute("imagePath", "users\\user_" + userId + ".png");
-		String pageTo = "/logIn.jsp";
+		String pageTo = "/test.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 	}
