@@ -115,6 +115,7 @@ public class DBUtil {
 				email = rs.getString("email");
 				profileImage = rs.getString("profile_image");
 				location = rs.getString("location");
+				password = rs.getString("password");
 			}
 		} catch (SQLException e) {
 			System.out.println("sqle: " + e.getMessage());
