@@ -9,8 +9,29 @@
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    </head>
+  <script type="text/javascript">
+  function sendTrade()
+  { 
+	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+      Trade trade = getTradeByTradeId(tradeId); 
+      
+      User UserObject = (User) session.getAttribute("user");
+      
+    
+     
+     
+     
+     
+     
+     
+     
+    // %>
+     
+  }
+</script> 
    
+    </head>
+    
     <body>
         
         <div name="headerContainer" id="headerContainer">
@@ -113,7 +134,7 @@
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="send" name="send">send</button>
+                                    <button class="tradeButton" id="send" name="send" onclick=sendTrade() >send</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A SENT TRADE "TO" SOMEONE -->
@@ -161,14 +182,41 @@
                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                 <div name="inventoryTableContainer" id="inventoryTableContainer">
                     
-                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY, display inventory -->
+                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
                     <label class="container">Item One
                       <input type="radio" checked="checked" name="radioInventory">
                       <span class="checkmark"></span>
                     </label>
-                   
-                    <!-- populate more inventory items here -->
+                    <label class="container">Item Two
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Three
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Four
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Five
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Six
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Seven
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Item Eight
+                      <input type="radio" name="radioInventory">
+                      <span class="checkmark"></span>
+                    </label>
                     
+                    <!-- populate more inventory items here -->
                     
                     <!-- IF TRADE HAS BEEN SENT ALREADY -->
                     <p name="tradeSentMessage" id="tradeSentMessage">Trade Sent.</p>
@@ -185,9 +233,42 @@
                             <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
                             <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
                         </tr>
-                        
-                        <!-- populate more messages here -->
-                        
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">username:</div></td>
+                            <td class="messageTD"><div name="message" id="message">ah jeez rick</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
+                        <tr>
+                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
+                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
+                        </tr>
                     </table>
                 </div>
             </div>
