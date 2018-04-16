@@ -22,18 +22,20 @@ public class Test {
 //		System.out.println(user.getProfileImage());
 //		System.out.println(user.getUsername());
 		
-		Util util = new Util();
-		ArrayList<Item> items = util.getItemsByUserId(1);
-		for(Item item : items) {
-			System.out.println("item_id: " + item.getItemId());
-			System.out.println("user_id: " + item.getUserId());
-			System.out.println("item_name: " + item.getItemName());
-			System.out.println("description: " + item.getDescription());
-			System.out.println("image: " + item.getImage());
-			System.out.println("category_id: " + item.getCategoryId());
-			System.out.println("sold: " + item.isSold());
-			System.out.println("----------------------------------------");
-		}
+//		Util util = new Util();
+//		ArrayList<Item> items = util.getItemsByUserId(1);
+//		for(Item item : items) {
+//			System.out.println("item_id: " + item.getItemId());
+//			System.out.println("user_id: " + item.getUserId());
+//			System.out.println("item_name: " + item.getItemName());
+//			System.out.println("description: " + item.getDescription());
+//			System.out.println("image: " + item.getImage());
+//			System.out.println("category_id: " + item.getCategoryId());
+//			System.out.println("sold: " + item.isSold());
+//			System.out.println("----------------------------------------");
+//		}
+		
+		dbUtil.changePassword(1, "123");
 	}
 
 }

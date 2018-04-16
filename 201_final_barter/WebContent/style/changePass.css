@@ -36,3 +36,14 @@
 	border: none;
 	cursor: pointer;
 }
+#error{
+	margin-left: 300px;
+	margin-top: 30px;
+	font:  bold 20px arial;
+	color: red;
+}
+#success{
+	margin-left: 300px;
+	font:  bold 20px arial;
+	color: green;
+}

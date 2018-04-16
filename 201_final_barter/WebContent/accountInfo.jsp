@@ -57,7 +57,7 @@
 						<a href="DisplayAccountInfo" class="anchorBtn textStyle">View/Edit Info</a>
 					</div>
 					<div class="buttonDiv">
-						<a href="#" class="anchorBtn textStyle">Change Password</a>
+						<a href="changePass.jsp" class="anchorBtn textStyle">Change Password</a>
 					</div>
 				</div>
 				

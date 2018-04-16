@@ -21,6 +21,11 @@ public class DisplayInventory extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// this should be obtained from session 
 		int userId = 1;
+		String username = "test";
+		String profileImage = "";
+		request.setAttribute("username", username);
+		request.setAttribute("profileImage", profileImage);
+		
 		
 		Util util = new Util();
 		ArrayList<Item> items = util.getItemsByUserId(userId);

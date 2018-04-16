@@ -254,6 +254,21 @@ public class DBUtil {
 		}
 	}
 	
+	public void changePassword(int userId, String newPass) {
+		String sql = "UPDATE users" + 
+				" SET password = ?" + 
+				" WHERE user_id = ?;";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newPass);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("sqle in changePassword: " + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("exception in changePassword(): " + e.getMessage());
+		}
+	}
 }
 
 

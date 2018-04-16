@@ -1,25 +1,22 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 	<head>
-		<title>Inventory</title>
+		<title>Change Password</title>
 		<link rel="stylesheet" type="text/css" href="style/accountLeft.css"/>
         <link rel="stylesheet" type="text/css" href="style/header.css" />
-        <link rel="sty	lesheet" type="text/css" href="style/footer.css"/>
-        <link rel="stylesheet" type="text/css" href="style/inventory.css"/>
+        <link rel="stylesheet" type="text/css" href="style/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="style/changePass.css"/>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 	</head>
 	<body>
 	<%
 		String username = (String) request.getAttribute("username");
 		String profileImage = (String) request.getAttribute("profileImage");
-	
 		
-		ArrayList<Item> items = request.getAttribute("items")==null? new ArrayList<Item>() : (ArrayList<Item>) request.getAttribute("items"); 
+		String error =  request.getAttribute("error")==null? "" : (String) request.getAttribute("error");
+		String success = request.getAttribute("success")==null? "" : (String) request.getAttribute("success");
 	%>
 	 <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
@@ -38,7 +35,7 @@
 
                     <a class="headerButtons" name="button4" id="button4" href="">button4</a>
                 </div>
-             
+                
             </div>
         </div>
 		<div id="mainContainer"> 
@@ -55,7 +52,7 @@
 				<div id="accountInfoDiv">
 					<div class="headers">Account Information</div>
 					<div class="buttonDiv">
-						<a href="DisplayAccountInfo" class="anchorBtn textStyle">View/Edit Info</a>
+						<a href="#" class="anchorBtn textStyle">View/Edit Info</a>
 					</div>
 					<div class="buttonDiv">
 						<a href="changePass.jsp" class="anchorBtn textStyle">Change Password</a>
@@ -65,61 +62,62 @@
 				<div id="inventoryDiv">
 					<div class="headers">Barter Inventory</div>
 					<div class="buttonDiv">
-						<a href="DisplayInventory" class="anchorBtn textStyle">View Inventory</a>
+						<a href="#" class="anchorBtn textStyle">View Inventory</a>
 					</div>
 				</div>
 				
 				<div id="tradesDiv">
 					<div class="headers">Trades</div>
 					<div class="buttonDiv">
-						<a href="EditTrades" class="anchorBtn textStyle">Edit Trades</a>
+						<a href="#" class="anchorBtn textStyle">Edit Trades</a>
 					</div>
 				</div>
 				
 				<div id="delete">
 					<div class="headers">Delete</div>
 					<div class="buttonDiv" id="deleteBtn">
-						<a href="DeleteAccount" class="anchorBtn textStyle">Delete Account</a>
+						<a href="#" class="anchorBtn textStyle">Delete Account</a>
 					</div>
 				</div>
 			</div>
+<!-- =================================================================== -->
 			<div id="rightContainer">
 				<div id="accountInfoHeader" class="detailHeader">
-					<%=username %>'s Inventory
+					Account Information
 				</div>
-				<!-- ========================================================= -->
-				<div id="inventoryList">
-
-
-					<!-- =============A single item=========================== -->
-					<div class="itemDiv">
-						<div class="editLink">
-							<a href="#">Remove</a> 
-						</div>
-						<div class="imgDiv">
-							<img src="test.jpg" class="itemImg">
-						</div>
-						<div class="detailDiv">
-							<a href="#" class="nameLink">Item Name</a>
-							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
+				<form action="ChangePass" method="POST">
+					<div class="infoDiv">
+						<div class="titleFont">Old password: </div>
+						<div class="infoFont">
+							<input type="password" class="inputStyle" name="oldPass">
 						</div>
 					</div>
-					<!-- ==============A single item========================== -->
-					<%for(int i=0; i<items.size(); i++){ %>
-					<div class="itemDiv">
-						<div class="editLink">
-							<a href="RemoveItem?itemId=<%=items.get(i).getItemId() %>">Remove</a> 
-						</div>
-						<div class="imgDiv">
-							<img src="<%=items.get(i).getImage() %>" class="itemImg">
-						</div>
-						<div class="detailDiv">
-							<a href="#" class="nameLink"><%=items.get(i).getItemName() %></a>
-							<div class="description"><%=items.get(i).getDescription() %></div>
+					<div class="clear"></div>
+
+					<div class="infoDiv">
+						<div class="titleFont">New password: </div>
+						<div class="infoFont">
+							<input type="password" class="inputStyle" name="newPass">
 						</div>
 					</div>
-					<%} %>
-				</div>
+					<div class="clear"></div>
+
+					<div class="infoDiv">
+						<div class="titleFont">Confirm new password: </div>
+						<div class="infoFont">
+							<input type="password" class="inputStyle" name="newPassConfirm">
+						</div>
+					</div>
+					<div class="clear"></div>
+
+					<div class="buttonDiv">
+						<!-- <a href="#" class="anchorBtn textStyle">Change Password</a> -->
+						<button type="submit" class="textStyle" id="changeBtn">Change Password</button>
+					</div>
+				</form>
+				
+				<div id="error"><%=error %></div>
+				<div id="success"><%=success %></div>
 			</div>
 		</div>
 	</body>
