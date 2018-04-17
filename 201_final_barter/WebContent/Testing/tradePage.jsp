@@ -16,9 +16,9 @@
 	  Trade trade = getTradeByTradeId(tradeId); 
       
       User UserObject = (User) session.getAttribute("user");
-      int userId= UserObject.getUserId();
-      int tradeRecId = trade.getRecItemId();
-    	  int tradeReqId = trade.getReqItemId();
+      var userId= UserObject.getUserId();
+      var tradeRecId = trade.getRecItemId();
+      var tradeReqId = trade.getReqItemId();
     	  if(userId==tradeReqId)
     		  {
     		  	trade.setStatus(0);
@@ -32,9 +32,9 @@
       Trade trade = getTradeByTradeId(tradeId); 
       
       User UserObject = (User) session.getAttribute("user");
-     int userId= UserObject.getUserId();
-      int tradeRecId = trade.getRecItemId();
-    	  int tradeReqId = trade.getReqItemId();
+      var userId= UserObject.getUserId();
+     var tradeRecId = trade.getRecItemId();
+     var tradeReqId = trade.getReqItemId();
     	  if(userId==tradeRecId)
     		  {
     		  	trade.setStatus(1);
@@ -47,9 +47,9 @@
 	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
       Trade trade = getTradeByTradeId(tradeId); +      
       User UserObject = (User) session.getAttribute("user");
-     int userId= UserObject.getUserId();
-      int tradeRecId = trade.getRecItemId();
-    	  int tradeReqId = trade.getReqItemId();
+      var userId= UserObject.getUserId();
+      var tradeRecId = trade.getRecItemId();
+      var tradeReqId = trade.getReqItemId();
     	  if(userId==tradeRecId)
     		  {
     		  	trade.setStatus(2);
