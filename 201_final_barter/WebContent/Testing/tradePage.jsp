@@ -13,19 +13,49 @@
   function sendTrade()
   { 
 	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+	  Trade trade = getTradeByTradeId(tradeId); 
+      
+      User UserObject = (User) session.getAttribute("user");
+      int userId= UserObject.getUserId();
+      int tradeRecId = trade.getRecItemId();
+    	  int tradeReqId = trade.getReqItemId();
+    	  if(userId==tradeReqId)
+    		  {
+    		  	trade.setStatus(0);
+    		    //0 for pending, 1 as accepted, 2 as rejected
+    		  }
+      
+  }
+  function AcceptTrade()
+  { 
+	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
       Trade trade = getTradeByTradeId(tradeId); 
       
       User UserObject = (User) session.getAttribute("user");
-      
-    
+     int userId= UserObject.getUserId();
+      int tradeRecId = trade.getRecItemId();
+    	  int tradeReqId = trade.getReqItemId();
+    	  if(userId==tradeRecId)
+    		  {
+    		  	trade.setStatus(1);
+    		    //0 for pending, 1 as accepted, 2 as rejected
+    		  }
      
-     
-     
-     
-     
-     
-     
-    // %>
+  }
+  function RejectTrade()
+  { 
+	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+      Trade trade = getTradeByTradeId(tradeId); +      
+      User UserObject = (User) session.getAttribute("user");
+     int userId= UserObject.getUserId();
+      int tradeRecId = trade.getRecItemId();
+    	  int tradeReqId = trade.getReqItemId();
+    	  if(userId==tradeRecId)
+    		  {
+    		  	trade.setStatus(2);
+    		    //0 for pending, 1 as accepted, 2 as rejected
+    		  }
+			}
      
   }
 </script> 
@@ -126,10 +156,10 @@
                             <tr>
                                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="accept" name="accept">accept</button>
+                                    <button class="tradeButton" id="accept" onclick=AcceptTrade() name="accept">accept</button>
                                 </td>
                                 <td>
-                                    <button class="tradeButton" id="reject" name="reject">reject</button>
+                                    <button class="tradeButton" id="reject" onclick=RejectTrade() name="reject">reject</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
