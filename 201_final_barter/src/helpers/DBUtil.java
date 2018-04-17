@@ -1,6 +1,5 @@
 package helpers;
 
-
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,6 +25,7 @@ import com.sun.javafx.scene.traversal.Hueristic2D;
 import model.User;
 
 public class DBUtil {
+	
 	Connection conn = null;
 	ResultSet rs = null;
 	PreparedStatement ps = null;
@@ -34,8 +34,8 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -269,6 +269,7 @@ public class DBUtil {
 			System.out.println("exception in changePassword(): " + e.getMessage());
 		}
 	}
+	
 }
 
 

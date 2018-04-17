@@ -2,14 +2,17 @@ package servlets;
 
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
 import helpers.Util;
+import model.User;
 
 /**
  * Servlet implementation class TradePageServlet
@@ -25,6 +28,13 @@ public class TradePageServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// these should come from the session
 		int userID = 1;
+		
+		//ACTUAL WAY, WAITING UNTIL WE CAN ACCESS ACROSS MULTIPLE PAGES TO TEST
+		//HttpSession session = request.getSession();
+		//User currentUser = (User) session.getAttribute("user");
+		
+		//int userID = currentUser.getUserID(); //extract ID from whoever's logged in
+		
 		System.out.println("Trade Page for userID = "+userID);
 		
 		DBUtil dbUtil = new DBUtil();

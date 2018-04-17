@@ -20,8 +20,8 @@ public class Util {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
 			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
@@ -329,6 +329,15 @@ public class Util {
 		return trades;
 	}
 
+	public ArrayList<Trade> getTradesByUserId(int userId) {
+		
+		ArrayList<Trade> trades = new ArrayList<Trade>();
+		
+		
+		
+		
+		return trades;
+	}
 	
 	public void close() {
 		try {

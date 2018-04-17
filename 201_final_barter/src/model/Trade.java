@@ -4,13 +4,21 @@ import java.sql.Date;
 public class Trade {
 	
 	private int tradeId;
-	private int reqUserId;
-	private int recUserId;
-	private int reqItemId;
-	private int recItemId;
+	
+//	private int reqUserId;
+//	private int recUserId;
+	private User reqUser;
+	private User recUser;
+	
+//	private int reqItemId;
+//	private int recItemId;
+	private Item reqItem;
+	private Item recItem;
+	
 	private Date date;
 	private int status;
-	private int chatId;
+	
+//	private int chatId;
 	
 	public Trade(int tradeId, int reqUserId, int recUserId, int reqItemId, int recItemId, 
 			Date date, int status,int chatId ) {
@@ -87,7 +95,5 @@ public class Trade {
 	public void setChatId(int chatId) {
 		this.chatId = chatId;
 	}
-
-	
 
 }
