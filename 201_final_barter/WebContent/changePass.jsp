@@ -40,6 +40,7 @@
                 
             </div>
         </div>
+		
 		<div id="mainContainer"> 
 			<div id="leftContainer">
 				<div id="userHeader">

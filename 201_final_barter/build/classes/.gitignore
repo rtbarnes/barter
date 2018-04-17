@@ -1,2 +1,6 @@
-/servlets/
 /helpers/
+<<<<<<< HEAD
+=======
+/model/
+/servlets/
+>>>>>>> 951df339a563d640123bb59c202434814ef52144

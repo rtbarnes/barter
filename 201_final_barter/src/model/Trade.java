@@ -1,99 +1,88 @@
 package model;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Trade {
 	
 	private int tradeId;
 	
-//	private int reqUserId;
-//	private int recUserId;
 	private User reqUser;
 	private User recUser;
 	
-//	private int reqItemId;
-//	private int recItemId;
 	private Item reqItem;
 	private Item recItem;
 	
 	private Date date;
 	private int status;
 	
-//	private int chatId;
-	
-	public Trade(int tradeId, int reqUserId, int recUserId, int reqItemId, int recItemId, 
-			Date date, int status,int chatId ) {
+	private ArrayList<String> chat;
+
+	public Trade(int tradeId, User reqUser, User recUser, Item reqItem, Item recItem, Date date, int status,
+			ArrayList<String> chat) {
+		super();
 		this.tradeId = tradeId;
-		this.reqUserId= reqUserId;
-		this.recUserId = recUserId;
-		this.reqItemId = reqItemId;
-		this.recItemId = recItemId;
+		this.reqUser = reqUser;
+		this.recUser = recUser;
+		this.reqItem = reqItem;
+		this.recItem = recItem;
 		this.date = date;
 		this.status = status;
-		this.chatId = chatId;
+		this.chat = chat;
 	}
-
+	
+	public void addMessage(String messagebody) {
+		this.chat.add(messagebody);
+	}
+	public void removeMessage(int index) {
+		this.chat.remove(index);
+	}
+	
 	public int getTradeId() {
 		return tradeId;
 	}
-
 	public void setTradeId(int tradeId) {
 		this.tradeId = tradeId;
 	}
-
-	public int getReqUserId() {
-		return reqUserId;
+	public User getReqUser() {
+		return reqUser;
 	}
-
-	public void setReqUserId(int reqUserId) {
-		this.reqUserId = reqUserId;
+	public void setReqUser(User reqUser) {
+		this.reqUser = reqUser;
 	}
-
-	public int getRecUserId() {
-		return recUserId;
+	public User getRecUser() {
+		return recUser;
 	}
-
-	public void setRecUserId(int recUserId) {
-		this.recUserId = recUserId;
+	public void setRecUser(User recUser) {
+		this.recUser = recUser;
 	}
-
-	public int getReqItemId() {
-		return reqItemId;
+	public Item getReqItem() {
+		return reqItem;
 	}
-
-	public void setReqItemId(int reqItemId) {
-		this.reqItemId = reqItemId;
+	public void setReqItem(Item reqItem) {
+		this.reqItem = reqItem;
 	}
-
-	public int getRecItemId() {
-		return recItemId;
+	public Item getRecItem() {
+		return recItem;
 	}
-
-	public void setRecItemId(int recItemId) {
-		this.recItemId = recItemId;
+	public void setRecItem(Item recItem) {
+		this.recItem = recItem;
 	}
-
 	public Date getDate() {
 		return date;
 	}
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 	public int getStatus() {
 		return status;
 	}
-
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
-	public int getChatId() {
-		return chatId;
+	public ArrayList<String> getChat() {
+		return chat;
 	}
-
-	public void setChatId(int chatId) {
-		this.chatId = chatId;
+	public void setChat(ArrayList<String> chat) {
+		this.chat = chat;
 	}
-
 }
