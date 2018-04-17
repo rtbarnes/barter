@@ -1,5 +1,6 @@
 package model;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Trade {
 	
@@ -14,10 +15,10 @@ public class Trade {
 	private Date date;
 	private int status;
 	
-	private Chat chat;
+	private ArrayList<String> chat;
 
 	public Trade(int tradeId, User reqUser, User recUser, Item reqItem, Item recItem, Date date, int status,
-			Chat chat) {
+			ArrayList<String> chat) {
 		super();
 		this.tradeId = tradeId;
 		this.reqUser = reqUser;
@@ -27,6 +28,13 @@ public class Trade {
 		this.date = date;
 		this.status = status;
 		this.chat = chat;
+	}
+	
+	public void addMessage(String messagebody) {
+		this.chat.add(messagebody);
+	}
+	public void removeMessage(int index) {
+		this.chat.remove(index);
 	}
 	
 	public int getTradeId() {
@@ -71,10 +79,10 @@ public class Trade {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public Chat getChat() {
+	public ArrayList<String> getChat() {
 		return chat;
 	}
-	public void setChat(Chat chat) {
+	public void setChat(ArrayList<String> chat) {
 		this.chat = chat;
 	}
 }

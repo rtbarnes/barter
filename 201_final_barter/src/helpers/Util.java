@@ -217,45 +217,6 @@ public class Util {
 		return item;
 	}
 	
-	public Chat getChatByChatId(int chat_id) {
-		
-		Chat thechat = new Chat();
-		
-		Statement st = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		
-		try {
-			st = conn.createStatement();
-			ps = conn.prepareStatement(" SELECT item_id, user_id, item_name, description, image, category_id, sold" + 
-					" FROM Items "
-					+ "WHERE user_id = ?");
-			ps.setInt(1, userId);
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				Item newItem = new Item(rs.getInt("item_id"), rs.getInt("user_id"), rs.getString("item_name"),
-						rs.getString("description"), rs.getString("image"), rs.getInt("category_id"), rs.getBoolean("sold"));
-				items.add(newItem);
-			}
-			return items;
-			
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) rs.close();
-				if (st != null) st.close();
-				
-			} catch (SQLException sqle) {
-				System.out.println("closing: " + sqle.getMessage());
-			}
-			
-		}
-		
-		return thechat;
-	}
-	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;
 		Statement st = null;
