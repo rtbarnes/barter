@@ -387,6 +387,52 @@ public class Util {
 		return trades;
 	}
 
+	public ArrayList<Trade> getAllTradesForUser(int user_id) {
+		
+		ArrayList<Trade> trades = new ArrayList<Trade>();
+		
+		Statement st = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.createStatement();
+			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" +
+					 " FROM Trades t " + 
+					" WHERE rec_user_id=? OR req_user_id=?"); 
+			ps.setInt(1, user_id);
+			ps.setInt(2, user_id);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int tradeId = rs.getInt("trade_id"); //extract this separately because it's used twice in constructor (don't wanna double extract via rs.get)
+				
+				Trade newTrade = new Trade(tradeId, this.getUserByUserId(rs.getInt("req_user_id")), this.getUserByUserId(rs.getInt("rec_user_id")),
+						this.getItemByItemId(rs.getInt("req_item_id")), this.getItemByItemId(rs.getInt("rec_item_id")), 
+						rs.getDate("req_date"), rs.getInt("status"), this.getMessagesByTradeId(tradeId));
+				
+				trades.add(newTrade);
+				
+				//DEBUG
+				newTrade.printTrade();
+			}
+			
+			return trades;
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (st != null) st.close();
+				
+			} catch (SQLException sqle) {
+				System.out.println("closing: " + sqle.getMessage());
+			}
+			
+		}
+		return trades;
+	}
 	
 	public void close() {
 		try {

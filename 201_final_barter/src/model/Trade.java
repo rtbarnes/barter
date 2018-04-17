@@ -37,6 +37,11 @@ public class Trade {
 		this.chat.remove(index);
 	}
 	
+	//DEBUG
+	public void printTrade() {
+		System.out.println("Trade #" + this.tradeId + ": " + this.reqUser.getUsername() + " from " + this.recUser.getUsername());
+	}
+	
 	public int getTradeId() {
 		return tradeId;
 	}

@@ -2,17 +2,17 @@ package servlets;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
 import helpers.Util;
-import model.User;
+import model.Trade;
 
 /**
  * Servlet implementation class TradePageServlet
@@ -41,6 +41,8 @@ public class TradePageServlet extends HttpServlet {
 		Util util = new Util();
 		
 		//extract list of all ongoing trades for the current user
+		ArrayList<Trade> trades = new ArrayList<Trade>();
+		trades = util.getAllTradesForUser(userID);
 		
 		
 		
