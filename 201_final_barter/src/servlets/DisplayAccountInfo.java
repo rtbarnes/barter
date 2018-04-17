@@ -19,7 +19,7 @@ public class DisplayAccountInfo extends HttpServlet {
        
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// these should come from session
-    	int userId = 12;
+    	int userId = 7;
     	System.out.println("displaying user: " + userId);
 
     	DBUtil dbUtil = new DBUtil();
