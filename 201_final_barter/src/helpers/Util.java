@@ -1,4 +1,5 @@
 package helpers;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import model.Chat;
 import model.Item;
 import model.Trade;
 import model.User;
@@ -239,10 +239,17 @@ public class Util {
 			}
 			
 			while(rs.next()) {
-				
+				Array SQLArray = rs.getArray(1); //extract the results as an array based on column 1 of the resultset
+				messages = (ArrayList<String>) SQLArray; //convert to arraylist
 			}
-			return messages;
 			
+			//DEBUG
+			System.out.println("Here's what messages were found: ");
+			for (int i = 0; i < messages.size(); i++) {
+				System.out.println(messages.get(i));
+			}
+			
+			return messages;
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		} finally {
@@ -253,9 +260,9 @@ public class Util {
 			} catch (SQLException sqle) {
 				System.out.println("closing: " + sqle.getMessage());
 			}
-			
 		}
 		
+		//if all else fails, lol
 		return messages;
 	}
 	
@@ -276,13 +283,9 @@ public class Util {
 				return trade;
 			}
 			
-//			trade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-//					rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-//					rs.getInt("status"), rs.getInt("chat_id"));
-			
 			trade = new Trade(rs.getInt("trade_id"), this.getUserByUserId(rs.getInt("req_user_id")), this.getUserByUserId(rs.getInt("rec_user_id")),
 					this.getItemByItemId(rs.getInt("req_item_id")), this.getItemByItemId(rs.getInt("rec_item_id")), 
-					rs.getDate("req_date"), rs.getInt("status"), );
+					rs.getDate("req_date"), rs.getInt("status"), this.getMessagesByTradeId(trade_id));
 			
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -307,6 +310,7 @@ public class Util {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		
 		try {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" +
@@ -316,11 +320,14 @@ public class Util {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-//				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-//						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-//						rs.getInt("status"), rs.getInt("chat_id"));
-//				trades.add(newTrade);
+				int tradeId = rs.getInt("trade_id"); //extract this separately because it's used twice in constructor (don't wanna double extract via rs.get)
+				
+				Trade newTrade = new Trade(tradeId, this.getUserByUserId(rs.getInt("req_user_id")), this.getUserByUserId(rs.getInt("rec_user_id")),
+						this.getItemByItemId(rs.getInt("req_item_id")), this.getItemByItemId(rs.getInt("rec_item_id")), 
+						rs.getDate("req_date"), rs.getInt("status"), this.getMessagesByTradeId(tradeId));
+				trades.add(newTrade);
 			}
+			
 			return trades;
 			
 		} catch (SQLException sqle) {
@@ -333,8 +340,8 @@ public class Util {
 			} catch (SQLException sqle) {
 				System.out.println("closing: " + sqle.getMessage());
 			}
-			
 		}
+		
 		return trades;
 	}
 	
@@ -345,6 +352,7 @@ public class Util {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		
 		try {
 			st = conn.createStatement();
 			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" +
@@ -354,10 +362,13 @@ public class Util {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-//				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-//						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-//						rs.getInt("status"), rs.getInt("chat_id"));
-//				trades.add(newTrade);
+				int tradeId = rs.getInt("trade_id"); //extract this separately because it's used twice in constructor (don't wanna double extract via rs.get)
+				
+				Trade newTrade = new Trade(tradeId, this.getUserByUserId(rs.getInt("req_user_id")), this.getUserByUserId(rs.getInt("rec_user_id")),
+						this.getItemByItemId(rs.getInt("req_item_id")), this.getItemByItemId(rs.getInt("rec_item_id")), 
+						rs.getDate("req_date"), rs.getInt("status"), this.getMessagesByTradeId(tradeId));
+				
+				trades.add(newTrade);
 			}
 			return trades;
 			
@@ -376,16 +387,6 @@ public class Util {
 		return trades;
 	}
 
-	//TODO
-	public ArrayList<Trade> getTradesByUserId(int userId) {
-		
-		ArrayList<Trade> trades = new ArrayList<Trade>();
-		
-		
-		
-		
-		return trades;
-	}
 	
 	public void close() {
 		try {
