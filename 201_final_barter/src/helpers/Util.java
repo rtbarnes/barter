@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import model.Chat;
 import model.Item;
 import model.Trade;
 import model.User;
@@ -216,6 +217,45 @@ public class Util {
 		return item;
 	}
 	
+	public Chat getChatByChatId(int chat_id) {
+		
+		Chat thechat = new Chat();
+		
+		Statement st = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.createStatement();
+			ps = conn.prepareStatement(" SELECT item_id, user_id, item_name, description, image, category_id, sold" + 
+					" FROM Items "
+					+ "WHERE user_id = ?");
+			ps.setInt(1, userId);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Item newItem = new Item(rs.getInt("item_id"), rs.getInt("user_id"), rs.getString("item_name"),
+						rs.getString("description"), rs.getString("image"), rs.getInt("category_id"), rs.getBoolean("sold"));
+				items.add(newItem);
+			}
+			return items;
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (st != null) st.close();
+				
+			} catch (SQLException sqle) {
+				System.out.println("closing: " + sqle.getMessage());
+			}
+			
+		}
+		
+		return thechat;
+	}
+	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;
 		Statement st = null;
@@ -233,9 +273,13 @@ public class Util {
 				return trade;
 			}
 			
-			trade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-					rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-					rs.getInt("status"), rs.getInt("chat_id"));
+//			trade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+//					rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
+//					rs.getInt("status"), rs.getInt("chat_id"));
+			
+			trade = new Trade(rs.getInt("trade_id"), this.getUserByUserId(rs.getInt("req_user_id")), this.getUserByUserId(rs.getInt("rec_user_id")),
+					this.getItemByItemId(rs.getInt("req_item_id")), this.getItemByItemId(rs.getInt("rec_item_id")), 
+					rs.getDate("req_date"), rs.getInt("status"), );
 			
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -269,10 +313,10 @@ public class Util {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-						rs.getInt("status"), rs.getInt("chat_id"));
-				trades.add(newTrade);
+//				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+//						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
+//						rs.getInt("status"), rs.getInt("chat_id"));
+//				trades.add(newTrade);
 			}
 			return trades;
 			
@@ -307,10 +351,10 @@ public class Util {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
-						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
-						rs.getInt("status"), rs.getInt("chat_id"));
-				trades.add(newTrade);
+//				Trade newTrade = new Trade(rs.getInt("trade_id"), rs.getInt("req_user_id"), rs.getInt("rec_user_id"),
+//						rs.getInt("req_item_id"), rs.getInt("req_item_id"), rs.getDate("req_date"),
+//						rs.getInt("status"), rs.getInt("chat_id"));
+//				trades.add(newTrade);
 			}
 			return trades;
 			
@@ -329,6 +373,7 @@ public class Util {
 		return trades;
 	}
 
+	//TODO
 	public ArrayList<Trade> getTradesByUserId(int userId) {
 		
 		ArrayList<Trade> trades = new ArrayList<Trade>();
