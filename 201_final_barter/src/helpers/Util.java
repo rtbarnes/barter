@@ -217,6 +217,48 @@ public class Util {
 		return item;
 	}
 	
+	public ArrayList<String> getMessagesByTradeId(int trade_id) {
+		ArrayList<String> messages = new ArrayList<String>();
+		
+		Statement st = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			st = conn.createStatement();
+			ps = conn.prepareStatement(" SELECT msg_text" + 
+					" FROM messages "
+					+ "WHERE trade_id = ?");
+			
+			ps.setInt(1, trade_id);
+			
+			rs = ps.executeQuery();
+			
+			if (!rs.next()) { //error check for null
+				return messages;
+			}
+			
+			while(rs.next()) {
+				
+			}
+			return messages;
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (st != null) st.close();
+				
+			} catch (SQLException sqle) {
+				System.out.println("closing: " + sqle.getMessage());
+			}
+			
+		}
+		
+		return messages;
+	}
+	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;
 		Statement st = null;
@@ -224,8 +266,8 @@ public class Util {
 		ResultSet rs = null;
 		try {
 			st = conn.createStatement();
-			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status, t.chat_id" + 
-					" FROM Trades t "+
+			ps = conn.prepareStatement(" SELECT t.trade_id, t.req_user_id, t.rec_user_id, t.req_item_id, t.rec_item_id, t.req_date, t.status" + 
+					" FROM trades t "+
 				" WHERE trade_id=?");
 			ps.setInt(1, trade_id);
 			rs = ps.executeQuery();
