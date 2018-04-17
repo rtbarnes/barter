@@ -17,9 +17,14 @@ public class Trade {
 	
 	private ArrayList<String> chat;
 
+	//constructor to use when creating a new trade from the itemPage
+//	public newTrade(User reqUser, User recUser, Item recItem, Date date, int status, ArrayList<String> chat) {
+//		this.reqUser = reqUser;
+//		this.
+//	}
+	
 	public Trade(int tradeId, User reqUser, User recUser, Item reqItem, Item recItem, Date date, int status,
 			ArrayList<String> chat) {
-		super();
 		this.tradeId = tradeId;
 		this.reqUser = reqUser;
 		this.recUser = recUser;
