@@ -303,6 +303,7 @@ public class Util {
 		return trade;
 	}
 
+	//TODO: test this function
 	public ArrayList<Trade> getTradesByReqId(int req_user_id) {
 		
 		ArrayList<Trade> trades = new ArrayList<Trade>();
@@ -345,6 +346,7 @@ public class Util {
 		return trades;
 	}
 	
+	//TODO: test this function
 	public ArrayList<Trade> getTradesByRecId(int rec_user_id) {
 		
 		ArrayList<Trade> trades = new ArrayList<Trade>();
@@ -387,6 +389,7 @@ public class Util {
 		return trades;
 	}
 
+	//TODO: test this function
 	public ArrayList<Trade> getAllTradesForUser(int user_id) {
 		
 		ArrayList<Trade> trades = new ArrayList<Trade>();
