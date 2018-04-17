@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Chat {
 	
 	private int chatId;
+	//each message looks like this = "username: message text"
 	private ArrayList<String> messages;
 	
 	public Chat(int chatId, ArrayList<String> messages) {
