@@ -1,3 +1,4 @@
+<%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +13,8 @@
 	</head>
 	<body>
 	<%
-		String username = (String) request.getAttribute("username");
+		User curUser = (User) session.getAttribute("user");
+		String username = curUser.getUsername();
 		String profileImage = (String) request.getAttribute("profileImage");
 		
 		String error =  request.getAttribute("error")==null? "" : (String) request.getAttribute("error");
