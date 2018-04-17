@@ -18,7 +18,7 @@ public class ChangePass extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// this should be obtained from session 
 		int userId = 1;
-		String username = "test";
+		String username = "sadfasf";
 		String profileImage = "";
 		String curPass = "123";
 		
