@@ -329,6 +329,16 @@ public class Util {
 		return trades;
 	}
 
+	public ArrayList<Trade> getTradesByUserId(int userId) {
+		
+		ArrayList<Trade> trades = new ArrayList<Trade>();
+		
+		
+		
+		
+		return trades;
+	}
+	
 	public void close() {
 		try {
 			conn.close();
