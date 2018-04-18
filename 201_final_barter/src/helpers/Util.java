@@ -265,6 +265,15 @@ public class Util {
 		//if all else fails, lol
 		return messages;
 	}
+
+	public void addTrade(User req_user, User rec_user, Item req_item, Item rec_item) {
+		int reqUserId = req_user.getUserID();
+		int recUserId = rec_user.getUserID();
+		int reqItemId = req_item.getItemId();
+		int recItemId = rec_item.getItemId();
+		
+		
+	}
 	
 	public Trade getTradeByTradeId(int trade_id) {
 		Trade trade = null;

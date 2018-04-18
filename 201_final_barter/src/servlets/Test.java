@@ -1,15 +1,22 @@
 package servlets;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import com.google.gson.annotations.Until;
 
 import helpers.DBUtil;
 import helpers.Util;
 import model.Item;
+import model.Trade;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DBUtil dbUtil = new DBUtil();
+		Util util = new Util();
+		
 //		int latestUserId = dbUtil.addUser("reed", "bb", "rrr@123.com", "a", "90007", "user1", "pass");
 //		System.out.println("latest User:" + latestUserId);
 //		dbUtil.updateUserPicture(8, "tttttest");
@@ -34,8 +41,12 @@ public class Test {
 //			System.out.println("sold: " + item.isSold());
 //			System.out.println("----------------------------------------");
 //		}
-		
-		dbUtil.changePassword(1, "123");
-	}
+//		
+//		dbUtil.changePassword(1, "123");
+		System.out.println(util.getTradeByTradeId(1).getDate());
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		String dateStr = dateFormat.format(util.getTradeByTradeId(1).getDate());
+		System.out.println(dateStr);
+		}
 
 }
