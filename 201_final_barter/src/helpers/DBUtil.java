@@ -21,8 +21,8 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -300,6 +300,7 @@ public class DBUtil {
 			String sql = "INSERT INTO trades "
 					+ "(req_user_id, rec_user_id, req_item_id, rec_item_id, req_Date, status)\r\n" + 
 					"VALUES(?, ?, ?, ?, ?, ?);";
+			System.out.println(sql);
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, req_user_id);
 			ps.setInt(2, rec_user_id);
@@ -308,6 +309,11 @@ public class DBUtil {
 			ps.setDate(5, req_Date);
 			ps.setInt(6, status);
 			ps.executeUpdate();	
+			
+//			String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
+//			ps = conn.prepareStatement(tradeIdSql);
+//			rs = ps.executeQuery()
+			
 		} catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("sqle: " + e.getMessage());

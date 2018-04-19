@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.*;
+import helpers.DBUtil;
 import helpers.Util;
 
 
@@ -20,37 +21,25 @@ public class AddNewTrade extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		 Date date =null; 
-		 
-		 int status = 0;
-		 
-		 ArrayList<String> chat = null;
-		 
 		HttpSession session = request.getSession(true); 
-		User ReqUser = (User) session.getAttribute("user");
+		User curUser = (User) session.getAttribute("user"); // current user is also reqUser now
 		
-		 int recUserId = Integer.parseInt(request.getParameter("recUserId"));
-		  Util UtilObject= new Util();
-		 User RecUser= UtilObject.getUserByUserId(recUserId);
-		 
-		 int recItemId = Integer.parseInt(request.getParameter("recUserId"));
-		 Util UtilObject2= new Util();
-		 Item RecItem = UtilObject2.getItemByItemId(recItemId);
-		 
-		 Item ReqItem= new Item(1, 1,"", "", "", 1, false);
-		 
+		DBUtil dbUtil = new DBUtil();
 		
+//		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
+//		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
+//		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
+//		int reqItemId = 1;	// since the user has not chosen what to trade with, set it to one
+//		Date date = null;   // req_date
 		
-		//add this to the database which returns trade object
-		Trade trade = addTrade(ReqUser.getUserID(), RecUser.getUserID(), ReqItem.getItemId(), 
-				recItemId, date , status);
+		int recUserId = 1;
+		int reqUserId = 1;
+		int recItemId = 1;
+		int reqItemId = 1;	// since the user has not chosen what to trade with, set it to one
+		Date reqDate = null;   // req_date
 		
-		// String tradeId= "SELECT MAX(trade_id) AS trade_id from trades;";
-		// Trade trade = new Trade(tradeId, User reqUser, User recUser, Item reqItem, Item recItem, Date date, int status,
-		//			ArrayList<String> chat) 
+		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, 0);
 		
-		doGet(request, response);
 		
 	}
 

@@ -1,7 +1,9 @@
 package servlets;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.google.gson.annotations.Until;
 
@@ -13,6 +15,8 @@ import model.Trade;
 public class Test {
 
 	public static void main(String[] args) {
+		
+		
 		// TODO Auto-generated method stub
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
@@ -43,10 +47,12 @@ public class Test {
 //		}
 //		
 //		dbUtil.changePassword(1, "123");
-		System.out.println(util.getTradeByTradeId(1).getDate());
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-		String dateStr = dateFormat.format(util.getTradeByTradeId(1).getDate());
-		System.out.println(dateStr);
-		}
+//		System.out.println(util.getTradeByTradeId(1).getDate());
+//		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+//		String dateStr = dateFormat.format(util.getTradeByTradeId(1).getDate());
+//		System.out.println(dateStr);
+		
+		dbUtil.addTrade(1, 1, 1, 1, new Date(Calendar.getInstance().getTime().getTime()), 0);
+	}
 
 }
