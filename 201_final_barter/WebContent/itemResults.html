@@ -229,7 +229,7 @@
         
         <script>
 		var itemList = $.ajax({
-			url: '../ItemResultsServlet',
+			url: './ItemResultsServlet',
 			dataType: "json",
 			success: function (data) {
 				var i = 0;
@@ -237,6 +237,7 @@
 					if(i >= data.length) return false;
 					$this = $(this);
 					$this.find('#itemLink').text(data[i].itemName);
+					$this.find('#itemLink').attr("href", data[i].itemId);
 					$this.find('#description').text(data[i].description);
 					i++;
 				});
