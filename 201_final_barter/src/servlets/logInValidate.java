@@ -64,7 +64,7 @@ public class logInValidate extends HttpServlet {
 					System.out.println("success");
 				}
 			}
-		
+		UtilObject.close();
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);

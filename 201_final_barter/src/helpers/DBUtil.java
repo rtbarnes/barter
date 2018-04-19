@@ -257,6 +257,7 @@ public class DBUtil {
 		}
 	}
 	
+<<<<<<< HEAD
 	public void UpdateLatestTrade(int reqItemId) {
 		String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
 		int latestTradeId = 0;
@@ -290,9 +291,32 @@ public class DBUtil {
 		}
 	}
 	
-	
-	
-	
+
+	// add a new trade to database
+	public Trade addTrade(int req_user_id, int rec_user_id, int req_item_id, 
+			int rec_item_id, Date req_Date ,int status) {
+		
+		try {
+			
+			String sql = "INSERT INTO trades "
+					+ "(req_user_id, rec_user_id, req_item_id, rec_item_id, req_Date, status)\r\n" + 
+					"VALUES(?, ?, ?, ?, ?, ?);";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, req_user_id);
+			ps.setInt(2, rec_user_id);
+			ps.setInt(3, req_item_id);
+			ps.setInt(4, rec_item_id);
+			ps.setDate(5, req_Date);
+			ps.setInt(6, status);
+			ps.executeUpdate();	
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println("sqle: " + e.getMessage());
+			e.printStackTrace();
+		}
+		return getThisTrade();//make function
+	 }
+
 	
 }
 
