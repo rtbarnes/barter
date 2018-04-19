@@ -43,7 +43,7 @@ public class ChangePass extends HttpServlet {
 			}
 		}
 
-    	String pageTo = "/changePass.jsp";
+    		String pageTo = "/changePass.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 	}

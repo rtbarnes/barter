@@ -1,26 +1,12 @@
 package helpers;
 
-import java.io.File;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
-
-import com.sun.javafx.scene.traversal.Hueristic2D;
+import java.util.Calendar;
 
 import model.User;
 
@@ -34,8 +20,8 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -270,6 +256,43 @@ public class DBUtil {
 			System.out.println("exception in changePassword(): " + e.getMessage());
 		}
 	}
+	
+	public void UpdateLatestTrade(int reqItemId) {
+		String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
+		int latestTradeId = 0;
+		try {
+			ps = conn.prepareStatement(tradeIdSql);
+			rs = ps.executeQuery();
+			rs.next();
+			latestTradeId = rs.getInt("trade_id");
+			Date curDate = new Date(Calendar.getInstance().getTime().getTime());
+			
+			System.out.println("latest trade is: " + latestTradeId);
+			
+			String updateSql = 	"UPDATE trades" + 
+								" SET req_item_id = ?" +
+								", req_date = ?" + 
+								" WHERE trade_id = ?;";
+			
+			ps = conn.prepareStatement(updateSql);
+			ps.setInt(1, reqItemId);
+			ps.setDate(2, curDate);
+			ps.setInt(3, latestTradeId);
+			ps.executeUpdate();
+			
+			
+			
+//			String udpateTradeSql = "";
+		} catch (SQLException sqle) {
+			System.out.println("sqle in updateLatesTrade: " + sqle.getMessage());
+		} catch (Exception e) {
+			System.out.println("e in udpateLatesTrade: " + e.getMessage());
+		}
+	}
+	
+	
+	
+	
 	
 }
 
