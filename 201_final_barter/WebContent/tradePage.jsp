@@ -180,10 +180,10 @@
 			}
 			
 			.dead {
+				display: none;
 			    background-color: #4A4A4A;
 			    cursor: not-allowed;
 			    pointer-events: none;
-			    display: none;
 			}
 			
 			.bottomButton {
@@ -494,17 +494,17 @@
                                 
                                 <!-- IF VIEWING A SENT TRADE -->
                                 <td>
-                                    <button class="tradeButton" id="sent" name="sent" class="dead">sent</button>
+                                    <button class="tradeButton" id="sent" name="sent" class="dead" style="display: none;">sent</button>
                                 </td>
                                 
                                 <!-- IF VIEWING AN ACCEPTED TRADE -->
                                 <td>
-                                    <button class="tradeButton" id="accepted" name="accepted" class="dead">accepted</button>
+                                    <button class="tradeButton" id="accepted" name="accepted" class="dead" style="display: none;">accepted</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A REJECTED TRADE-->
                                 <td>
-                                    <button class="tradeButton" id="rejected" name="rejected" class="dead">rejected</button>
+                                    <button class="tradeButton" id="rejected" name="rejected" class="dead" style="display: none;">rejected</button>
                                 </td>
                                 
                             </tr>
