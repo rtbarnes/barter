@@ -5,7 +5,7 @@
 	margin-bottom: 50px;
 	padding-top: 25px;
 	text-align: center;
-	font:  bold 45px arial;
+	font:  bold 45px Avenir;
 	border-bottom: 3px solid #005AC3;
 }
 .infoDiv{
@@ -18,14 +18,14 @@
 .titleFont{
 	width: 250px;
 	color: #1B1464;
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	margin-right: 30px;
 	text-align: right;
 	/*background-color: purple;*/
 	float: left;
 }
 .inputStyle{
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	border-radius: 25px;
 	padding-left: 5px;
 	width: 250px;
@@ -39,11 +39,11 @@
 #error{
 	margin-left: 300px;
 	margin-top: 30px;
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	color: red;
 }
 #success{
 	margin-left: 300px;
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	color: green;
 }

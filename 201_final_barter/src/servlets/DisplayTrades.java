@@ -28,7 +28,7 @@ public class DisplayTrades extends HttpServlet {
     	Util util = new Util();
     	ArrayList<Trade> trades = util.getAllTradesForUser(curUserId);
     	for(Trade trade : trades) {
-    		System.out.println(trade.get);
+    		//System.out.println(trade.get);
     	}
     }
 

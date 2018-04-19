@@ -1,6 +1,3 @@
-body {
-	font-family: Avenir;
-}
 
 .detailHeader{
 width: 550px;
@@ -9,7 +6,7 @@ margin-right: auto;
 margin-bottom: 50px;
 padding-top: 25px;
 text-align: center;
-font:  bold 45px arial;
+font:  bold 45px Avenir;
 border-bottom: 3px solid #005AC3;
 }
 .infoDiv{
@@ -23,7 +20,7 @@ margin-right: auto;
 width: 150px;
 /*background-color: red;*/
 color: #1B1464;
-font:  bold 20px arial;
+font:  bold 20px Avenir;
 margin-right: 30px;
 text-align: right;
 /*background-color: purple;*/
@@ -32,7 +29,7 @@ float: left;
 .infoFont{
 width: 150px;
 /*color: grey;*/
-font:  bold 20px arial;
+font:  bold 20px Avenir;
 /*background-color: pink;*/
 float: left;
 }
