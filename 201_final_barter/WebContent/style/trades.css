@@ -5,7 +5,7 @@
 	margin-bottom: 50px;
 	padding-top: 25px;
 	text-align: center;
-	font:  bold 45px arial;
+	font:  bold 45px Avenir;
 	border-bottom: 3px solid #005AC3;
 }
 #tradeList{
@@ -52,7 +52,7 @@
 	/*background-color: blue;*/
 	float: left;
 	word-spacing: 10px;
-	font: 20px arial;
+	font: 20px Avenir;
 }
 #tradeDelete{
 	float: left;

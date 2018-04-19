@@ -4,7 +4,7 @@
 	margin-right: auto;
 	margin-bottom: 50px;
 	text-align: center;
-	font:  bold 30px arial;
+	font:  bold 30px Avenir;
 	border-bottom: 3px solid #005AC3;
 }
 #backButton {
@@ -35,14 +35,14 @@
 .titleFont{
 	width: 250px;
 	color: #1B1464;
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	margin-right: 30px;
 	text-align: right;
 	/*background-color: purple;*/
 	float: left;
 }
 .inputStyle{
-	font:  bold 20px arial;
+	font:  bold 20px Avenir;
 	border-radius: 25px;
 	padding-left: 5px;
 	width: 250px;
@@ -73,14 +73,14 @@
 }
 
 #dsrptInput{
-	font:  bold 16px arial;
+	font:  bold 16px Avenir;
 	border-radius: 10px;
 	padding-left: 5px;
 	resize: none;
 }
 
 #tags{
-	font:  bold 13px arial;
+	font:  bold 13px Avenir;
 	float: left;
 	width: 255px;
 	height: 100px;
@@ -93,8 +93,8 @@
 	width: 75px;
 	margin: 3px;
 	border-radius: 3px;
-		border:1px solid #D0D0D0;
-		overflow: auto;
+	border:1px solid #D0D0D0;
+	overflow: auto;
 }
 .tagLabel span{
 	text-align: center;
