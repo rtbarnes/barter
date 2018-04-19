@@ -10,56 +10,59 @@
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         
-          <script type="text/javascript">
-  function sendTrade()
-  { 
-	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
-	  Trade trade = getTradeByTradeId(tradeId); 
-      
-      User UserObject = (User) session.getAttribute("user");
-      var userId= UserObject.getUserId();
-      var tradeRecId = trade.getRecItemId();
-    	  var tradeReqId = trade.getReqItemId();
-    	  if(userId==tradeReqId)
-    		  {
-    		  	trade.setStatus(0);
-    		    //0 for pending, 1 as accepted, 2 as rejected
-    		  }
-      
-  }
-  function AcceptTrade()
-  { 
-	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
-      Trade trade = getTradeByTradeId(tradeId); 
-      
-      User UserObject = (User) session.getAttribute("user");
-      var userId= UserObject.getUserId();
-      var tradeRecId = trade.getRecItemId();
-    	  var tradeReqId = trade.getReqItemId();
-    	  if(userId==tradeRecId)
-    		  {
-    		  	trade.setStatus(1);
-    		    //0 for pending, 1 as accepted, 2 as rejected
-    		  }
-     
-  }
-  function RejectTrade()
-  { 
-	  var tradeId = `<%= request.getParameter("tradeId")%>`;  
-      Trade trade = getTradeByTradeId(tradeId); +      
-      User UserObject = (User) session.getAttribute("user");
-     var userId= UserObject.getUserId();
-      var tradeRecId = trade.getRecItemId();
-    	  var tradeReqId = trade.getReqItemId();
-    	  if(userId==tradeRecId)
-    		  {
-    		  	trade.setStatus(2);
-    		    //0 for pending, 1 as accepted, 2 as rejected
-    		  }
-			}
-     
-  }
-</script> 
+        <script type="text/javascript">
+			  function sendTrade()
+			  { 
+				  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+				  Trade trade = getTradeByTradeId(tradeId); 
+			      
+			      User UserObject = (User) session.getAttribute("user");
+			      var userId= UserObject.getUserId();
+			      var tradeRecId = trade.getRecItemId();
+			    	  var tradeReqId = trade.getReqItemId();
+			    	  if(userId==tradeReqId)
+			    		  {
+			    		  	trade.setStatus(0);
+			    		    //0 for pending, 1 as accepted, 2 as rejected
+			    		  }
+			      
+			  }
+			  
+			  function AcceptTrade()
+			  { 
+				  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+			      Trade trade = getTradeByTradeId(tradeId); 
+			      
+			      User UserObject = (User) session.getAttribute("user");
+			      var userId= UserObject.getUserId();
+			      var tradeRecId = trade.getRecItemId();
+			    	  var tradeReqId = trade.getReqItemId();
+			    	  if(userId==tradeRecId)
+			    		  {
+			    		  	trade.setStatus(1);
+			    		    //0 for pending, 1 as accepted, 2 as rejected
+			    		  }
+			     
+			  }
+			  
+			  function RejectTrade()
+			  { 
+				  var tradeId = `<%= request.getParameter("tradeId")%>`;  
+			      Trade trade = getTradeByTradeId(tradeId); +      
+			      User UserObject = (User) session.getAttribute("user");
+			     var userId= UserObject.getUserId();
+			      var tradeRecId = trade.getRecItemId();
+			    	  var tradeReqId = trade.getReqItemId();
+			    	  if(userId==tradeRecId)
+			    		  {
+			    		  	trade.setStatus(2);
+			    		    //0 for pending, 1 as accepted, 2 as rejected
+			    		  }
+						}
+			     
+			  }
+		</script> 
+		
     </head>
    
     <body>
