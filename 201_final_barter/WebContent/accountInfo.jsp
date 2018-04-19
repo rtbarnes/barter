@@ -1,3 +1,4 @@
+<%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,7 +12,8 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>	</head>
 	<body>
 	<%
-		String username = (String) request.getAttribute("username");
+		User curUser = (User) session.getAttribute("user");
+		String username = curUser.getUsername();
 		String profileImage = (String) request.getAttribute("profileImage");
 	
 		String firstName = (String) request.getAttribute("firstName");
@@ -71,7 +73,7 @@
 				<div id="tradesDiv">
 					<div class="headers">Trades</div>
 					<div class="buttonDiv">
-						<a href="EditTrades" class="anchorBtn textStyle">Edit Trades</a>
+						<a href="DisplayTrades" class="anchorBtn textStyle">View Trades</a>
 					</div>
 				</div>
 				

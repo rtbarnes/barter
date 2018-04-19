@@ -72,14 +72,14 @@
 				<div id="tradesDiv">
 					<div class="headers">Trades</div>
 					<div class="buttonDiv">
-						<a href="#" class="anchorBtn textStyle">Edit Trades</a>
+						<a href="DisplayTrades" class="anchorBtn textStyle">View Trades</a>
 					</div>
 				</div>
 				
 				<div id="delete">
 					<div class="headers">Delete</div>
 					<div class="buttonDiv" id="deleteBtn">
-						<a href="#" class="anchorBtn textStyle">Delete Account</a>
+						<a href="DeleteAccount" class="anchorBtn textStyle">Delete Account</a>
 					</div>
 				</div>
 			</div>

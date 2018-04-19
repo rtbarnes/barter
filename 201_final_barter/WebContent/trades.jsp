@@ -1,25 +1,28 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.*" %>
+<%@page import="java.text.DateFormat" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 	<head>
-		<title>Inventory</title>
+		<title>Trades</title>
 		<link rel="stylesheet" type="text/css" href="style/accountLeft.css"/>
         <link rel="stylesheet" type="text/css" href="style/header.css" />
-        <link rel="sty	lesheet" type="text/css" href="style/footer.css"/>
-        <link rel="stylesheet" type="text/css" href="style/inventory.css"/>
+        <link rel="stylesheet" type="text/css" href="style/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="style/trades.css"/>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 	</head>
 	<body>
 	<%
 		User curUser = (User) session.getAttribute("user");
-		String username = curUser.getUsername();
-		String profileImage = (String) request.getAttribute("profileImage");
+		String username = curUser==null? "" : (String)curUser.getUsername();
+		String profileImage = curUser==null? "" : (String) curUser.getProfileImage();
 		
-		ArrayList<Item> items = request.getAttribute("items")==null? new ArrayList<Item>() : (ArrayList<Item>) request.getAttribute("items"); 
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		
 	%>
 	 <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
@@ -85,40 +88,46 @@
 			</div>
 			<div id="rightContainer">
 				<div id="accountInfoHeader" class="detailHeader">
-					<%=username %>'s Inventory
+					<%=username %>'s trades
 				</div>
-				<!-- ========================================================= -->
-				<div id="inventoryList">
 
-
-					<!-- =============A single item=========================== -->
-					<div class="itemDiv">
-						<div class="editLink">
-							<a href="#">Remove</a> 
-						</div>
+				<div id="tradeList">
+					<!-- ====================Single trade=================== -->
+					<div class="trade">
 						<div class="imgDiv">
-							<img src="test.jpg" class="itemImg">
+							<a href="#" class="tradeLink">
+								<img src="test.jpg" class="sellerImg">
+								<span class="linkSpan"></span>
+							</a>
 						</div>
 						<div class="detailDiv">
-							<a href="#" class="nameLink">Item Name</a>
-							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
+							From: sellerName<br>
+							Date: 4.13.2018<br>
+							itemName1 for itemName2
+						</div>
+						<div class="buttonDiv" id="tradeDelete">
+						<a href="#" class="anchorBtn textStyle">Delete</a>
 						</div>
 					</div>
-					<!-- ==============A single item========================== -->
-					<%for(int i=0; i<items.size(); i++){ %>
-					<div class="itemDiv">
-						<div class="editLink">
-							<a href="RemoveItem?itemId=<%=items.get(i).getItemId() %>">Remove</a> 
-						</div>
+
+					<!-- ====================Single trade=================== -->
+					<div class="trade">
 						<div class="imgDiv">
-							<img src="<%=items.get(i).getImage() %>" class="itemImg">
+							<a href="#" class="tradeLink">
+								<img src="test.jpg" class="sellerImg">
+								<span class="linkSpan"></span>
+							</a>
 						</div>
 						<div class="detailDiv">
-							<a href="#" class="nameLink"><%=items.get(i).getItemName() %></a>
-							<div class="description"><%=items.get(i).getDescription() %></div>
+							From: sellerName<br>
+							Date: 4.13.2018<br>
+							itemName1 for itemName2
+						</div>
+						<div class="buttonDiv" id="tradeDelete">
+						<a href="#" class="anchorBtn textStyle">Delete</a>
 						</div>
 					</div>
-					<%} %>
+
 				</div>
 			</div>
 		</div>
