@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
 import helpers.Util;
-import model.Item;
+import model.Trade;
 import model.User;
 
 @WebServlet("/UpdateTradeItem")
@@ -46,14 +46,16 @@ public class UpdateTradeItem extends HttpServlet {
 		int reqItemId = Integer.parseInt(request.getParameter("itemId"));
 
 		//update the trade in the database
-		dbUtil.UpdateLatestTrade(reqItemId);
+		Trade curTrade = null;
+		curTrade = dbUtil.UpdateLatestTrade(reqItemId);
+		
+		//send the trade over to the page
+		request.setAttribute("trade", curTrade);
 		
 		String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
-		
 	}
-
 }
 
 

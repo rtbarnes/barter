@@ -41,6 +41,11 @@ public class UpdateTradeStatus extends HttpServlet {
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
 		
+		//extract the status
+		int status = Integer.parseInt(request.getParameter("status"));
+		//extract the tradeID
+		int tradeId = Integer.parseInt(request.getParameter("tradeId"));
+		
 		
 		
 	}

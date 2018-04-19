@@ -259,7 +259,7 @@ public class DBUtil {
 	}
 	
 
-	public void UpdateLatestTrade(int reqItemId) {
+	public Trade UpdateLatestTrade(int reqItemId) {
 		String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
 		int latestTradeId = 0;
 		try {
@@ -283,10 +283,18 @@ public class DBUtil {
 			ps.executeUpdate();			
 			
 //			String udpateTradeSql = "";
+			
+			Util util = new Util();
+			
+			return util.getTradeByTradeId(latestTradeId);
 		} catch (SQLException sqle) {
 			System.out.println("sqle in updateLatesTrade: " + sqle.getMessage());
+			
+			return null;
 		} catch (Exception e) {
 			System.out.println("e in udpateLatesTrade: " + e.getMessage());
+			
+			return null;
 		}
 	}
 	
