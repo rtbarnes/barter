@@ -176,13 +176,19 @@
 			
 			#send {
 			    background-color: #1B1464;
+			    display: none;
 			}
 			
-			#sent {
+			.dead {
 			    background-color: #4A4A4A;
 			    cursor: not-allowed;
 			    pointer-events: none;
 			    display: none;
+			}
+			
+			.bottomButton {
+				text-decoration: none;
+				color: white;
 			}
 			/*END STYLE FOR CENTER OFFER DISPLAY*/
 			
@@ -255,7 +261,7 @@
 			    color: white;
 			    background-color: #1B1464;
 			    border-radius: 8px;
-			    display: inline-block;
+			    display: none;
 			}
 			/*END STYLE FOR MESSAGES DISPLAY*/
 			
@@ -475,21 +481,32 @@
                             <tr>
                                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="accept" name="accept">accept</button>
+                                    <button class="tradeButton" id="accept" name="accept"><a href="" id="acceptButton" name="acceptButton" class="bottomButton">accept</a></button>
                                 </td>
                                 <td>
-                                    <button class="tradeButton" id="reject" name="reject">reject</button>
+                                    <button class="tradeButton" id="reject" name="reject"><a href="" id="rejectButton" name="rejectButton" class="bottomButton">reject</a></button>
                                 </td>
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="send" name="send">send</button>
+                                    <button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
                                 </td>
                                 
-                                <!-- IF VIEWING A SENT TRADE "TO" SOMEONE -->
+                                <!-- IF VIEWING A SENT TRADE -->
                                 <td>
-                                    <button class="tradeButton" id="sent" name="sent">sent</button>
+                                    <button class="tradeButton" id="sent" name="sent" class="dead">sent</button>
                                 </td>
+                                
+                                <!-- IF VIEWING AN ACCEPTED TRADE -->
+                                <td>
+                                    <button class="tradeButton" id="accepted" name="accepted" class="dead">accepted</button>
+                                </td>
+                                
+                                <!-- IF VIEWING A REJECTED TRADE-->
+                                <td>
+                                    <button class="tradeButton" id="rejected" name="rejected" class="dead">rejected</button>
+                                </td>
+                                
                             </tr>
                         </table>
                         <br />
