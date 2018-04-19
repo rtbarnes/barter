@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 
 <html>
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <head>
         <title>Current Barters</title>
-        <!-- <link href="<c: url value='/style/tradePage.css'/>" type="text/css" rel="stylesheet" /> -->
-        <!-- <link href="style/tradePage.css" type="text/css" rel="stylesheet" /> -->
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        
         <style>
         		/*GENERAL WRAPPER CSS*/
 			#mainContent {
@@ -138,7 +137,7 @@
 			    font-size: 22px;
 			}
 			
-			#sellerItemImg {
+			#traderItemImg {
 			    height: 100px;
 			    width: 100px;
 			    float: right;
@@ -163,6 +162,27 @@
 			    font-size: 16px;
 			    color: white;
 			    border-radius: 8px;
+			}
+			
+			#accept {
+			    background-color: #61B400;
+			    display: none;
+			}
+			
+			#reject {
+			    background-color: #AF0000;
+			    display: none
+			}
+			
+			#send {
+			    background-color: #1B1464;
+			}
+			
+			#sent {
+			    background-color: #4A4A4A;
+			    cursor: not-allowed;
+			    pointer-events: none;
+			    display: none;
 			}
 			/*END STYLE FOR CENTER OFFER DISPLAY*/
 			
@@ -239,40 +259,124 @@
 			}
 			/*END STYLE FOR MESSAGES DISPLAY*/
 			
-			/*BEGIN STYLE FOR SELLER INFO COLUMN ON RIGHT*/
-			#sellerInfoContainer {
+			#rightHandContainer {
 			    width: 250px;
 			    float: right;
 			    margin-right: 10px;
 			    height: 350px;
-			    overflow: scroll;
 			    display: inline;
 			    background-color: white;
 			}
 			
-			#sellerInfoTable {
+			#aboutMessage {
+			    display: none;
+			}
+			
+			/*BEGIN STYLE FOR trader INFO COLUMN ON RIGHT*/
+			#traderInfoTable {
 			    margin-left: auto;
 			    margin-right: auto;
 			    width: 100%;
+			    display: none;
 			}
 			
-			#sellerThumb {
+			#traderThumb {
 			    height: 100px;
 			    width: 100px;
 			    border-radius: 50%;
 			}
 			
-			.sellerInfoTD {
+			.traderInfoTD {
 			    padding: 5px;
 			    text-align: center;
 			}
 			
-			.sellerInfo {
+			.traderInfo {
 			    font-family: Avenir-Heavy;
 			    font-size: 22px;
 			    color: #1B1464;
 			}
-			/*END STYLE FOR SELLER INFO COLUMN ON RIGHT*/
+			/*END STYLE FOR trader INFO COLUMN ON RIGHT*/
+			
+			/*BEGIN STYLE FOR INVENTORY DISPLAY*/
+			#inventoryTableContainer {
+			    height: 260px;
+			    padding: 12px;
+			    overflow: scroll;
+			    font-family: Avenir;
+			}
+			
+			#tradeSentMessage {
+			    font-size: 20px;
+			    display: none;
+			}
+			
+			/*STYLING CODE ADAPTED FROM https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
+			/* The container */
+			.container {
+			    display: block;
+			    position: relative;
+			    padding-left: 35px;
+			    margin-bottom: 12px;
+			    cursor: pointer;
+			    font-size: 18px;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			}
+			
+			/* Hide the browser's default radio button */
+			.container input {
+			    position: absolute;
+			    opacity: 0;
+			    cursor: pointer;
+			}
+			
+			/* Create a custom radio button */
+			.checkmark {
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    height: 23px;
+			    width: 23px;
+			    background-color: #eee;
+			    border-radius: 50%;
+			}
+			
+			/* On mouse-over, add a grey background color */
+			.container:hover input ~ .checkmark {
+			    background-color: #ccc;
+			}
+			
+			/* When the radio button is checked, add a blue background */
+			.container input:checked ~ .checkmark {
+			    background-color: #1B1464;
+			}
+			
+			/* Create the indicator (the dot/circle - hidden when not checked) */
+			.checkmark:after {
+			    content: "";
+			    position: absolute;
+			    display: none;
+			}
+			
+			/* Show the indicator (dot/circle) when checked */
+			.container input:checked ~ .checkmark:after {
+			    display: block;
+			}
+			
+			/* Style the indicator (dot/circle) */
+			.container .checkmark:after {
+			 	top: 8px;
+				left: 7.5px;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: white;
+			}
+			/*END STYLE FOR INVENTORY DISPLAY*/
+
         </style>
         
     </head>
