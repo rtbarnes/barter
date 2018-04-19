@@ -32,9 +32,9 @@
                 <div id="linkContainer" name="linkContainer">
                     <a class="headerButtons" name="button1" id="button1" href="" style="display: inline;">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="" style="display: inline;">My Trades</a>
+                    <a class="headerButtons" name="button2" id="button2" href="trades.jsp" style="display: inline;">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="" style="display: inline;">My Account</a>
+                    <a class="headerButtons" name="button3" id="button3" href="accountInfo.jsp" style="display: inline;">My Account</a>
 
                     <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
                 </div>

@@ -15,12 +15,16 @@ import helpers.Util;
 import model.Trade;
 import model.User;
 
-@WebServlet("/UpdateTradeItem")
-public class UpdateTradeItem extends HttpServlet {
+/**
+ * Servlet implementation class UpdateTradeStatus
+ */
+@WebServlet("/UpdateTradeStatus")
+public class UpdateTradeStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public UpdateTradeItem() {
+    public UpdateTradeStatus() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,24 +44,20 @@ public class UpdateTradeItem extends HttpServlet {
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
 		
-		//extract tradeID and itemID, it's a GET request so get from parameters
-		int curTradeId = Integer.parseInt(request.getParameter("tradeId"));
-		//NOTE: you are updating "req" item because this is the "req" user
-		int reqItemId = Integer.parseInt(request.getParameter("itemId"));
-
-		//update the trade in the database
-		Trade curTrade = null;
-		curTrade = dbUtil.UpdateLatestTrade(reqItemId);
+		//extract the status
+		int status = Integer.parseInt(request.getParameter("status"));
+		//extract the tradeID
+		int tradeId = Integer.parseInt(request.getParameter("tradeId"));
 		
-		//send the trade over to the page
+		Trade curTrade = null;
+		curTrade = dbUtil.UpdateTradeStatus(tradeId, status);
+		
 		request.setAttribute("trade", curTrade);
 		
 		String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
+		
 	}
+
 }
-
-
-
-

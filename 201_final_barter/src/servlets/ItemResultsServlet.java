@@ -21,7 +21,7 @@ import model.Item;
 public class ItemResultsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Util util = new Util();
 		ArrayList<Item> items = util.getAllItems();
 		

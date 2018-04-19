@@ -60,7 +60,7 @@ public class logInValidate extends HttpServlet {
 				else{
 					HttpSession session = request.getSession();
 					session.setAttribute("user", UserObject);					
-					pageTo = "/itemResults.html";
+					pageTo = "/DisplayItemResults";
 					System.out.println("success");
 				}
 			}
