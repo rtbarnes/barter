@@ -40,8 +40,10 @@ public class ChangePass extends HttpServlet {
 				DBUtil dbUtil = new DBUtil();
 				dbUtil.changePassword(userId, newPassConfirm);
 				request.setAttribute("success", "Change password successfully!");
+				dbUtil.close();
 			}
 		}
+		
 
     	String pageTo = "/changePass.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);

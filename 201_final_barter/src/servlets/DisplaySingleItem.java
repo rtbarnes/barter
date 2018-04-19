@@ -27,7 +27,8 @@ public class DisplaySingleItem extends HttpServlet {
 		
 		request.setAttribute("item", item);
 		request.setAttribute("seller", user);
-
+		
+		util.close();
     	String pageTo = "/itemPage.jsp?itemId="+itemId;
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);

@@ -31,7 +31,8 @@ public class DisplayInventory extends HttpServlet {
 		ArrayList<Item> items = util.getItemsByUserId(userId);
 		
 		request.setAttribute("items", items);
-
+		
+		util.close();
     	String pageTo = "/inventory.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);

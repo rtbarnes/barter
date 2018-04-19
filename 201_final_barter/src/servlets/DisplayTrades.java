@@ -30,6 +30,7 @@ public class DisplayTrades extends HttpServlet {
     	for(Trade trade : trades) {
     		//System.out.println(trade.get);
     	}
+    	util.close();
     }
 
 }

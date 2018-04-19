@@ -52,7 +52,7 @@
         <div name="mainContent" id="mainContent">
         
             <div name="backButtonContainer" id="backButtonContainer">
-                <button name="backButton" id="backButton"><a href="" style="text-decoration: none; color: white;">&lt; Back to Results</a></button>
+                <button name="backButton" id="backButton"><a href="itemResults.html" style="text-decoration: none; color: white;">&lt; Back to Results</a></button>
             </div>
 
             <table name="singleResultContainer" id="singleResultContainer">
@@ -72,9 +72,10 @@
                         </div>
                     </td>
                     <td class="singleTd" style="padding-top: 10px; width: 660px;">
-                        <div style="text-align: right; width: 640px;"><button name="tradeButton" id="tradeButton"><a href="" name="tradeLink" id="tradeLink">Trade</a></button><br/></div>
+                    	<%String tradeUrl ="AddNewTrade?recItemId="+item.getItemId()+"?recUserId="+seller.getUserID();%>
+                        <div style="text-align: right; width: 640px;"><button name="tradeButton" id="tradeButton"><a href="<%=tradeUrl %>" name="tradeLink" id="tradeLink">Trade</a></button><br/></div>
                         <div style="text-align: left; width: 640px;"><span name="resultName" id="resultName"><%=item.getItemName()%></a></div>
-                        <p name="description"><%=item.getDescription() %></p>
+                        <p name="description"><%=item.getDescription()%></p>
                     </td>
                     <td class="singleTd">
                         <!-- holds the window from the GMaps API -->

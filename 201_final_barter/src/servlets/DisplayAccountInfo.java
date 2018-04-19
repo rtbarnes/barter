@@ -41,6 +41,8 @@ public class DisplayAccountInfo extends HttpServlet {
     	
     	System.out.println(firstName + lastName + "---" + imagePath);
     	
+    	dbUtil.close();
+    	
     	String pageTo = "/accountInfo.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
