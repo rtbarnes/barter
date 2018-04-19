@@ -237,7 +237,7 @@
 					if(i >= data.length) return false;
 					$this = $(this);
 					$this.find('#itemLink').text(data[i].itemName);
-					$this.find('#itemLink').attr("href", data[i].itemId);
+					$this.find('#itemLink').attr("href", 'DisplaySingleItem?itemId=' + data[i].itemId);
 					$this.find('#description').text(data[i].description);
 					i++;
 				});
