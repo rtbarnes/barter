@@ -14,11 +14,18 @@
 	<body>
 	<%
 		User curUser = (User) session.getAttribute("user");
-		String username = curUser.getUsername();
-		String profileImage = (String) request.getAttribute("profileImage");
+		String username = "";
+		String profileImage = "";
+		String error = "";
+		String success = "";
 		
-		String error =  request.getAttribute("error")==null? "" : (String) request.getAttribute("error");
-		String success = request.getAttribute("success")==null? "" : (String) request.getAttribute("success");
+		if (curUser != null) {
+			username = curUser.getUsername(); 
+			profileImage = (String) request.getAttribute("profileImage");
+		
+			error =  request.getAttribute("error")==null? "" : (String) request.getAttribute("error");
+			success = request.getAttribute("success")==null? "" : (String) request.getAttribute("success");
+		}
 	%>
 	 <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
@@ -83,7 +90,9 @@
 					</div>
 				</div>
 			</div>
-<!-- =================================================================== -->
+			
+			<!-- =================================================================== -->
+			
 			<div id="rightContainer">
 				<div id="accountInfoHeader" class="detailHeader">
 					Account Information
