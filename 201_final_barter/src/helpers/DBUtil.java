@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
+import model.Trade;
 import model.User;
 
 public class DBUtil {
@@ -257,7 +258,7 @@ public class DBUtil {
 		}
 	}
 	
-<<<<<<< HEAD
+
 	public void UpdateLatestTrade(int reqItemId) {
 		String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
 		int latestTradeId = 0;
@@ -279,9 +280,7 @@ public class DBUtil {
 			ps.setInt(1, reqItemId);
 			ps.setDate(2, curDate);
 			ps.setInt(3, latestTradeId);
-			ps.executeUpdate();
-			
-			
+			ps.executeUpdate();			
 			
 //			String udpateTradeSql = "";
 		} catch (SQLException sqle) {
@@ -314,7 +313,9 @@ public class DBUtil {
 			System.out.println("sqle: " + e.getMessage());
 			e.printStackTrace();
 		}
-		return getThisTrade();//make function
+		
+		//return getThisTrade();//make function
+		return null;
 	 }
 
 	
