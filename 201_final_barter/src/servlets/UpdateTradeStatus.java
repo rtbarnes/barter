@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
 import helpers.Util;
+import model.Trade;
 import model.User;
 
 /**
@@ -46,7 +49,14 @@ public class UpdateTradeStatus extends HttpServlet {
 		//extract the tradeID
 		int tradeId = Integer.parseInt(request.getParameter("tradeId"));
 		
+		Trade curTrade = null;
+		curTrade = dbUtil.UpdateTradeStatus(tradeId, status);
 		
+		request.setAttribute("trade", curTrade);
+		
+		String pageTo = "/tradePage.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+		dispatcher.forward(request, response);
 		
 	}
 

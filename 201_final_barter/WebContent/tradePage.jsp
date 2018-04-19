@@ -489,7 +489,9 @@
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
+                                		<form>
+                                    		<button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
+                                     </form>
                                 </td>
                                 
                                 <!-- IF VIEWING A SENT TRADE -->
@@ -550,7 +552,7 @@
                     
                     <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
                     <label class="container">Item One
-                      <input type="radio" checked="checked" name="radioInventory">
+                      <input type="radio" checked="checked" name="radioInventory" >
                       <span class="checkmark"></span>
                     </label>
                     <label class="container">Item Two

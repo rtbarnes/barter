@@ -286,7 +286,9 @@ public class DBUtil {
 			
 			Util util = new Util();
 			
-			return util.getTradeByTradeId(latestTradeId);
+			Trade result =  util.getTradeByTradeId(latestTradeId);
+			util.close();
+			return result;
 		} catch (SQLException sqle) {
 			System.out.println("sqle in updateLatesTrade: " + sqle.getMessage());
 			
@@ -298,7 +300,35 @@ public class DBUtil {
 		}
 	}
 	
-
+	//NATHAN, function for UpdateTradeStatus servlet
+	public Trade UpdateTradeStatus(int tradeId, int status) {
+		try {
+			String updateStatusSQL = "UPDATE trades" + 
+									" SET status = ?" +
+									" WHERE trade_id = ?;";
+			ps = conn.prepareStatement(updateStatusSQL);
+			ps.setInt(1, status);
+			ps.setInt(2, tradeId);
+			ps.executeQuery();
+			
+			Util util = new Util();
+			
+			Trade result =  util.getTradeByTradeId(tradeId);
+			util.close();
+			
+			return result;
+		} catch (SQLException sqle) {
+			System.out.println("sqle in updateLatesTrade: " + sqle.getMessage());
+			
+			return null;
+		} catch (Exception e) {
+			System.out.println("e in udpateLatesTrade: " + e.getMessage());
+			
+			return null;
+		}
+		
+	}
+	
 	// add a new trade to database 
 	public Trade addTrade(int req_user_id, int rec_user_id, int req_item_id, 
 			int rec_item_id, Date req_Date ,int status) {
