@@ -1,18 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <head>
         <title>Current Barters</title>
+        <!-- <link href="<c: url value='/style/tradePage.css'/>" type="text/css" rel="stylesheet" /> -->
         <link href="style/tradePage.css" type="text/css" rel="stylesheet" />
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-</head>
-   
+    </head>
+    
     <body>
-        <div name="headerContainer" id="headerContainer">
+        
+       <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
                 <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
@@ -21,19 +24,19 @@
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
+                    <a class="headerButtons" name="button1" id="button1" href="" style="display: inline;">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
+                    <a class="headerButtons" name="button2" id="button2" href="" style="display: inline;">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
+                    <a class="headerButtons" name="button3" id="button3" href="" style="display: inline;">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
                     
-                    <a class="headerButtons" name="button5" id="button5" href="" style="display: none;">button5</a>
+                    <a class="headerButtons" name="button5" id="button5" href="" style="display: none;">Sign Up</a>
 
-                    <a class="headerButtons" name="button6" id="button6" href="" style="display: none;">button6</a>
+                    <a class="headerButtons" name="button6" id="button6" href="" style="display: none;">Log In</a>
                 </div>
-        
+                
             </div>
         </div>
         <br />
@@ -86,14 +89,14 @@
                         <table name="itemTable" id="itemTable">
                             <tr>
                                 <td>
-                                    <img src="stock%20images/blackbox.png" name="yourItemImg" id="yourItemImg">
+                                    <img alt="No Picture Available."  src="stock%20images/blackbox.png" name="yourItemImg" id="yourItemImg">
                                     <p class="itemName" style="float: left;">Your Item</p>
                                 </td>
                                 <td>
-                                    <img src="stock%20images/tradearrow.png" name="arrow" id="arrow">
+                                    <img alt="No Picture Available."  src="stock%20images/tradearrow.png" name="arrow" id="arrow">
                                 </td>
                                 <td>
-                                    <img src="stock%20images/blackbox.png" name="traderItemImg" id="traderItemImg">
+                                    <img alt="No Picture Available."  src="stock%20images/blackbox.png" name="traderItemImg" id="traderItemImg">
                                     <p class="itemName" style="float: right;">Trader's Item</p>
                                 </td>
                             </tr>
@@ -104,15 +107,15 @@
                             <tr>
                                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="accept" name="accept" onclick=AcceptTrade()>accept</button>
+                                    <button class="tradeButton" id="accept" name="accept">accept</button>
                                 </td>
                                 <td>
-                                    <button class="tradeButton" id="reject" name="reject" onclick=RejectTrade()>reject</button>
+                                    <button class="tradeButton" id="reject" name="reject">reject</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                    <button class="tradeButton" id="send" name="send" onclick=sendTrade() >send</button>
+                                    <button class="tradeButton" id="send" name="send">send</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A SENT TRADE "TO" SOMEONE -->
@@ -137,7 +140,7 @@
                 <table id="traderInfoTable" name="traderInfoTable">
                     <tr>
                         <td class="traderInfoTD">
-                            <img src="stock%20images/blackbox.png" id="traderThumb" name="traderThumb">
+                            <img alt="No Picture Available."  src="stock%20images/blackbox.png" id="traderThumb" name="traderThumb">
                         </td>
                     </tr>
                     <tr>
