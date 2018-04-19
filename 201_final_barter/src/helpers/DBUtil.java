@@ -291,7 +291,7 @@ public class DBUtil {
 	}
 	
 
-	// add a new trade to database
+	// add a new trade to database 
 	public Trade addTrade(int req_user_id, int rec_user_id, int req_item_id, 
 			int rec_item_id, Date req_Date ,int status) {
 		
