@@ -29,14 +29,14 @@
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
                 </form>
                 
-                <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
+               <div id="linkContainer" name="linkContainer">
+                    <a class="headerButtons" name="button1" id="button1" href="" style="display: inline;">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
+                    <a class="headerButtons" name="button2" id="button2" href="trades.jsp" style="display: inline;">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
+                    <a class="headerButtons" name="button3" id="button3" href="accountInfo.jsp" style="display: inline;">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
                 </div>
                 
             </div>
