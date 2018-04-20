@@ -489,7 +489,7 @@
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                		<form>
+                                		<form><!-- TODO: figure out how to make this form send this as input AND whatever radio value is checked -->
                                     		<button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
                                      </form>
                                 </td>
