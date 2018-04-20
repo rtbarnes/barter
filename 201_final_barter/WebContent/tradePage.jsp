@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="model.*, java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -388,6 +388,15 @@
     </head>
     
     <body>
+        <%
+			User curUser = (User) session.getAttribute("user");
+			String username = curUser.getUsername();
+			ArrayList<Item> inventory = (ArrayList<Item>) request.getAttribute("inventory");
+			
+        		Trade tradeObject = (Trade) request.getAttribute("trade");
+        		String recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
+
+        %>
         
        <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
@@ -417,7 +426,7 @@
         
         <div name="mainContent" id="mainContent" style="margin-top:80px; margin-bottom:40px;">
         
-            <p id="tradePageHeading">username's Trades</p>
+            <p id="tradePageHeading"><%= username %>'s Trades</p>
 
             <div name="onGoingTradesContainer" id="onGoingTradesContainer">
                 <p class="innerHeading">
@@ -463,14 +472,14 @@
                         <table name="itemTable" id="itemTable">
                             <tr>
                                 <td>
-                                    <img alt="No Picture Available."  src="stock%20images/blackbox.png" name="yourItemImg" id="yourItemImg">
+                                    <img alt="No Picture Available."  src="<%=  %>" name="yourItemImg" id="yourItemImg">
                                     <p class="itemName" style="float: left;">Your Item</p>
                                 </td>
                                 <td>
                                     <img alt="No Picture Available."  src="stock%20images/tradearrow.png" name="arrow" id="arrow">
                                 </td>
                                 <td>
-                                    <img alt="No Picture Available."  src="stock%20images/blackbox.png" name="traderItemImg" id="traderItemImg">
+                                    <img alt="No Picture Available."  src="<%= recItemImg  %>" name="traderItemImg" id="traderItemImg">
                                     <p class="itemName" style="float: right;">Trader's Item</p>
                                 </td>
                             </tr>
@@ -489,7 +498,7 @@
                                 
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                                 <td>
-                                		<form><!-- TODO: figure out how to make this form send this as input AND whatever radio value is checked -->
+                                		<form name="addNewTradeForm" id="addNewTradeForm" action="UpdateTradeItem"><!-- TODO: figure out how to make this form send this as input AND whatever radio value is checked -->
                                     		<button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
                                      </form>
                                 </td>
@@ -555,35 +564,12 @@
                       <input type="radio" checked="checked" name="radioInventory" >
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container">Item Two
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Three
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Four
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Five
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Six
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Seven
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container">Item Eight
-                      <input type="radio" name="radioInventory">
-                      <span class="checkmark"></span>
-                    </label>
-                    
+                    <% for (int i = 0; i < inventory.size(); i++) { %>
+						<label class="container"><%= inventory.get(i).getItemName() %>
+							<input type="radio" name="radioInventory" form="addNewTradeForm" value="<%= inventory.get(i).getItemId() %>">
+							<span class="checkmark"></span>
+						</label>
+                    <% } %>
                     <!-- populate more inventory items here -->
                     
                     <!-- IF TRADE HAS BEEN SENT ALREADY -->
