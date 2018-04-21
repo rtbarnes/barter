@@ -39,7 +39,7 @@ public class AddNewTrade extends HttpServlet {
 //		// for testing
 		int recUserId = 1;
 		int reqUserId = 1;
-		int recItemId = 3;
+		int recItemId = 10;
 		int reqItemId = 1;	   // since the user has not chosen what to trade with, set it to one
 		Date reqDate = new Date(2018, 4, 20); // req_date
 		

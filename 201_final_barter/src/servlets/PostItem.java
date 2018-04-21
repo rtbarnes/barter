@@ -29,9 +29,8 @@ public class PostItem extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true); 
-		
 		User curUser = (User) session.getAttribute("user");
-		int userId = curUser.getUserID();
+		int userId = (int) curUser.getUserID();
 		
 		String itemName = "";
 		String description = "";
@@ -72,6 +71,7 @@ public class PostItem extends HttpServlet {
 			
 			ServletContext context = getServletContext();
 			String fullPath = context.getRealPath("/items");
+			System.out.println(fullPath);
 
 			DBUtil dbUtil = new DBUtil();
 	        itemId = dbUtil.additem(userId, itemName, description, categoryId);
