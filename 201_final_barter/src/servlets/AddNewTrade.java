@@ -41,7 +41,7 @@ public class AddNewTrade extends HttpServlet {
 		int reqUserId = 1;
 		int recItemId = 10;
 		int reqItemId = 1;	   // since the user has not chosen what to trade with, set it to one
-		Date reqDate = new Date(2018, 4, 20); // req_date
+		Date reqDate = null; // req_date
 		
 		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, -1);
 		ArrayList<Item> inventory = util.getItemsByUserId(recUserId);
