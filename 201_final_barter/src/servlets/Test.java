@@ -52,7 +52,22 @@ public class Test {
 //		String dateStr = dateFormat.format(util.getTradeByTradeId(1).getDate());
 //		System.out.println(dateStr);
 		
-		dbUtil.addTrade(1, 1, 1, 1, new Date(Calendar.getInstance().getTime().getTime()), 0);
+//		dbUtil.addTrade(1, 1, 1, 1, new Date(Calendar.getInstance().getTime().getTime()), 0);
+//		ArrayList<String> chat = util.getMessagesByTradeId(1);
+//		Trade trade = util.getTradeByTradeId(1);
+//		System.out.println(trade.getTradeId());
+//		System.out.println(trade.getReqUser().getUsername());
+//		System.out.println(trade.getReqItem().getItemName());
+//		System.out.println(trade.getRecUser().getUsername());
+//		System.out.println(trade.getRecItem().getItemName());
+//		System.out.println(trade.getChat());
+		
+		util.getAllTradesForUser(2);
+		
+		
+		util.close();
+		dbUtil.close();
+		
 	}
 
 }

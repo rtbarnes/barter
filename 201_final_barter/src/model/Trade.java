@@ -38,7 +38,7 @@ public class Trade {
 	
 	//DEBUG
 	public void printTrade() {
-		System.out.println("Trade #" + this.tradeId + ": " + this.reqUser.getUsername() + " from " + this.recUser.getUsername());
+		System.out.println("Trade #" + this.tradeId + ": requested by " + this.reqUser.getUsername() + " to " + this.recUser.getUsername());
 	}
 	
 	public int getTradeId() {

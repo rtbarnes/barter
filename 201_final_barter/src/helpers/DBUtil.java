@@ -34,9 +34,12 @@ public class DBUtil {
 
 	public void close() {
 		try {
-			rs.close();
-			ps.close();
-			conn.close();
+			if(rs!=null)
+				rs.close();
+			if(ps!=null)
+				ps.close();
+			if(conn!=null)
+				conn.close();
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -369,6 +372,11 @@ public class DBUtil {
 		
 		return curTrade;
 	 }
+
+//	TODO: getTradeByTradeId
+	
+//	TODO: getMessageByTradeId
+//	TODO: getTradeBy 
 }
 
 

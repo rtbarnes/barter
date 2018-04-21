@@ -162,15 +162,15 @@
                     
                     <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
                     <label class="container">Item One
-                      <input type="radio" checked="checked" name="radioInventory">
+                      <input type="radio" checked="checked" name="radioInventory" class="item" value="1">
                       <span class="checkmark"></span>
                     </label>
                     <label class="container">Item Two
-                      <input type="radio" name="radioInventory">
+                      <input type="radio" name="radioInventory"  class="item" value="2">
                       <span class="checkmark"></span>
                     </label>
                     <label class="container">Item Three
-                      <input type="radio" name="radioInventory">
+                      <input type="radio" name="radioInventory"  class="item" value="3">
                       <span class="checkmark"></span>
                     </label>
                     <label class="container">Item Four
@@ -269,5 +269,15 @@
             </div>
         </div>
         
+    <script type="text/javascript">
+        var items = document.querySelectorAll(".item");
+        for(var i=0; i<items.length; i++){
+            items[i].onclick = function(){
+                var imgPath = "items\\item_" + this.value + ".png";
+                console.log(imgPath);
+                document.querySelector("#yourItemImg").src = imgPath;
+            }
+        }
+    </script>
     </body>
 </html>
