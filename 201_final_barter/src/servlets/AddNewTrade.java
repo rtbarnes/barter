@@ -30,18 +30,18 @@ public class AddNewTrade extends HttpServlet {
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
 		
-		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
-		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
-		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
-		int reqItemId = 1;	// since the user has not chosen what to trade with, set it to one
-		Date reqDate = null;   // req_date
-		
-//		// for testing
-//		int recUserId = 1;
-//		int reqUserId = 1;
-//		int recItemId = 1;
+//		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
+//		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
+//		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
 //		int reqItemId = 1;	// since the user has not chosen what to trade with, set it to one
 //		Date reqDate = null;   // req_date
+		
+//		// for testing
+		int recUserId = 1;
+		int reqUserId = 1;
+		int recItemId = 3;
+		int reqItemId = 1;	   // since the user has not chosen what to trade with, set it to one
+		Date reqDate = new Date(2018, 4, 20); // req_date
 		
 		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, -1);
 		ArrayList<Item> inventory = util.getItemsByUserId(recUserId);
@@ -49,6 +49,12 @@ public class AddNewTrade extends HttpServlet {
 		//send over what youll use 
 		request.setAttribute("trade", curTrade);
 		request.setAttribute("inventory", inventory);
+		
+		//DEBUG
+//		System.out.println(curTrade.getRecItem().getItemName());
+//		System.out.println(curTrade.getRecUser().getUsername());
+//		System.out.println(curTrade.getReqUser().getUsername());
+//		System.out.println(curTrade.getRecItem().getImage());
 		
 	    	String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);

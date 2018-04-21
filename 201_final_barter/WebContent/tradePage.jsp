@@ -394,7 +394,15 @@
 			ArrayList<Item> inventory = (ArrayList<Item>) request.getAttribute("inventory");
 			
         		Trade tradeObject = (Trade) request.getAttribute("trade");
-        		String recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
+        		String recItemImg = "";
+        		
+        		if (tradeObject == null) {
+        			System.out.println("null trade object");
+        		}
+        		else {
+            		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
+        		}
+
 
         %>
         
@@ -472,7 +480,7 @@
                         <table name="itemTable" id="itemTable">
                             <tr>
                                 <td>
-                                    <img alt="No Picture Available."  src="<%=  %>" name="yourItemImg" id="yourItemImg">
+                                    <img alt="No Picture Available."  src="stock%20images/whitebox.png" name="yourItemImg" id="yourItemImg">
                                     <p class="itemName" style="float: left;">Your Item</p>
                                 </td>
                                 <td>

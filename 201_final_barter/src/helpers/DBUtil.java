@@ -332,6 +332,8 @@ public class DBUtil {
 	// add a new trade to database 
 	public Trade addTrade(int req_user_id, int rec_user_id, int req_item_id, 
 			int rec_item_id, Date req_Date ,int status) {
+			
+		Trade curTrade = null;
 		
 		try {
 			
@@ -348,21 +350,25 @@ public class DBUtil {
 			ps.setInt(6, status);
 			ps.executeUpdate();	
 			
-//			String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
-//			ps = conn.prepareStatement(tradeIdSql);
-//			rs = ps.executeQuery()
+			String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
+			ps = conn.prepareStatement(tradeIdSql);
+			rs = ps.executeQuery();
+					
+			rs.next();
+			int tradeId = rs.getInt("trade_id");
 			
+			Util util = new Util();
+			
+			curTrade = util.getTradeByTradeId(tradeId);
+					
 		} catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("sqle: " + e.getMessage());
 			e.printStackTrace();
 		}
 		
-		//return getThisTrade();//make function
-		return null;
+		return curTrade;
 	 }
-
-	
 }
 
 

@@ -54,6 +54,7 @@ public class PostItem extends HttpServlet {
 				if (item.isFormField()) {
 			      String name = item.getFieldName();//text1
 			      String value = item.getString();
+			      
 			      if(name.equals("itemName")) {
 			    	  	itemName = value;
 			      } else if (name.equals("description")) {
