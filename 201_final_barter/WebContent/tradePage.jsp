@@ -261,7 +261,7 @@
 			    color: white;
 			    background-color: #1B1464;
 			    border-radius: 8px;
-			    display: none;
+			    display: inline-block;
 			}
 			/*END STYLE FOR MESSAGES DISPLAY*/
 			
