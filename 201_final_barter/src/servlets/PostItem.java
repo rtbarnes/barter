@@ -75,9 +75,11 @@ public class PostItem extends HttpServlet {
 
 			DBUtil dbUtil = new DBUtil();
 	        itemId = dbUtil.additem(userId, itemName, description, categoryId);
+	        
 			// write the image with name item_itemId into items folder
 			File uploadDir = new File(fullPath + "\\item_" + itemId + ".png");
 			imageItem.write(uploadDir);
+			
 			// update the item with the image path
 			dbUtil.updateItemPicture(itemId, "items\\item_" + itemId + ".png");
 			dbUtil.close();
