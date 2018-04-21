@@ -261,7 +261,7 @@
 			    color: white;
 			    background-color: #1B1464;
 			    border-radius: 8px;
-			    display: none;
+			    display: inline-block;
 			}
 			/*END STYLE FOR MESSAGES DISPLAY*/
 			
@@ -569,7 +569,7 @@
                     
                     <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
                     <label class="container">Item One
-                      <input type="radio" checked="checked" name="radioInventory" >
+                      <input type="radio" name="radioInventory" >
                       <span class="checkmark"></span>
                     </label>
                     <% for (int i = 0; i < inventory.size(); i++) { %>
