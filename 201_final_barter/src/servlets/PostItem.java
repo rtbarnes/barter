@@ -77,13 +77,13 @@ public class PostItem extends HttpServlet {
 	        itemId = dbUtil.additem(userId, itemName, description, categoryId);
 	        
 			// write the image with name item_itemId into items folder
-			//File uploadDir = new File(fullPath + "\\item_" + itemId + ".png");
-			File uploadDir = new File(fullPath + "/item_" + itemId + ".png");
+			//File uploadDir = new File(fullPath + "\\item_" + itemId + ".png"); //for WINDOWS
+			File uploadDir = new File(fullPath + "/item_" + itemId + ".png"); //for MAC
 			imageItem.write(uploadDir);
 			
 			// update the item with the image path
-			//dbUtil.updateItemPicture(itemId, "items\\item_" + itemId + ".png");
-			dbUtil.updateItemPicture(itemId, "items/item_" + itemId + ".png");
+			//dbUtil.updateItemPicture(itemId, "items\\item_" + itemId + ".png"); //for WINDOWS
+			dbUtil.updateItemPicture(itemId, "items/item_" + itemId + ".png"); //for MAC
 			dbUtil.close();
 			
 		} catch (FileUploadException e) {
@@ -95,8 +95,8 @@ public class PostItem extends HttpServlet {
         System.out.println("item_" + itemId + ".png");
 		
 	    // for testing. it will direct to some other page with more parameters
-		//request.setAttribute("imagePath", "items\\item_" + itemId + ".png");
-		request.setAttribute("imagePath", "items/item_" + itemId + ".png");
+		//request.setAttribute("imagePath", "items\\item_" + itemId + ".png"); //for WINDOWS
+		request.setAttribute("imagePath", "items/item_" + itemId + ".png"); //for MAC
 		
 		
 		String pageTo = "/test.jsp";

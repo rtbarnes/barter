@@ -395,6 +395,7 @@
 			
         		Trade tradeObject = (Trade) request.getAttribute("trade");
         		String recItemImg = "";
+        		ArrayList<Trade> tradesForUser = (ArrayList<Trade>) request.getAttribute("tradesForUser");
         		
         		if (tradeObject == null) {
         			System.out.println("null trade object");
@@ -402,6 +403,8 @@
         		else {
             		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
         		}
+        		
+        		
 
         %>
         
@@ -441,10 +444,7 @@
                 </p>
                 
                 <div name="tableTradeContainer" id="tableTradeContainer">
-                    <table name="onGoingTradesTable" id="onGoingTradesTable">
-                    <!-- TODO: POPULATE A USER'S TRADES IN THIS TABLE -->
-                    
-                    
+                    <table name="onGoingTradesTable" id="onGoingTradesTable">   
                     <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
@@ -465,10 +465,31 @@
                         </td>
                     </tr>
                         
-                        
                     <!-- add more trades to column here -->
-                    
-                        
+                    <% for (int i = 0; i < tradesForUser.size(); i++) { %>
+                    		<% //if the trade is TO someone else %>
+                    		<% if (tradesForUser.get(i).getReqUser().getUserID() == curUser.getUserID()) { %>
+                    		<tr class="anOnGoingTrade">
+	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
+	                            <a href="" class="tradeItemLink">
+	                                <div class="toLabel">TO: <%= tradesForUser.get(i).getRecUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
+	                                <div class="tradeDescription"><%= tradesForUser.get(i).getReqItem().getItemName() %> for <%= tradesForUser.get(i).getRecItem().getItemName() %></div><br />
+	                            </a>
+	                        </td>
+                    	    </tr>
+                    		<% } 
+                    		   //if the trade is FROM someone else
+						   else { %>
+						   <tr class="anOnGoingTrade">
+	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
+	                            <a href="" class="tradeItemLink">
+	                                <div class="toLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
+	                                <div class="tradeDescription"><%= tradesForUser.get(i).getRecItem().getItemName() %> for <%= tradesForUser.get(i).getReqItem().getItemName() %></div><br />
+	                            </a>
+	                        </td>
+                    	       </tr>
+						<% } %>
+                    <% } %>
                 </table>
                 </div>
                 

@@ -38,19 +38,21 @@ public class AddNewTrade extends HttpServlet {
 		
 //		// for testing
 		int recUserId = 1;
-		int reqUserId = 1;
+		int reqUserId = curUser.getUserID();
 		int recItemId = 1;
-		int reqItemId = 1;	   // since the user has not chosen what to trade with, set it to one
+		int reqItemId = 2;	   // since the user has not chosen what to trade with, set it to one
 		Date reqDate = null; // req_date
 		
 		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, -1);
-		ArrayList<Item> inventory = util.getItemsByUserId(recUserId);
+		ArrayList<Item> inventory = util.getItemsByUserId(reqUserId);
+		ArrayList<Trade> tradesForUser = util.getAllTradesForUser(reqUserId);
 		
 		util.close();
 		
 		//send over what youll use 
 		request.setAttribute("trade", curTrade);
 		request.setAttribute("inventory", inventory);
+		request.setAttribute("tradesForUser", tradesForUser);
 		
 		//DEBUG
 //		System.out.println(curTrade.getRecItem().getItemName());
