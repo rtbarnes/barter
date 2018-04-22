@@ -442,7 +442,9 @@
                 
                 <div name="tableTradeContainer" id="tableTradeContainer">
                     <table name="onGoingTradesTable" id="onGoingTradesTable">
-                        
+                    <!-- TODO: POPULATE A USER'S TRADES IN THIS TABLE -->
+                    
+                    
                     <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
