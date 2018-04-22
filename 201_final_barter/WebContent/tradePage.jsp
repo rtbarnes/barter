@@ -403,7 +403,6 @@
             		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
         		}
 
-
         %>
         
        <div name="headerContainer" id="headerContainer">
