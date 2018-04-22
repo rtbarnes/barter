@@ -41,9 +41,9 @@ public class UpdateTradeItem extends HttpServlet {
 		Util util = new Util();
 		
 		//extract tradeID and itemID, it's a GET request so get from parameters
-		int curTradeId = Integer.parseInt(request.getParameter("tradeId"));
+		//int curTradeId = Integer.parseInt(request.getParameter("tradeId"));
 		//NOTE: you are updating "req" item because this is the "req" user
-		int reqItemId = Integer.parseInt(request.getParameter("itemId"));
+		int reqItemId = Integer.parseInt(request.getParameter("reqItemId"));
 
 		//update the trade in the database
 		Trade curTrade = null;
@@ -52,6 +52,7 @@ public class UpdateTradeItem extends HttpServlet {
 		//send the trade over to the page
 		request.setAttribute("trade", curTrade);
 		
+		//TODO: Map to get trades servlet
 		String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);

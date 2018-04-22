@@ -391,7 +391,6 @@
         <%
 			User curUser = (User) session.getAttribute("user");
 			String username = curUser.getUsername();
-			ArrayList<Item> inventory = (ArrayList<Item>) request.getAttribute("inventory");
 			
         		Trade tradeObject = (Trade) request.getAttribute("trade");
         		String recItemImg = "";
@@ -426,6 +425,23 @@
         			else if (status == 1) { accepted = true; }
         			else if (status == 2) { rejected = true; }
         		}
+        		
+        		User displayUser = null;
+        		ArrayList<Item> inventory = null;
+        		if (status == -1) {
+        			inventory = (ArrayList<Item>) request.getAttribute("inventory");
+        		}
+        		else {
+        			//if you're sending a trade TO someone, display on the RHS is the REC info
+        			if (curUserIsSender) {
+        				displayUser = tradeObject.getRecUser();
+        			}
+        			//if you're receiving a trade FROM someone, display on the RHS is the REQ info
+        			else {
+        				displayUser = tradeObject.getReqUser();
+        			}
+        		}
+    			
         		
         %>
         
@@ -552,7 +568,7 @@
                                 <% } else if (sendButton) { %>
                                 <td>
                                 		<form name="addNewTradeForm" id="addNewTradeForm" action="UpdateTradeItem"><!-- TODO: figure out how to make this form send this as input AND whatever radio value is checked -->
-                                    		<button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
+                                    		<button class="tradeButton" id="send" name="send" type="submit">send</button>
                                      </form>
                                 </td>
                                 
@@ -581,57 +597,50 @@
             </div>
 
             <div name="rightHandContainer" id="rightHandContainer">
-                <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
-                <p class="innerHeading" id="aboutMessage">About the Trader</p>
+            		
+            		<% if (status == -1) { %>
+	                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
+	                <p class="innerHeading" id="inventoryMessage">Available Inventory</p>
+	                
+               	    <div name="inventoryTableContainer" id="inventoryTableContainer">
+                    
+	                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
+	                    <label class="container">Item One
+	                      <input type="radio" name="radioInventory" >
+	                      <span class="checkmark"></span>
+	                    </label>
+	                    <% for (int i = 0; i < inventory.size(); i++) { %>
+							<label class="container"><%= inventory.get(i).getItemName() %>
+								<input type="radio" name="reqItemId" form="addNewTradeForm" class="item" value="<%= inventory.get(i).getItemId() %>">
+								<span class="checkmark"></span>
+							</label>
+	                    <% } %>
+                                      
+                	   </div>
                 
-                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
-                <p class="innerHeading" id="inventoryMessage">Available Inventory</p>
-                
-                <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
-                <table id="traderInfoTable" name="traderInfoTable">
-                    <tr>
-                        <td class="traderInfoTD">
-                            <img alt="No Picture Available."  src="stock%20images/blackbox.png" id="traderThumb" name="traderThumb">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="traderInfoTD">
-                            <br /><span class="traderInfo">Trader Name</span><br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="traderInfoTD">
-                            <span class="traderInfo" style="font-size: 18px; color: #4A4A4A;">Zip Code</span><br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="traderInfoTD">
-                            <span class="traderInfo" style="font-size: 18px; color: #4A4A4A;">X.XX Rating</span><br />
-                        </td>
-                    </tr>
+                <% } else { %>
+                    <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                	    <p class="innerHeading" id="aboutMessage">About the Trader</p>
+                	    
+                	   <table id="traderInfoTable" name="traderInfoTable">
+	                    <tr>
+	                        <td class="traderInfoTD">
+	                            <img alt="No Picture Available."  src="<%= displayUser.getProfileImage() %>" id="traderThumb" name="traderThumb">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td class="traderInfoTD">
+	                            <br /><span class="traderInfo"><%= displayUser.getUsername() %></span><br />
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td class="traderInfoTD">
+	                            <span class="traderInfo" style="font-size: 18px; color: #4A4A4A;"><%= displayUser.getLocation() %></span><br />
+	                        </td>
+	                    </tr>
                 </table>
-                
-                <!-- IF VIEWING A TRADE "TO" SOMEONE -->
-                <div name="inventoryTableContainer" id="inventoryTableContainer">
-                    
-                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
-                    <label class="container">Item One
-                      <input type="radio" name="radioInventory" >
-                      <span class="checkmark"></span>
-                    </label>
-                    <% for (int i = 0; i < inventory.size(); i++) { %>
-						<label class="container"><%= inventory.get(i).getItemName() %>
-							<input type="radio" name="radioInventory" form="addNewTradeForm" class="item" value="<%= inventory.get(i).getItemId() %>">
-							<span class="checkmark"></span>
-						</label>
-                    <% } %>
-                    <!-- populate more inventory items here -->
-                    
-                    <!-- IF TRADE HAS BEEN SENT ALREADY -->
-                    <p name="tradeSentMessage" id="tradeSentMessage">Trade Sent.</p>
-                    
-                </div>
-
+                <% } %>
+                                         
             </div>
 
             <br />

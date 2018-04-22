@@ -277,15 +277,15 @@ public class DBUtil {
 			String updateSql = 	"UPDATE trades" + 
 								" SET req_item_id = ?" +
 								", req_date = ?" + 
+								", status = ?" + 
 								" WHERE trade_id = ?;";
 			
 			ps = conn.prepareStatement(updateSql);
 			ps.setInt(1, reqItemId);
 			ps.setDate(2, curDate);
-			ps.setInt(3, latestTradeId);
+			ps.setInt(3, 0);
+			ps.setInt(4, latestTradeId);
 			ps.executeUpdate();			
-			
-//			String udpateTradeSql = "";
 			
 			Util util = new Util();
 			

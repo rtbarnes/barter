@@ -78,9 +78,13 @@ public class SignUp extends HttpServlet {
 			String fullPath = context.getRealPath("/users");
 			DBUtil dbUtil = new DBUtil();
 			userId = dbUtil.addUser(firstName, lastName, email, "a", location, username, password);
-			File uploadDir = new File(fullPath + "\\user_" + userId + ".png");
+			
+			//File uploadDir = new File(fullPath + "\\user_" + userId + ".png");
+			File uploadDir = new File(fullPath + "/user_" + userId + ".png");
+			
 			imageItem.write(uploadDir);
-			dbUtil.updateUserPicture(userId, "users\\user_" + userId + ".png");
+			//dbUtil.updateUserPicture(userId, "users\\user_" + userId + ".png");
+			dbUtil.updateUserPicture(userId, "users/user_" + userId + ".png");
 			dbUtil.close();
 			
 	    } catch (FileUploadException e) {
@@ -90,7 +94,9 @@ public class SignUp extends HttpServlet {
 		}
 
 		// for testing. it will direct to some other page with more parameters
-		request.setAttribute("imagePath", "users\\user_" + userId + ".png");
+		//request.setAttribute("imagePath", "users\\user_" + userId + ".png");
+	    request.setAttribute("imagePath", "users/user_" + userId + ".png");
+	    
 		String pageTo = "/logIn.html";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
