@@ -166,21 +166,21 @@
 			
 			#accept {
 			    background-color: #61B400;
-			    display: none;
+			    display: inline-block;
 			}
 			
 			#reject {
 			    background-color: #AF0000;
-			    display: none
+			    display: inline-block;
 			}
 			
 			#send {
 			    background-color: #1B1464;
-			    display: none;
+			    display: inline-block;
 			}
 			
 			.dead {
-				display: none;
+				display: inline-block;
 			    background-color: #4A4A4A;
 			    cursor: not-allowed;
 			    pointer-events: none;
@@ -259,7 +259,7 @@
 			    font-family: Avenir-Heavy;
 			    font-size: 16px;
 			    color: white;
-			    background-color: #1B1464;
+			    /*background-color: #1B1464;*/
 			    border-radius: 8px;
 			    display: inline-block;
 			}
@@ -404,8 +404,29 @@
             		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
         		}
         		
+        		//determine what buttons to display in the tradePage
+        		boolean curUserIsSender = false;
+        		boolean sendButton = false;
+        		boolean sent = false;
+        		boolean acceptRejectButtons = false;
+        		boolean accepted = false;
+        		boolean rejected = false;
+        		int status = -2;
+        	
+        		status = tradeObject.getStatus();
+        		if (tradeObject.getReqUser().getUserID() == curUser.getUserID()) {
+        			curUserIsSender = true;
+        			if (status == -1) { sendButton = true; }
+        			else if (status == 0) { sent = true; }
+        			else if (status == 1) { accepted = true; }
+        			else if (status == 2) { rejected = true; }
+        		}
+        		else {
+        			if (status == 0) { acceptRejectButtons = true; }
+        			else if (status == 1) { accepted = true; }
+        			else if (status == 2) { rejected = true; }
+        		}
         		
-
         %>
         
        <div name="headerContainer" id="headerContainer">
@@ -519,14 +540,16 @@
                         <table name="acceptRejectTable" id="acceptRejectTable">
                             <tr>
                                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                                <% if (acceptRejectButtons) { %>
                                 <td>
                                     <button class="tradeButton" id="accept" name="accept"><a href="" id="acceptButton" name="acceptButton" class="bottomButton">accept</a></button>
                                 </td>
                                 <td>
                                     <button class="tradeButton" id="reject" name="reject"><a href="" id="rejectButton" name="rejectButton" class="bottomButton">reject</a></button>
-                                </td>
-                                
+                                </td>                           
+                              
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
+                                <% } else if (sendButton) { %>
                                 <td>
                                 		<form name="addNewTradeForm" id="addNewTradeForm" action="UpdateTradeItem"><!-- TODO: figure out how to make this form send this as input AND whatever radio value is checked -->
                                     		<button class="tradeButton" id="send" name="send"><a href="" id="sendButton" name="sendButton" class="bottomButton">send</a></button>
@@ -534,20 +557,23 @@
                                 </td>
                                 
                                 <!-- IF VIEWING A SENT TRADE -->
+                                <% } else if (sent) { %>
                                 <td>
-                                    <button class="tradeButton" id="sent" name="sent" class="dead" style="display: none;">sent</button>
+                                    <button class="tradeButton" id="sent" name="sent" class="dead">sent</button>
                                 </td>
                                 
                                 <!-- IF VIEWING AN ACCEPTED TRADE -->
+                                <% } else if (accepted) { %>
                                 <td>
-                                    <button class="tradeButton" id="accepted" name="accepted" class="dead" style="display: none;">accepted</button>
+                                    <button class="tradeButton" id="accepted" name="accepted" class="dead">accepted</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A REJECTED TRADE-->
+                                <% } else if (rejected) { %>
                                 <td>
-                                    <button class="tradeButton" id="rejected" name="rejected" class="dead" style="display: none;">rejected</button>
+                                    <button class="tradeButton" id="rejected" name="rejected" class="dead">rejected</button>
                                 </td>
-                                
+                                <% } %>
                             </tr>
                         </table>
                         <br />
@@ -560,7 +586,6 @@
                 
                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                 <p class="innerHeading" id="inventoryMessage">Available Inventory</p>
-                
                 
                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                 <table id="traderInfoTable" name="traderInfoTable">
