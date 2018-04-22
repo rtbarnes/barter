@@ -283,7 +283,6 @@
 			    margin-left: auto;
 			    margin-right: auto;
 			    width: 100%;
-			    display: none;
 			}
 			
 			#traderThumb {
@@ -575,19 +574,19 @@
                                 <!-- IF VIEWING A SENT TRADE -->
                                 <% } else if (sent) { %>
                                 <td>
-                                    <button class="tradeButton" id="sent" name="sent" class="dead">sent</button>
+                                    <button class="tradeButton dead" id="sent" name="sent" >sent</button>
                                 </td>
                                 
                                 <!-- IF VIEWING AN ACCEPTED TRADE -->
                                 <% } else if (accepted) { %>
                                 <td>
-                                    <button class="tradeButton" id="accepted" name="accepted" class="dead">accepted</button>
+                                    <button class="tradeButton dead" id="accepted" name="accepted">accepted</button>
                                 </td>
                                 
                                 <!-- IF VIEWING A REJECTED TRADE-->
                                 <% } else if (rejected) { %>
                                 <td>
-                                    <button class="tradeButton" id="rejected" name="rejected" class="dead">rejected</button>
+                                    <button class="tradeButton dead" id="rejected" name="rejected">rejected</button>
                                 </td>
                                 <% } %>
                             </tr>
@@ -625,6 +624,8 @@
                 	   <table id="traderInfoTable" name="traderInfoTable">
 	                    <tr>
 	                        <td class="traderInfoTD">
+	                        		<br />
+	                        		<br />
 	                            <img alt="No Picture Available."  src="<%= displayUser.getProfileImage() %>" id="traderThumb" name="traderThumb">
 	                        </td>
 	                    </tr>
