@@ -49,7 +49,7 @@
 			    margin-left: 10px;
 			    margin-right: 5px;
 			    float: left;
-			    overflow: scroll;
+			    overflow-x: hidden;
 			    background-color: white;
 			}
 			
@@ -63,7 +63,7 @@
 			#tableTradeContainer {
 			    width: 100%;
 			    height: 500px;
-			    overflow: scroll;
+			    overflow-x: hidden;
 			}
 			
 			#onGoingTradeItem {
@@ -202,7 +202,7 @@
 			    height: 180px;
 			    background-color: white;
 			    margin-right: 10px;
-			    overflow: scroll;
+			    overflow-x: hidden;
 			}
 			
 			#tableContainer {
@@ -308,7 +308,7 @@
 			#inventoryTableContainer {
 			    height: 260px;
 			    padding: 12px;
-			    overflow: scroll;
+			    overflow-x: hidden;
 			    font-family: Avenir;
 			}
 			
