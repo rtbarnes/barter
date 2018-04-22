@@ -575,7 +575,7 @@
                     </label>
                     <% for (int i = 0; i < inventory.size(); i++) { %>
 						<label class="container"><%= inventory.get(i).getItemName() %>
-							<input type="radio" name="radioInventory" form="addNewTradeForm" value="<%= inventory.get(i).getItemId() %>">
+							<input type="radio" name="radioInventory" form="addNewTradeForm" class="item" value="<%= inventory.get(i).getItemId() %>">
 							<span class="checkmark"></span>
 						</label>
                     <% } %>
@@ -653,6 +653,17 @@
                 <a name="contactUs" id="contactUs" href="">Contact Us</a>
             </div>
         </div>
+        
+        <script type="text/javascript">
+        var items = document.querySelectorAll(".item");
+        for(var i=0; i<items.length; i++){
+            items[i].onclick = function(){
+                var imgPath = "items\\item_" + this.value + ".png";
+                console.log(imgPath);
+                document.querySelector("#yourItemImg").src = imgPath;
+            }
+        }
+    	</script>
         
     </body>
 </html>
