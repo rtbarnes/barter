@@ -68,7 +68,7 @@ public class logInValidate extends HttpServlet {
 		UtilObject.close();
 		
 		request.setAttribute("imagePath", "test");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/GetTrade");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 		
 	}
