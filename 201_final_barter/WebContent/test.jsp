@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<img src="<%= (String) request.getAttribute("imagePath") %>">
+<!-- <img src="<%= (String) request.getAttribute("imagePath") %>" -->
+
+<img src="users/user_000.png">
 
 </body>
 </html>

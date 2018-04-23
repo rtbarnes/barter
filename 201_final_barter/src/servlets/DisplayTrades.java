@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,18 +20,19 @@ import model.User;
 public class DisplayTrades extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession(true);
-    	User curUser = (User) session.getAttribute("User");
+    	User curUser = (User) session.getAttribute("user");
     	int curUserId = curUser.getUserID();
     	
     	Util util = new Util();
     	ArrayList<Trade> trades = util.getAllTradesForUser(curUserId);
-    	for(Trade trade : trades) {
-    		//System.out.println(trade.get);
-    	}
     	util.close();
+    	
+    	request.setAttribute("trades", trades);
+    	String pageTo = "/trades.jsp";
+    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+    	dispatcher.forward(request, response);
     }
 
 }

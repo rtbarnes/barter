@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
 import model.User;
@@ -18,8 +19,9 @@ public class DisplayAccountInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	// these should come from session
-    	int userId = 7;
+    	HttpSession session = request.getSession(true);
+    	User curUser = (User) session.getAttribute("user");
+    	int userId = curUser.getUserID();
     	System.out.println("displaying user: " + userId);
 
     	DBUtil dbUtil = new DBUtil();

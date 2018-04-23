@@ -21,13 +21,13 @@
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="">button1</a>
+                    <a class="headerButtons" name="button1" id="button1" href="postItem.html" style="display: inline;">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="">button2</a>
+                    <a class="headerButtons" name="button2" id="button2" href="DisplayTrades" style="display: inline;">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="">button3</a>
+                    <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo" style="display: inline;">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="">button4</a>
+                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
                 </div>
                 
             </div>
@@ -50,7 +50,7 @@
 						<div class="buttonDiv" id="chooseBtn">
 							<div class="fileInputDiv">
 								<div id="buttonText" class="textStyle">Open ></div>
-								<input type="file" id="fileInput" name="itemImage" onchange="javascript: document.getElementById ('fileName').value = this.value"/>
+								<input type="file" id="fileInput" name="itemImage" onchange="javascript: document.getElementById ('fileName').value = this.value.split('\\')[2];"/>
 							</div>
 						</div>
 						<div><input type="text" name="fileName" readonly="readonly" id="fileName" class="inputStyle"></div>
@@ -75,11 +75,18 @@
 					<div class="infoDiv">
 						<div class="titleFont">Category: </div>
 						<div id="tags">
-							<label class="tagLabel"><input type="radio" name="category" value="1"><span>Food</span></label>
-							<label class="tagLabel"><input type="radio" name="category" value="2"><span>Sport</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="1"><span>Books</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="2"><span>Sports</span></label>
 							<label class="tagLabel"><input type="radio" name="category" value="3"><span>Electronics</span></label>
-							<label class="tagLabel"><input type="radio" name="category" value="4"><span>Tools</span></label>
-							<label class="tagLabel"><input type="radio" name="category" value="5"><span>Toys</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="4"><span>Computers</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="5"><span>Games</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="6"><span>Phones</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="7"><span>Furniture</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="8"><span>Beauty</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="9"><span>Bikes</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="10"><span>Skateboards</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="11"><span>Kitchen</span></label>
+							<label class="tagLabel"><input type="radio" name="category" value="12"><span>Clothing</span></label>
 						</div>
 						<div class="clear"></div>
 					</div>

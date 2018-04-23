@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import helpers.DBUtil;
+import model.User;
 
 @WebServlet("/ChangePass")
 public class ChangePass extends HttpServlet {
@@ -17,10 +19,14 @@ public class ChangePass extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// this should be obtained from session 
-		int userId = 1;
-		String username = "sadfasf";
-		String profileImage = "";
-		String curPass = "123";
+		HttpSession session = request.getSession(true);
+    	User curUser = (User) session.getAttribute("user");
+		int userId = curUser.getUserID();
+		String username = curUser.getUsername();
+		String profileImage = curUser.getProfileImage();
+		String curPass = curUser.getPassword();
+		
+//		System.out.println(profileImage);
 		
 		request.setAttribute("username", username);
 		request.setAttribute("profileImage", profileImage);

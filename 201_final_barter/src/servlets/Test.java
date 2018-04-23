@@ -62,7 +62,8 @@ public class Test {
 //		System.out.println(trade.getRecItem().getItemName());
 //		System.out.println(trade.getChat());
 		
-		util.getAllTradesForUser(2);
+//		util.getAllTradesForUser(2);
+		dbUtil.editUserInfo(2, "123", "123", "456fasd@123", "999");
 		
 		
 		util.close();

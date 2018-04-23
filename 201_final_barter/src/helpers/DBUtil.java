@@ -373,10 +373,26 @@ public class DBUtil {
 		return curTrade;
 	 }
 
-//	TODO: getTradeByTradeId
-	
-//	TODO: getMessageByTradeId
-//	TODO: getTradeBy 
+	public void editUserInfo(int userId, String firstName, String lastName, String email, String location) {
+		String sql = "UPDATE users" + 
+					" SET first_name = ?," + 
+					"	 last_name = ?," + 
+					"    email = ?," + 
+					"    location = ? " + 
+					" WHERE user_id = ?;";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, firstName);
+			ps.setString(2, lastName);
+			ps.setString(3, email);
+			ps.setString(4, location);
+			ps.setInt(5, userId);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 }
 
 

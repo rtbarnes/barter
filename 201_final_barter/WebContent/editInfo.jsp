@@ -2,13 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 	<head>
-		<title>Change Password</title>
+		<title>Edit Info</title>
 		<link rel="stylesheet" type="text/css" href="style/accountLeft.css"/>
         <link rel="stylesheet" type="text/css" href="style/header.css" />
         <link rel="stylesheet" type="text/css" href="style/footer.css"/>
-        <link rel="stylesheet" type="text/css" href="style/changePass.css"/>
+        <link rel="stylesheet" type="text/css" href="style/postItem.css"/>
+        <link rel="stylesheet" type="text/css" href="style/editInfo.css"/>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 	</head>
 	<body>
@@ -16,24 +18,14 @@
 		User curUser = (User) session.getAttribute("user");
 		String username = curUser.getUsername();
 		String profileImage = curUser.getProfileImage();
-		
-		String error = "";
-		String success = "";
-		
-		//if (curUser != null) {
-		//	username = curUser.getUsername(); 
-		//	profileImage = (String) request.getAttribute("profileImage");
-		
-		error = request.getAttribute("error")==null? "" : (String) request.getAttribute("error");
-		success = request.getAttribute("success")==null? "" : (String) request.getAttribute("success");
-		//}
+		 
 	%>
-	 <div name="headerContainer" id="headerContainer">
+	<div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-                <img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
+                <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm">
-                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
@@ -48,7 +40,6 @@
                 
             </div>
         </div>
-		
 		<div id="mainContainer"> 
 			<div id="leftContainer">
 				<div id="userHeader">
@@ -91,46 +82,70 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- =================================================================== -->
-			
 			<div id="rightContainer">
 				<div id="accountInfoHeader" class="detailHeader">
-					Account Information
+					Edit Information
 				</div>
-				<form action="ChangePass" method="POST">
+
+				<form action="EditInfo" name="editForm" method="POST"  enctype="multipart/form-data">
+
 					<div class="infoDiv">
-						<div class="titleFont">Old password: </div>
+						<div class="titleFont">First name: </div>
 						<div class="infoFont">
-							<input type="password" class="inputStyle" name="oldPass">
+							<input type="text" class="inputStyle" name="firstName" value="<%=curUser.getFirstName() %>">
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="infoDiv">
+						<div class="titleFont">Last name: </div>
+						<div class="infoFont">
+							<input type="text" class="inputStyle" name="lastName" value="<%= curUser.getLastName() %>">
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="infoDiv">
+						<div class="titleFont">Email: </div>
+						<div class="infoFont">
+							<input type="text" class="inputStyle" name="email" value="<%= curUser.getEmail() %>">
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="infoDiv">
+						<div class="titleFont">Location: </div>
+						<div class="infoFont">
+							<input type="text" class="inputStyle" name="location" value="<%= curUser.getLocation()%>">
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="infoDiv">
+						<div class="titleFont">Username: </div>
+						<div class="infoFont">
+							<div id="username"><%= curUser.getUsername() %></div>
 						</div>
 					</div>
 					<div class="clear"></div>
 
 					<div class="infoDiv">
-						<div class="titleFont">New password: </div>
-						<div class="infoFont">
-							<input type="password" class="inputStyle" name="newPass">
+						<div class="titleFont">Change Picture</div>
+						<div class="buttonDiv" id="chooseBtn">
+							<div class="fileInputDiv">
+								<div id="buttonText" class="textStyle">Open</div>
+								<input type="file" id="fileInput" name="itemImage" onchange="javascript: document.getElementById ('fileName').value = this.value.split('\\')[2];"/>
+							</div>
 						</div>
+						<div><input type="text" name="fileName" readonly="readonly" id="fileName" class="inputStyle"></div>
 					</div>
-					<div class="clear"></div>
-
-					<div class="infoDiv">
-						<div class="titleFont">Confirm new password: </div>
-						<div class="infoFont">
-							<input type="password" class="inputStyle" name="newPassConfirm">
-						</div>
-					</div>
-					<div class="clear"></div>
 
 					<div class="buttonDiv">
-						<!-- <a href="#" class="anchorBtn textStyle">Change Password</a> -->
-						<button type="submit" class="textStyle" id="changeBtn">Change Password</button>
+						<button type="submit" class="textStyle" id="changeBtn">Submit</button>
 					</div>
+
 				</form>
-				
-				<div id="error"><%=error %></div>
-				<div id="success"><%=success %></div>
+
 			</div>
 		</div>
 	</body>

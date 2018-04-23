@@ -19,9 +19,9 @@
 		User curUser = (User) session.getAttribute("user");
 		String username = curUser==null? "" : (String)curUser.getUsername();
 		String profileImage = curUser==null? "" : (String) curUser.getProfileImage();
-		
-
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+	
+		//DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		ArrayList<Trade> trades = (ArrayList<Trade>) request.getAttribute("trades");	
 		
 	%>
 	 <div name="headerContainer" id="headerContainer">
@@ -33,13 +33,13 @@
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="" style="display: inline;">+ Post Item</a>
+                    <a class="headerButtons" name="button1" id="button1" href="postItem.html">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="" style="display: inline;">My Trades</a>
+                    <a class="headerButtons" name="button2" id="button2" href="DisplayTrades">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="" style="display: inline;">My Account</a>
+                    <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="">Log Out</a>
                 </div>
                 
             </div>
@@ -111,23 +111,43 @@
 					</div>
 
 					<!-- ====================Single trade=================== -->
+			<% for(int i=0; i<trades.size(); i++){ %>
+				<% if(curUser.getUserID()==trades.get(i).getReqUser().getUserID()){ %>
 					<div class="trade">
 						<div class="imgDiv">
-							<a href="#" class="tradeLink">
-								<img src="test.jpg" class="sellerImg">
+							<a href="GetTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="tradeLink">
+								<img src="<%=trades.get(i).getRecUser().getProfileImage() %>" class="sellerImg">
 								<span class="linkSpan"></span>
 							</a>
 						</div>
 						<div class="detailDiv">
-							From: sellerName<br>
-							Date: 4.13.2018<br>
-							itemName1 for itemName2
+							To: <%= trades.get(i).getRecUser().getUsername() %><br>
+							Date: <%= trades.get(i).getDate() %><br>
+							<%= trades.get(i).getReqItem().getItemName() %> for <%= trades.get(i).getRecItem().getItemName() %>
 						</div>
 						<div class="buttonDiv" id="tradeDelete">
-						<a href="#" class="anchorBtn textStyle">Delete</a>
+						<a href="DeleteTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="anchorBtn textStyle">Delete</a>
 						</div>
 					</div>
-
+				<% } else{ %>
+					<div class="trade">
+						<div class="imgDiv">
+							<a href="GetTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="tradeLink">
+								<img src="<%=trades.get(i).getReqUser().getProfileImage() %>" class="sellerImg">
+								<span class="linkSpan"></span>
+							</a>
+						</div>
+						<div class="detailDiv">
+							From: <%= trades.get(i).getReqUser().getUsername() %><br>
+							Date: <%= trades.get(i).getDate() %><br>
+							<%= trades.get(i).getReqItem().getItemName() %> for <%= trades.get(i).getRecItem().getItemName() %>
+						</div>
+						<div class="buttonDiv" id="tradeDelete">
+						<a href="DeleteTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="anchorBtn textStyle">Delete</a>
+						</div>
+					</div>
+				<% } %>		
+			<% } %>
 				</div>
 			</div>
 		</div>
