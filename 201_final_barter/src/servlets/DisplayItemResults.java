@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helpers.DBUtil;
 import helpers.Util;
 import model.Item;
 import model.User;
@@ -20,25 +21,38 @@ public class DisplayItemResults extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	//for queried SEARCHES vs. null searches
-	String searchQuery = null;
+		Util util = new Util();
+		DBUtil dbUtil = new DBUtil();
 		
-	Util util = new Util();
-	
-    	ArrayList<Item> items = util.getAllItems();
-    	
-    	ArrayList<User> users = new ArrayList<User>();
-    	for (Item item : items) {
-    		users.add(util.getUserByUserId(item.getUserId()));
-    	}
-    	
-    	request.setAttribute("items", items);
-    	request.setAttribute("sellers", users);
-    	
-    	util.close();
-    	String pageTo = "/itemResults.jsp";
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
-		dispatcher.forward(request, response);
-	}
+		ArrayList<Item> items = new ArrayList<Item>();
+		ArrayList<User> users = new ArrayList<User>();
+			
+		//for queried SEARCHES vs. null searches
+		String searchQuery = null;
+		searchQuery = (String) request.getParameter("searchQuery");
+		
+		//then there has been a queried search!
+		if (searchQuery != null) {
+			items = dbUtil.getItemsByKeyWord(searchQuery);
+		}
+		//no search query, it's just a blank default search
+		else {
+			items = util.getAllItems();
+		}
+		
+		//get all users for whatever list of items you've got
+	    	for (Item item : items) {
+	    		users.add(util.getUserByUserId(item.getUserId()));
+	    	}
+	    	
+	    	request.setAttribute("items", items);
+	    	request.setAttribute("sellers", users);
+	    	
+	    	util.close();
+	    	
+	    	String pageTo = "/itemResults.jsp";
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+			dispatcher.forward(request, response);
+		}
 
 }
