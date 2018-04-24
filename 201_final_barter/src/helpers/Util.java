@@ -23,8 +23,8 @@ public class Util {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
 			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
