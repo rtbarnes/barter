@@ -17,6 +17,7 @@
     
     <body>
     	<%
+    		User curUser = (User) session.getAttribute("user");
     		ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
     		ArrayList<User> sellers = (ArrayList<User>) request.getAttribute("sellers");
     	%>
@@ -30,7 +31,7 @@
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="./PostItem" style="display: inline;">+ Post Item</a>
+                    <a class="headerButtons" name="button1" id="button1" href="postItem.html" style="display: inline;">+ Post Item</a>
 
                     <a class="headerButtons" name="button2" id="button2" href="./DisplayTrades" style="display: inline;">My Trades</a>
 
@@ -75,7 +76,8 @@
             <br />
             <div name="resultsContainer" id="resultsContainer">
                 <table name="resultsTable" id="resultsTable">
-                    <%for (int i = 0; i < items.size(); i++) {%>
+                    <%for (int i = 0; i < items.size(); i++) {
+                    	if(items.get(i).getUserId() != curUser.getUserID() && !items.get(i).isSold()) {%>
                     <tr>
                         <td>
                             <table class="itemResultTable">
@@ -101,7 +103,8 @@
                             </table>
                         </td>
                     </tr>
-                    <% } %>
+                    <% 		}
+                    	}%>
                 </table>
             </div>
         </div>
