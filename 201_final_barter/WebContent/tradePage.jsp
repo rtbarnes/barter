@@ -274,9 +274,6 @@
 			    background-color: white;
 			}
 			
-			#aboutMessage {
-			    display: none;
-			}
 			
 			/*BEGIN STYLE FOR trader INFO COLUMN ON RIGHT*/
 			#traderInfoTable {
@@ -393,6 +390,7 @@
 			
         		Trade tradeObject = (Trade) request.getAttribute("trade");
         		String recItemImg = "";
+        		String reqItemImg = "";
         		ArrayList<Trade> tradesForUser = (ArrayList<Trade>) request.getAttribute("tradesForUser");
         		
         		if (tradeObject == null) {
@@ -400,6 +398,7 @@
         		}
         		else {
             		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
+            		reqItemImg = tradeObject.getReqItem().getImage(); //your item image
         		}
         		
         		//determine what buttons to display in the tradePage
@@ -542,7 +541,7 @@
                                     <img alt="No Picture Available."  src="stock%20images/tradearrow.png" name="arrow" id="arrow">
                                 </td>
                                 <td>
-                                    <img alt="No Picture Available."  src="<%= recItemImg  %>" name="traderItemImg" id="traderItemImg">
+                                    <img alt="No Picture Available."  src="<%=  (curUser.getUserID() == tradeObject.getReqUser().getUserID()) ? recItemImg : reqItemImg  %>" name="traderItemImg" id="traderItemImg">
                                     <p class="itemName" style="float: right;">Trader's Item</p>
                                 </td>
                             </tr>
@@ -621,8 +620,6 @@
                 	   <table id="traderInfoTable" name="traderInfoTable">
 	                    <tr>
 	                        <td class="traderInfoTD">
-	                        		<br />
-	                        		<br />
 	                            <img alt="No Picture Available."  src="<%= displayUser.getProfileImage() %>" id="traderThumb" name="traderThumb">
 	                        </td>
 	                    </tr>

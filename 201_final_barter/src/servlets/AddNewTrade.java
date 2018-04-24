@@ -31,7 +31,7 @@ public class AddNewTrade extends HttpServlet {
 		Util util = new Util();
 		
 		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
-		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
+		int reqUserId = curUser.getUserID();
 		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
 		int reqItemId = 1;		// since the user has not chosen what to trade with, set it to one
 		Date reqDate = null;   // req_date

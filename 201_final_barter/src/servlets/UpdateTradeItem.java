@@ -44,16 +44,18 @@ public class UpdateTradeItem extends HttpServlet {
 		//int curTradeId = Integer.parseInt(request.getParameter("tradeId"));
 		//NOTE: you are updating "req" item because this is the "req" user
 		int reqItemId = Integer.parseInt(request.getParameter("reqItemId"));
+		
 
 		//update the trade in the database
 		Trade curTrade = null;
 		curTrade = dbUtil.UpdateLatestTrade(reqItemId);
 		
 		//send the trade over to the page
-		request.setAttribute("trade", curTrade);
-		
+//		request.setAttribute("trade", curTrade);
+
 		//TODO: Map to get trades servlet
-		String pageTo = "/tradePage.jsp";
+//		String pageTo = "/tradePage.jsp";
+		String pageTo = "/GetTrade?tradeId="+curTrade.getTradeId();
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 	}
