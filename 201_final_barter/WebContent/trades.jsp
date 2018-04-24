@@ -92,23 +92,6 @@
 				</div>
 
 				<div id="tradeList">
-					<!-- ====================Single trade=================== -->
-					<div class="trade">
-						<div class="imgDiv">
-							<a href="#" class="tradeLink">
-								<img src="test.jpg" class="sellerImg">
-								<span class="linkSpan"></span>
-							</a>
-						</div>
-						<div class="detailDiv">
-							From: sellerName<br>
-							Date: 4.13.2018<br>
-							itemName1 for itemName2
-						</div>
-						<div class="buttonDiv" id="tradeDelete">
-						<a href="#" class="anchorBtn textStyle">Delete</a>
-						</div>
-					</div>
 
 					<!-- ====================Single trade=================== -->
 			<% for(int i=0; i<trades.size(); i++){ %>
@@ -125,9 +108,6 @@
 							Date: <%= trades.get(i).getDate() %><br>
 							<%= trades.get(i).getReqItem().getItemName() %> for <%= trades.get(i).getRecItem().getItemName() %>
 						</div>
-						<div class="buttonDiv" id="tradeDelete">
-						<a href="DeleteTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="anchorBtn textStyle">Delete</a>
-						</div>
 					</div>
 				<% } else{ %>
 					<div class="trade">
@@ -143,9 +123,6 @@
 							<strong class="tradeItems"><%= trades.get(i).getReqItem().getItemName() %> </strong>
 							<font class="tradeItems">for </font>
 							<strong class="tradeItems"><%= trades.get(i).getRecItem().getItemName() %> </strong>
-						</div>
-						<div class="buttonDiv" id="tradeDelete">
-						<a href="DeleteTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="anchorBtn textStyle">Delete</a>
 						</div>
 					</div>
 				<% } %>		

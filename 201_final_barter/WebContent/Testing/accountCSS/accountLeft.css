@@ -7,6 +7,7 @@
 				margin-right: auto;
 				width: 1200px;
 				background-color: #F2F2F2;
+				font-family: Avenir;
 
 				height: 800px;
 			}
@@ -31,12 +32,12 @@
 				/*margin-top: 50px;*/
 				padding-top: 25px;
 				text-align: center;
-				font:  bold 23px arial;
+				font:  bold 23px Avenir;
 				border-bottom: 3px solid #005AC3;
 			}
 			.textStyle{
 				color: white;
-				font: 20px arial;
+				font: 20px Avenir;
 			}
 			.buttonDiv{
 				width: 250px;
@@ -82,7 +83,7 @@
 				margin-left: 20px;
 
 				font-size: 23px;
-				font-family: arial;
+				font-family: Avenir;
 				font-weight: bold;
 			}
 			/*-------------------------*/
