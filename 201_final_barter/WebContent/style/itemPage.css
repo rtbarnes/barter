@@ -108,3 +108,8 @@
 }
 /* END STYLE FOR RELATED ITEMS DISPLAY */
 
+#googleMapsContainer{
+    width: 180px;
+    height: 180px;
+    background-color: #F7F7F7;
+}

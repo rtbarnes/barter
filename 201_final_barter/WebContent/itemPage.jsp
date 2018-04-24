@@ -79,7 +79,7 @@
                         <!-- holds the window from the GMaps API -->
                         <div name="googleMapsContainer" id="googleMapsContainer"></div>
                         <!-- temporary image -->
-                        <img alt="No Picture Available."  src="stock%20images/mapstand-in.png" style="height:180px; width: 180px;">
+                        <!-- <img alt="No Picture Available."  src="stock%20images/mapstand-in.png" style="height:180px; width: 180px;"> -->
                         
                         <br />
                         <span name="zipCode" id="zipCode" style="font-weight:bold; font-size: 35px; color: #1B1464;"><%=seller.getLocation() %></span><br />
@@ -174,5 +174,43 @@
             </div>
         </div>
         
+         <script>
+            function initMap() {
+                console.log("I'm ready!!!!!!!");
+                
+                var map = new google.maps.Map( 
+                    document.querySelector("#googleMapsContainer"), 
+                    { center: {lat: 34.05, lng: -118.24 }, zoom: 15, zoomControl: true }
+                );
+
+                var marker = new google.maps.Marker( {map: map} );
+
+                window.onload = function() {
+
+                    // var addressInput = document.querySelector("#address").value.trim();
+                    var addressInput = "<%= seller.getLocation()%>";
+
+                    var geocodeObj = new google.maps.Geocoder();
+                    geocodeObj.geocode(
+                        {address: addressInput}, 
+                        function(results) { // This anonymous function runs when geocode() is done (aka it is done converting the address into a latlng obj)
+                            console.log(results);
+                            console.log("LatLng: ");
+                            console.log(results[0].geometry.location.lat());
+                            console.log(results[0].geometry.location.lng());
+
+
+                            map.setCenter(results[0].geometry.location);
+                            marker.setPosition(results[0].geometry.location);
+
+                            marker.setAnimation(google.maps.Animation.BOUNCE);
+                            
+                        }
+                    );
+                    return false;
+                }
+            } // end of initMap()
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDynRsjTcTXk9FrA-SH7kJ3GO33mWdkqTg&callback=initMap"></script>
     </body>
 </html>
