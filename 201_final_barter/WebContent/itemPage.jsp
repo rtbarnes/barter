@@ -52,14 +52,14 @@
         <div name="mainContent" id="mainContent">
         
             <div name="backButtonContainer" id="backButtonContainer">
-                <button name="backButton" id="backButton"><a href="itemResults.html" style="text-decoration: none; color: white;">&lt; Back to Results</a></button>
+                <button name="backButton" id="backButton"><a href="./DisplayItemResults" style="text-decoration: none; color: white;">&lt; Back to Results</a></button>
             </div>
 
             <table name="singleResultContainer" id="singleResultContainer">
                 <tr>
                     <td class="singleTd">
                         <div name="photosContainer">
-                            <img alt="No Picture Available."  src="stock%20images/berriesgranola.jpg" name="enlargedPhoto" id="enlargedPhoto">
+                            <img alt="No Picture Available."  src="<%=item.getImage() %>" name="enlargedPhoto" id="enlargedPhoto">
                             <!--
                             <table><tr><td class="singleTd" style="padding-left:6px;">
                                 <button class="thumbButton" onclick=""><img alt="No Picture Available."  src="stock%20images/antiquecamera.jpg" name="thumbnail" class="thumbnail" style="margin-left:4px;"></button>

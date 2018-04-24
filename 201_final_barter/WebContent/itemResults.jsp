@@ -80,7 +80,7 @@
                         <td>
                             <table class="itemResultTable">
                                 <tr>
-                                    <td class="imgContainer"><img src="stock%20images/antiquecamera.jpg" name="resultThumb" id="resultThumb" class="resultThumb"></td>
+                                    <td class="imgContainer"><img src="<%=items.get(i).getImage() %>" name="resultThumb" id="resultThumb" class="resultThumb"></td>
                                     <td class="itemInfoContainer">
                                     	<%String itemURL = "./DisplaySingleItem?itemId=" + items.get(i).getItemId(); %>
                                         <a class="itemResultLabel" id="itemLink" name="itemLink" href="<%=itemURL%>"><%=items.get(i).getItemName() %></a>
@@ -88,7 +88,7 @@
                                         <span class="itemResultDescription" name="description" id="description"><%=items.get(i).getDescription() %></span><br />
                                     </td>
                                     <td class="traderInfoContainer">
-                                        <img src="stock%20images/blackbox.png" name="traderThumb" id="traderThumb">
+                                        <img src="<%=sellers.get(i).getProfileImage() %>" name="traderThumb" id="traderThumb">
                                         <br />
                                         <span name="traderName" id="traderName"><%=sellers.get(i).getFirstName() + " " + sellers.get(i).getLastName() %></span>
                                         <br />
