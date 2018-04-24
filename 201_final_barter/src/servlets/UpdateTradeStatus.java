@@ -41,6 +41,7 @@ public class UpdateTradeStatus extends HttpServlet {
 		
 		//extract the status
 		int status = Integer.parseInt(request.getParameter("status"));
+
 		//extract the tradeID
 		int tradeId = Integer.parseInt(request.getParameter("tradeId"));
 		
@@ -48,8 +49,16 @@ public class UpdateTradeStatus extends HttpServlet {
 		curTrade = dbUtil.UpdateTradeStatus(tradeId, status);
 		
 		if (status == 1) {
+			System.out.println("items are traded");
 			dbUtil.updateItemStatus(curTrade.getRecItem().getItemId(), true);
 			dbUtil.updateItemStatus(curTrade.getReqItem().getItemId(), true);
+		}
+		
+		//mark items as sold if necessary
+		if (status == 1) {
+			System.out.println("items are traded");
+			dbUtil.updateItemStatus(util.getTradeByTradeId(tradeId).getRecItem().getItemId(), true);
+			dbUtil.updateItemStatus(util.getTradeByTradeId(tradeId).getReqItem().getItemId(), true);
 		}
 		
 		request.setAttribute("trade", curTrade);

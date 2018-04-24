@@ -104,9 +104,11 @@
 							</a>
 						</div>
 						<div class="detailDiv">
-							To: <%= trades.get(i).getRecUser().getUsername() %><br>
-							Date: <%= trades.get(i).getDate() %><br>
-							<%= trades.get(i).getReqItem().getItemName() %> for <%= trades.get(i).getRecItem().getItemName() %>
+							<strong class="tradeItems">To: <%= trades.get(i).getRecUser().getUsername() %></strong><br>
+							<font class="tradeItems">Date: <%= trades.get(i).getDate() %></font><br>
+							<strong class="tradeItems"><%= trades.get(i).getReqItem().getItemName() %></strong>
+							<font class="tradeItems"> for </font>
+							<strong class="tradeItems"><%= trades.get(i).getRecItem().getItemName() %></strong>
 						</div>
 					</div>
 				<% } else{ %>
@@ -118,8 +120,8 @@
 							</a>
 						</div>
 						<div class="detailDiv">
-							From: <%= trades.get(i).getReqUser().getUsername() %><br>
-							Date: <%= trades.get(i).getDate() %><br>
+							<strong class="tradeItems">From: <%= trades.get(i).getReqUser().getUsername() %></strong><br>
+							<font class="tradeItems">Date: <%= trades.get(i).getDate() %></font><br>
 							<strong class="tradeItems"><%= trades.get(i).getReqItem().getItemName() %> </strong>
 							<font class="tradeItems">for </font>
 							<strong class="tradeItems"><%= trades.get(i).getRecItem().getItemName() %> </strong>
