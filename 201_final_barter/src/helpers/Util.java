@@ -257,7 +257,6 @@ public class Util {
 	}
 
 	
-	
 	//TODO: test this function
 	public ArrayList<Trade> getTradesByReqId(int req_user_id) {
 		
@@ -344,9 +343,6 @@ public class Util {
 		return trades;
 	}
 
-		
-	
-	
 	public void close() {
 		try {
 			if(rs!=null)
