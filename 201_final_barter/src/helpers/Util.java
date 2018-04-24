@@ -23,8 +23,8 @@ public class Util {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException cnfe ) {
 			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
@@ -131,8 +131,10 @@ public class Util {
 				st = conn.createStatement();
 				ps = conn.prepareStatement(" SELECT item_id, user_id, item_name, description, image, category_id, sold" + 
 						" FROM Items "
-						+ "WHERE user_id = ?");
+						+ "WHERE user_id = ?"
+						+ " AND sold = ?");
 				ps.setInt(1, userId);
+				ps.setBoolean(2, false);
 				rs = ps.executeQuery();
 				
 				while(rs.next()) {
