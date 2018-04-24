@@ -21,7 +21,7 @@ public class DisplayItemResults extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	//for queried SEARCHES vs. null searches
-	
+	String searchQuery = null;
 		
 	Util util = new Util();
 	
