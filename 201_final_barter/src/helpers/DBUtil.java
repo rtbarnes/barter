@@ -23,8 +23,8 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -313,7 +313,7 @@ public class DBUtil {
 			ps = conn.prepareStatement(updateStatusSQL);
 			ps.setInt(1, status);
 			ps.setInt(2, tradeId);
-			ps.executeQuery();
+			ps.executeUpdate();
 			
 			Util util = new Util();
 			
@@ -322,11 +322,11 @@ public class DBUtil {
 			
 			return result;
 		} catch (SQLException sqle) {
-			System.out.println("sqle in updateLatesTrade: " + sqle.getMessage());
+			System.out.println("sqle in UpdateTradeStatus: " + sqle.getMessage());
 			
 			return null;
 		} catch (Exception e) {
-			System.out.println("e in udpateLatesTrade: " + e.getMessage());
+			System.out.println("e in UpdateTradeStatus: " + e.getMessage());
 			
 			return null;
 		}

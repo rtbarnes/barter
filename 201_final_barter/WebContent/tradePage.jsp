@@ -553,10 +553,10 @@
                                 <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
                                 <% if (acceptRejectButtons) { %>
                                 <td>
-                                    <button class="tradeButton" id="accept" name="accept"><a href="" id="acceptButton" name="acceptButton" class="bottomButton">accept</a></button>
+                                    <button class="tradeButton" id="accept" name="accept"><a href="UpdateTradeStatus?status=1&tradeId=<%=tradeObject.getTradeId() %>" id="acceptButton" name="acceptButton" class="bottomButton">accept</a></button>
                                 </td>
                                 <td>
-                                    <button class="tradeButton" id="reject" name="reject"><a href="" id="rejectButton" name="rejectButton" class="bottomButton">reject</a></button>
+                                    <button class="tradeButton" id="reject" name="reject"><a href="UpdateTradeStatus?status=2&tradeId=<%=tradeObject.getTradeId() %>" id="rejectButton" name="rejectButton" class="bottomButton">reject</a></button>
                                 </td>                           
                               
                                 <!-- IF VIEWING A TRADE "TO" SOMEONE -->
