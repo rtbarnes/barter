@@ -63,3 +63,7 @@
 div.trade:hover{
 	background-color: #4A90E2;
 }
+.tradeItems{
+	font-size: 17px;
+	word-wrap: break-word;
+}

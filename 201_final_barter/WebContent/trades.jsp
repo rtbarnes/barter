@@ -140,7 +140,9 @@
 						<div class="detailDiv">
 							From: <%= trades.get(i).getReqUser().getUsername() %><br>
 							Date: <%= trades.get(i).getDate() %><br>
-							<%= trades.get(i).getReqItem().getItemName() %> for <%= trades.get(i).getRecItem().getItemName() %>
+							<strong class="tradeItems"><%= trades.get(i).getReqItem().getItemName() %> </strong>
+							<font class="tradeItems">for </font>
+							<strong class="tradeItems"><%= trades.get(i).getRecItem().getItemName() %> </strong>
 						</div>
 						<div class="buttonDiv" id="tradeDelete">
 						<a href="DeleteTrade?tradeId=<%=trades.get(i).getTradeId() %>" class="anchorBtn textStyle">Delete</a>
