@@ -80,6 +80,11 @@
     vertical-align: top;
 }
 
+.itemResultDescription {
+	word-wrap: break-word;
+	width: inherit;
+}
+
 .itemResultLabel {
     color: #1B1464;
     font-family: Avenir-Heavy;

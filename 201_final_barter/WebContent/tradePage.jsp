@@ -476,8 +476,9 @@
                 </p>
                 
                 <div name="tableTradeContainer" id="tableTradeContainer">
-                    <table name="onGoingTradesTable" id="onGoingTradesTable">   
-                    <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                    <table name="onGoingTradesTable" id="onGoingTradesTable">
+
+					<!-- 
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
@@ -486,8 +487,6 @@
                             </a>
                         </td>
                     </tr>
-                        
-                    <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
@@ -496,7 +495,8 @@
                             </a>
                         </td>
                     </tr>
-                        
+                     -->
+
                     <!-- add more trades to column here -->
                     <% for (int i = 0; i < tradesForUser.size(); i++) { %>
                     		<% //if the trade is TO someone else %>
@@ -515,7 +515,7 @@
 						   <tr class="anOnGoingTrade">
 	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
 	                            <a href="" class="tradeItemLink">
-	                                <div class="toLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
+	                                <div class="fromLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
 	                                <div class="tradeDescription"><%= tradesForUser.get(i).getRecItem().getItemName() %> for <%= tradesForUser.get(i).getReqItem().getItemName() %></div><br />
 	                            </a>
 	                        </td>
@@ -534,7 +534,7 @@
                         <table name="itemTable" id="itemTable">
                             <tr>
                                 <td>
-                                    <img alt="No Picture Available."  src="stock%20images/whitebox.png" name="yourItemImg" id="yourItemImg">
+                                    <img alt="No Picture Available."  src="<%= (curUser.getUserID() == tradeObject.getReqUser().getUserID()) ? reqItemImg : recItemImg %>" name="yourItemImg" id="yourItemImg">
                                     <p class="itemName" style="float: left;">Your Item</p>
                                 </td>
                                 <td>
