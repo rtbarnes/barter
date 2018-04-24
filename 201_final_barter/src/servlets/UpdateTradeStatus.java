@@ -47,6 +47,11 @@ public class UpdateTradeStatus extends HttpServlet {
 		Trade curTrade = null;
 		curTrade = dbUtil.UpdateTradeStatus(tradeId, status);
 		
+		if (status == 1) {
+			dbUtil.updateItemStatus(curTrade.getRecItem().getItemId(), true);
+			dbUtil.updateItemStatus(curTrade.getReqItem().getItemId(), true);
+		}
+		
 		request.setAttribute("trade", curTrade);
 		
 		String pageTo = "/GetTrade";

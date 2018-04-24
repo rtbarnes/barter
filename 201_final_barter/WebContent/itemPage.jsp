@@ -32,7 +32,7 @@
                 </form>
                 
                 <div id="linkContainer" name="linkContainer">
-                    <a class="headerButtons" name="button1" id="button1" href="./PostItem" style="display: inline;">+ Post Item</a>
+                    <a class="headerButtons" name="button1" id="button1" href="postItem.html" style="display: inline;">+ Post Item</a>
 
                     <a class="headerButtons" name="button2" id="button2" href="./DisplayTrades" style="display: inline;">My Trades</a>
 
