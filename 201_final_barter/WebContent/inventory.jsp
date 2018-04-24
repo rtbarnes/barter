@@ -92,6 +92,7 @@
 
 
 					<!-- =============A single item=========================== -->
+					<!-- 
 					<div class="itemDiv">
 						<div class="editLink">
 							<a href="#">Remove</a> 
@@ -104,6 +105,7 @@
 							<div class="description">sadfasdf saf sadf asdfasdf sdf asdf asdf asdf asdfas df asdf asdf asdfasdfasfas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasd fas df asf asdfasdfsdaf asdf fas fasf asdf asd fasd asdf das fasdfasdfsdf sdf asdfasdf asdf asdf asdfasfs fsadfasdf asdf asd sdfsdf asdfsdfhthis this sos eonr  asf a asd sad.....</div>
 						</div>
 					</div>
+					 -->
 					<!-- ==============A single item========================== -->
 					<%for(int i=0; i<items.size(); i++){ %>
 					<div class="itemDiv">

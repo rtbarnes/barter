@@ -503,7 +503,7 @@
                     		<% if (tradesForUser.get(i).getReqUser().getUserID() == curUser.getUserID()) { %>
                     		<tr class="anOnGoingTrade">
 	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-	                            <a href="" class="tradeItemLink">
+	                            <a href="GetTrade?tradeId=<%= tradesForUser.get(i).getTradeId()%>" class="tradeItemLink">
 	                                <div class="toLabel">TO: <%= tradesForUser.get(i).getRecUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
 	                                <div class="tradeDescription"><%= tradesForUser.get(i).getReqItem().getItemName() %> for <%= tradesForUser.get(i).getRecItem().getItemName() %></div><br />
 	                            </a>
@@ -514,7 +514,7 @@
 						   else { %>
 						   <tr class="anOnGoingTrade">
 	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
-	                            <a href="" class="tradeItemLink">
+	                            <a href="GetTrade?tradeId=<%= tradesForUser.get(i).getTradeId()%>" class="tradeItemLink">
 	                                <div class="fromLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
 	                                <div class="tradeDescription"><%= tradesForUser.get(i).getRecItem().getItemName() %> for <%= tradesForUser.get(i).getReqItem().getItemName() %></div><br />
 	                            </a>
@@ -599,16 +599,18 @@
 	                
                	    <div name="inventoryTableContainer" id="inventoryTableContainer">
                     
-	                    <!-- IF TRADE HAS NOT BEEN SENT ALREADY -->
-	                    <label class="container">Item One
-	                      <input type="radio" name="radioInventory" >
-	                      <span class="checkmark"></span>
-	                    </label>
 	                    <% for (int i = 0; i < inventory.size(); i++) { %>
+	                    		<% if (i == 0) { %>
+	                    		<label class="container"><%= inventory.get(i).getItemName() %>
+								<input type="radio" name="reqItemId" form="addNewTradeForm" class="item" value="<%= inventory.get(i).getItemId() %>" checked>
+								<span class="checkmark"></span>
+							</label>
+	                    		<% } else {%>
 							<label class="container"><%= inventory.get(i).getItemName() %>
 								<input type="radio" name="reqItemId" form="addNewTradeForm" class="item" value="<%= inventory.get(i).getItemId() %>">
 								<span class="checkmark"></span>
 							</label>
+							<% } %>
 	                    <% } %>
                                       
                 	   </div>
