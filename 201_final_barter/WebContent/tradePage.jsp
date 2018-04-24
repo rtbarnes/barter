@@ -274,9 +274,6 @@
 			    background-color: white;
 			}
 			
-			#aboutMessage {
-			    display: none;
-			}
 			
 			/*BEGIN STYLE FOR trader INFO COLUMN ON RIGHT*/
 			#traderInfoTable {
@@ -393,6 +390,7 @@
 			
         		Trade tradeObject = (Trade) request.getAttribute("trade");
         		String recItemImg = "";
+        		String reqItemImg = "";
         		ArrayList<Trade> tradesForUser = (ArrayList<Trade>) request.getAttribute("tradesForUser");
         		
         		if (tradeObject == null) {
@@ -400,6 +398,7 @@
         		}
         		else {
             		recItemImg = tradeObject.getRecItem().getImage(); //trader's item image
+            		reqItemImg = tradeObject.getReqItem().getImage(); //your item image
         		}
         		
         		//determine what buttons to display in the tradePage
@@ -459,7 +458,7 @@
 
                     <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo" style="display: inline;">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="Logout" style="display: inline;">Log Out</a>
                    
                 </div>
                 
@@ -477,8 +476,9 @@
                 </p>
                 
                 <div name="tableTradeContainer" id="tableTradeContainer">
-                    <table name="onGoingTradesTable" id="onGoingTradesTable">   
-                    <!-- IF VIEWING A TRADE "FROM" SOMEONE -->
+                    <table name="onGoingTradesTable" id="onGoingTradesTable">
+
+					<!-- 
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
@@ -487,8 +487,6 @@
                             </a>
                         </td>
                     </tr>
-                        
-                    <!-- IF VIEWING A TRADE "TO" SOMEONE -->
                     <tr class="anOnGoingTrade">
                         <td name="onGoingTradeItem" id="onGoingTradeItem">
                             <a href="" class="tradeItemLink">
@@ -497,7 +495,8 @@
                             </a>
                         </td>
                     </tr>
-                        
+                     -->
+
                     <!-- add more trades to column here -->
                     <% for (int i = 0; i < tradesForUser.size(); i++) { %>
                     		<% //if the trade is TO someone else %>
@@ -516,7 +515,7 @@
 						   <tr class="anOnGoingTrade">
 	                        <td name="onGoingTradeItem" id="onGoingTradeItem">
 	                            <a href="" class="tradeItemLink">
-	                                <div class="toLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
+	                                <div class="fromLabel">FROM: <%= tradesForUser.get(i).getReqUser().getUsername() %></div><div class="dateLabel"><%= tradesForUser.get(i).getDate() %></div><br />
 	                                <div class="tradeDescription"><%= tradesForUser.get(i).getRecItem().getItemName() %> for <%= tradesForUser.get(i).getReqItem().getItemName() %></div><br />
 	                            </a>
 	                        </td>
@@ -535,14 +534,14 @@
                         <table name="itemTable" id="itemTable">
                             <tr>
                                 <td>
-                                    <img alt="No Picture Available."  src="stock%20images/whitebox.png" name="yourItemImg" id="yourItemImg">
+                                    <img alt="No Picture Available."  src="<%= (curUser.getUserID() == tradeObject.getReqUser().getUserID()) ? reqItemImg : recItemImg %>" name="yourItemImg" id="yourItemImg">
                                     <p class="itemName" style="float: left;">Your Item</p>
                                 </td>
                                 <td>
                                     <img alt="No Picture Available."  src="stock%20images/tradearrow.png" name="arrow" id="arrow">
                                 </td>
                                 <td>
-                                    <img alt="No Picture Available."  src="<%= recItemImg  %>" name="traderItemImg" id="traderItemImg">
+                                    <img alt="No Picture Available."  src="<%=  (curUser.getUserID() == tradeObject.getReqUser().getUserID()) ? recItemImg : reqItemImg  %>" name="traderItemImg" id="traderItemImg">
                                     <p class="itemName" style="float: right;">Trader's Item</p>
                                 </td>
                             </tr>
@@ -621,8 +620,6 @@
                 	   <table id="traderInfoTable" name="traderInfoTable">
 	                    <tr>
 	                        <td class="traderInfoTD">
-	                        		<br />
-	                        		<br />
 	                            <img alt="No Picture Available."  src="<%= displayUser.getProfileImage() %>" id="traderThumb" name="traderThumb">
 	                        </td>
 	                    </tr>

@@ -84,18 +84,18 @@
                                     <td class="itemInfoContainer">
                                     	<%String itemURL = "./DisplaySingleItem?itemId=" + items.get(i).getItemId(); %>
                                         <a class="itemResultLabel" id="itemLink" name="itemLink" href="<%=itemURL%>"><%=items.get(i).getItemName() %></a>
-                                        <span class="zipCodeLabel"><%=sellers.get(i).getLocation() %></span><br />
-                                        <span class="itemResultDescription" name="description" id="description"><%=items.get(i).getDescription() %></span><br />
+                                        <div class="zipCodeLabel"><%=sellers.get(i).getLocation() %></div><br />
+                                        <div class="itemResultDescription" name="description" id="description"><%=items.get(i).getDescription() %></div><br />
                                     </td>
                                     <td class="traderInfoContainer">
                                         <img src="<%=sellers.get(i).getProfileImage() %>" name="traderThumb" id="traderThumb">
                                         <br />
-                                        <span name="traderName" id="traderName"><%=sellers.get(i).getFirstName() + " " + sellers.get(i).getLastName() %></span>
+                                        <div name="traderName" id="traderName"><%=sellers.get(i).getFirstName() + " " + sellers.get(i).getLastName() %></div>
                                         <br />
-                                        <span name="traderRating" id="traderRating">Rating: X.xx</span>
+                                        <div name="traderRating" id="traderRating">Rating: X.xx</div>
                                         <br />
                                         <br />
-                                        <span name="datePosted" id="datePosted">Posted X Days Ago</span>
+                                        <div name="datePosted" id="datePosted">Posted X Days Ago</div>
                                     </td>
                                 </tr>
                             </table>

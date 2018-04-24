@@ -29,7 +29,7 @@ public class DisplayItemResults extends HttpServlet {
 			
 		//for queried SEARCHES vs. null searches
 		String searchQuery = null;
-		searchQuery = (String) request.getParameter("searchQuery");
+		searchQuery = (String) request.getParameter("searchBar");
 		
 		//then there has been a queried search!
 		if (searchQuery != null) {
