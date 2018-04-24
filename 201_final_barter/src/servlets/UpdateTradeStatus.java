@@ -21,11 +21,6 @@ import model.User;
 @WebServlet("/UpdateTradeStatus")
 public class UpdateTradeStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public UpdateTradeStatus() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//ACTUAL WAY, WAITING UNTIL WE CAN ACCESS ACROSS MULTIPLE PAGES TO TEST
@@ -39,7 +34,7 @@ public class UpdateTradeStatus extends HttpServlet {
 		
 		int userID = currentUser.getUserID(); //extract ID from whoever's logged in
 		
-		System.out.println("Trade Page for userID = "+userID);
+		System.out.println("Trade Page for userID = " + userID);
 		
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
