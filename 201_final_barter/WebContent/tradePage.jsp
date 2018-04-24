@@ -259,7 +259,7 @@
 			    font-family: Avenir-Heavy;
 			    font-size: 16px;
 			    color: white;
-			    /*background-color: #1B1464;*/
+			    background-color: #1B1464;
 			    border-radius: 8px;
 			    display: inline-block;
 			}

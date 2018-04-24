@@ -5,7 +5,7 @@
 	/*margin-top: 50px;*/
 	padding-top: 25px;
 	text-align: center;
-	font:  bold 45px arial;
+	font:  bold 45px Avenir;
 	border-bottom: 3px solid #005AC3;
 }
 #inventoryList{
@@ -30,7 +30,7 @@
 	/*text-decoration: none;*/
 }
 .editLink a{
-	font: 17px arial;
+	font: 17px Avenir;
 	color: grey;
 	text-decoration: none;
 }
@@ -45,7 +45,7 @@
 	height: 60px;
 }
 .nameLink{
-	font: bold 17px arial;
+	font: bold 17px Avenir;
 	text-decoration: none;
 
 	color: #1B1464;
