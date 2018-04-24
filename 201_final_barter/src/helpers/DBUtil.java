@@ -23,8 +23,8 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=root&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/trojanTrades?user=root&password=mysql201&useSSL=false");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -336,7 +336,7 @@ public class DBUtil {
 	public void updateItemStatus(int itemId, boolean status) {
 		try {
 			String updateStatusSQL = "UPDATE items" + 
-									" SET status = ?" +
+									" SET sold = ?" +
 									" WHERE item_id = ?;";
 			ps = conn.prepareStatement(updateStatusSQL);
 			ps.setBoolean(1, status);
