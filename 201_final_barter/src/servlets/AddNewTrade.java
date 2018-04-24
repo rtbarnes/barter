@@ -36,15 +36,8 @@ public class AddNewTrade extends HttpServlet {
 		int reqItemId = 1;		// since the user has not chosen what to trade with, set it to one
 		Date reqDate = null;   // req_date
 		
-////		// for testing
-//		int recUserId = 8;
-//		int reqUserId = curUser.getUserID();
-//		int recItemId = 1;
-//		int reqItemId = 2;	   // since the user has not chosen what to trade with, set it to one
-//		Date reqDate = null; // req_date
 		
 		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, -1);
-		//Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, 0);
 		ArrayList<Item> inventory = util.getItemsByUserId(reqUserId);
 		ArrayList<Trade> tradesForUser = util.getAllTradesForUser(reqUserId);
 		
@@ -54,12 +47,6 @@ public class AddNewTrade extends HttpServlet {
 		request.setAttribute("trade", curTrade);
 		request.setAttribute("inventory", inventory);
 		request.setAttribute("tradesForUser", tradesForUser);
-		
-		//DEBUG
-//		System.out.println(curTrade.getRecItem().getItemName());
-//		System.out.println(curTrade.getRecUser().getUsername());
-//		System.out.println(curTrade.getReqUser().getUsername());
-//		System.out.println(curTrade.getRecItem().getImage());
 		
 	    	String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
