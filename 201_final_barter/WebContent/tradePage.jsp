@@ -459,7 +459,7 @@
 
                     <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo" style="display: inline;">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="" style="display: inline;">Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="Logout" style="display: inline;">Log Out</a>
                    
                 </div>
                 
