@@ -30,18 +30,18 @@ public class AddNewTrade extends HttpServlet {
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
 		
-//		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
-//		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
-//		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
-//		int reqItemId = 1;		// since the user has not chosen what to trade with, set it to one
-//		Date reqDate = null;   // req_date
+		int recUserId = Integer.parseInt(request.getParameter("recUserId"));
+		int reqUserId = Integer.parseInt(request.getParameter("reqUserId"));
+		int recItemId = Integer.parseInt(request.getParameter("recItemId"));
+		int reqItemId = 1;		// since the user has not chosen what to trade with, set it to one
+		Date reqDate = null;   // req_date
 		
-//		// for testing
-		int recUserId = 8;
-		int reqUserId = curUser.getUserID();
-		int recItemId = 1;
-		int reqItemId = 2;	   // since the user has not chosen what to trade with, set it to one
-		Date reqDate = null; // req_date
+////		// for testing
+//		int recUserId = 8;
+//		int reqUserId = curUser.getUserID();
+//		int recItemId = 1;
+//		int reqItemId = 2;	   // since the user has not chosen what to trade with, set it to one
+//		Date reqDate = null; // req_date
 		
 		Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, -1);
 		//Trade curTrade = dbUtil.addTrade(reqUserId, recUserId, reqItemId, recItemId, reqDate, 0);

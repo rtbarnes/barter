@@ -34,8 +34,8 @@ public class logInValidate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pageTo= "";
 		PrintWriter out = response.getWriter(); 
-		String un=request.getParameter("username").trim();
-		String pw=request.getParameter("password").trim();
+		String un = request.getParameter("username").trim();
+		String pw = request.getParameter("password").trim();
 		
 			Util UtilObject= new Util();
 //			DBUtil dbUtil = new DBUtil();

@@ -19,7 +19,12 @@ public class DisplayItemResults extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Util util = new Util();
+	
+	//for queried SEARCHES vs. null searches
+	
+		
+	Util util = new Util();
+	
     	ArrayList<Item> items = util.getAllItems();
     	
     	ArrayList<User> users = new ArrayList<User>();
