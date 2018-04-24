@@ -72,7 +72,7 @@
                         </div>
                     </td>
                     <td class="singleTd" style="padding-top: 10px; width: 660px;">
-                    	<%String tradeUrl ="AddNewTrade?recItemId="+item.getItemId()+"?recUserId="+seller.getUserID();%>
+                    	<%String tradeUrl ="AddNewTrade?recItemId="+item.getItemId()+"&recUserId="+seller.getUserID();%>
                         <div style="text-align: right; width: 640px;"><button name="tradeButton" id="tradeButton"><a href="<%=tradeUrl %>" name="tradeLink" id="tradeLink">Trade</a></button><br/></div>
                         <div style="text-align: left; width: 640px;"><span name="resultName" id="resultName"><%=item.getItemName()%></a></div>
                         <p name="description"><%=item.getDescription()%></p>
