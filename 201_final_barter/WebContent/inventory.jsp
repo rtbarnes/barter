@@ -32,11 +32,11 @@
                 <div id="linkContainer" name="linkContainer">
                     <a class="headerButtons" name="button1" id="button1" href="postItem.html">+ Post Item</a>
 
-                    <a class="headerButtons" name="button2" id="button2" href="trades.jsp">My Trades</a>
+                    <a class="headerButtons" name="button2" id="button2" href="DisplayTrades">My Trades</a>
 
-                    <a class="headerButtons" name="button3" id="button3" href="accountInfo.jsp">My Account</a>
+                    <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="">Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="Logout">Log Out</a>
                 </div>
                 
             </div>

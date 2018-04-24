@@ -35,7 +35,7 @@
 
                     <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="">Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="Logout">Log Out</a>
                 </div>
                 
             </div>
