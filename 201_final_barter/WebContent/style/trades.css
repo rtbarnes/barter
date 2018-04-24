@@ -5,22 +5,25 @@
 	margin-bottom: 50px;
 	padding-top: 25px;
 	text-align: center;
-	font:  bold 45px Avenir;
+	font:  bold 45px arial;
 	border-bottom: 3px solid #005AC3;
 }
 #tradeList{
-	width: 560px;
+	width: 650px;
 	height: 650px;
 	margin-left: 150px;
 	/*background-color: pink;*/
 	overflow-x: hidden;
 }
 .trade{
-	width: 540px;
+	width: 650px;
 	height: 70px;
 	background-color: white;
 	margin-bottom: 10px;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 20px;
 }
 .imgDiv{
 	width: 65px;
@@ -47,12 +50,12 @@
   z-index: 1;				 
 }
 .detailDiv{
-	width: 305px;
+	width: 400px;
 	height: 80px;
 	/*background-color: blue;*/
 	float: left;
 	word-spacing: 10px;
-	font: 20px Avenir;
+	font: 20px arial;
 }
 #tradeDelete{
 	float: left;
