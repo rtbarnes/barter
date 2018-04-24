@@ -1,7 +1,7 @@
 <%@page import="model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Account Info</title>
@@ -25,8 +25,8 @@
             <div class="header" name="header" id="header">
                 <img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail">
                 
-                <form name="searchForm" id="searchForm">
-                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" style="border:none; display:inline;vertical-align:middle;"><i class="fas fa-search" style="font-size: 200%;"></i></button>
+                <form name="searchForm" id="searchForm" action="./DisplayItemResults" method="GET">
+                    <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
                <div id="linkContainer" name="linkContainer">
@@ -36,7 +36,7 @@
 
                     <a class="headerButtons" name="button3" id="button3" href="DisplayAccountInfo">My Account</a>
 
-                    <a class="headerButtons" name="button4" id="button4" href="" >Log Out</a>
+                    <a class="headerButtons" name="button4" id="button4" href="./Logout" >Log Out</a>
                 </div>
                 
             </div>

@@ -27,7 +27,7 @@
             <div class="header" name="header" id="header">
                 <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
-                <form name="searchForm" id="searchForm">
+                <form name="searchForm" id="searchForm" action="./DisplayItemResults" method="GET">
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
