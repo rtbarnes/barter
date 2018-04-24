@@ -261,7 +261,6 @@ public class DBUtil {
 		}
 	}
 	
-
 	public Trade UpdateLatestTrade(int reqItemId) {
 		String tradeIdSql = "SELECT MAX(trade_id) AS trade_id from trades;";
 		int latestTradeId = 0;
