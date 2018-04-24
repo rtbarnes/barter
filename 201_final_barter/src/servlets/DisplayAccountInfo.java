@@ -19,35 +19,36 @@ public class DisplayAccountInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	HttpSession session = request.getSession(true);
-    	User curUser = (User) session.getAttribute("user");
-    	int userId = curUser.getUserID();
-    	System.out.println("displaying user: " + userId);
-
-    	DBUtil dbUtil = new DBUtil();
-    	User user = dbUtil.getUserByUserId(userId);
-
-    	String firstName = user.getFirstName();
-    	String lastName = user.getLastName();
-    	String email = user.getEmail();
-    	String location = user.getLocation();
-    	String username = user.getUsername();	// also to be displayed on the left
-    	String imagePath = user.getProfileImage();
     	
-    	request.setAttribute("firstName", firstName);
-    	request.setAttribute("lastName", lastName);
-    	request.setAttribute("email", email);
-    	request.setAttribute("location", location);
-    	request.setAttribute("username", username);
-    	request.setAttribute("profileImage", imagePath);
-    	
-    	System.out.println(firstName + lastName + "---" + imagePath);
-    	
-    	dbUtil.close();
-    	
-    	String pageTo = "/accountInfo.jsp";
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
-		dispatcher.forward(request, response);
-    }
+	    	HttpSession session = request.getSession(true);
+	    	User curUser = (User) session.getAttribute("user");
+	    	int userId = curUser.getUserID();
+	    	System.out.println("displaying user: " + userId);
+	
+	    	DBUtil dbUtil = new DBUtil();
+	    	User user = dbUtil.getUserByUserId(userId);
+	
+	    	String firstName = user.getFirstName();
+	    	String lastName = user.getLastName();
+	    	String email = user.getEmail();
+	    	String location = user.getLocation();
+	    	String username = user.getUsername();	// also to be displayed on the left
+	    	String imagePath = user.getProfileImage();
+	    	
+	    	request.setAttribute("firstName", firstName);
+	    	request.setAttribute("lastName", lastName);
+	    	request.setAttribute("email", email);
+	    	request.setAttribute("location", location);
+	    	request.setAttribute("username", username);
+	    	request.setAttribute("profileImage", imagePath);
+	    	
+	    	System.out.println(firstName + lastName + "---" + imagePath);
+	    	
+	    	dbUtil.close();
+	    	
+	    	String pageTo = "/accountInfo.jsp";
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+			dispatcher.forward(request, response);
+	    }
 
 }
