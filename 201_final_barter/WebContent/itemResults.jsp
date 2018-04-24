@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <head>
         <title>Search Results</title>
+        <link rel="shortcut icon" type="image/x-icon" href="stock%20images/barterlogo.png"/>
         <link href="style/itemResults.css" type="text/css" rel="stylesheet" />
         <link href="style/header.css" type="text/css" rel="stylesheet" />
         <link href="style/footer.css" type="text/css" rel="stylesheet" />

@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<title>Edit Info</title>
+		<link rel="shortcut icon" type="image/x-icon" href="stock%20images/barterlogo.png"/>
 		<link rel="stylesheet" type="text/css" href="style/accountLeft.css"/>
         <link rel="stylesheet" type="text/css" href="style/header.css" />
         <link rel="stylesheet" type="text/css" href="style/footer.css"/>
