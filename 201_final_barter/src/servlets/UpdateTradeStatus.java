@@ -49,7 +49,7 @@ public class UpdateTradeStatus extends HttpServlet {
 		
 		request.setAttribute("trade", curTrade);
 		
-		String pageTo = "/tradePage.jsp";
+		String pageTo = "/GetTrade";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 		
