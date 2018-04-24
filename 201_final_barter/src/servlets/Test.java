@@ -63,8 +63,13 @@ public class Test {
 //		System.out.println(trade.getChat());
 		
 //		util.getAllTradesForUser(2);
-		dbUtil.editUserInfo(2, "123", "123", "456fasd@123", "999");
+//		dbUtil.editUserInfo(2, "123", "123", "456fasd@123", "999");
 		
+		ArrayList<Item> items = dbUtil.getItemsByKeyWord("board");
+		for(Item item : items) {
+			System.out.println(item.getItemName());
+			System.out.println(item.getDescription());
+		}
 		
 		util.close();
 		dbUtil.close();

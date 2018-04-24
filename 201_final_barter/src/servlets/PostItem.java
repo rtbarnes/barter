@@ -99,7 +99,7 @@ public class PostItem extends HttpServlet {
 		request.setAttribute("imagePath", "items/item_" + itemId + ".png"); //for MAC
 		
 		
-		String pageTo = "/test.jsp";
+		String pageTo = "/DisplayInventory";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 		

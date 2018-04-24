@@ -6,8 +6,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
+import model.Item;
 import model.Trade;
 import model.User;
 
@@ -392,6 +394,32 @@ public class DBUtil {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<Item> getItemsByKeyWord(String keyWord){
+		String sql = "SELECT * FROM items WHERE item_name LIKE ? ;";
+		ArrayList<Item> items = new ArrayList<Item>();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + keyWord + "%");
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				int itemId = rs.getInt("item_id");
+				int userId = rs.getInt("user_id");
+				String itemName = rs.getString("item_name");
+				String description = rs.getString("description");
+				String image = rs.getString("image");
+				int categoryId = rs.getInt("category_id");
+				boolean sold = rs.getBoolean("sold");
+				
+				Item newItem = new Item(itemId, userId, itemName, description, image, categoryId, sold);
+				items.add(newItem);
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return items;
 	}
 }
 
