@@ -27,6 +27,13 @@ public class AddNewTrade extends HttpServlet {
 		HttpSession session = request.getSession(true); 
 		User curUser = (User) session.getAttribute("user"); // current user is also reqUser now
 		
+		if (curUser == null) {
+			String pageTo = "/signUp.html";
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
+			dispatcher.forward(request, response);
+			return;
+		}
+		
 		DBUtil dbUtil = new DBUtil();
 		Util util = new Util();
 		
@@ -48,7 +55,7 @@ public class AddNewTrade extends HttpServlet {
 		request.setAttribute("inventory", inventory);
 		request.setAttribute("tradesForUser", tradesForUser);
 		
-	    	String pageTo = "/tradePage.jsp";
+	    String pageTo = "/tradePage.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pageTo);
 		dispatcher.forward(request, response);
 		
