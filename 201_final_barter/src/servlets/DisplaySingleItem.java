@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,8 +26,31 @@ public class DisplaySingleItem extends HttpServlet {
 		Item item = util.getItemByItemId(itemId);
 		User user = util.getUserByUserId(item.getUserId());
 		
+		ArrayList<Item> potentialRelatedItems = new ArrayList<Item>();
+		ArrayList<Item> relatedItems = new ArrayList<Item>();
+		ArrayList<User> relatedSellers = new ArrayList<User>();
+		
+		for(Item curItem : util.getAllItems()) {
+			if(curItem.getUserId() != user.getUserID() && !curItem.isSold()) potentialRelatedItems.add(curItem);
+		}
+		
+		
+		if (!potentialRelatedItems.isEmpty()){
+			System.out.println("pri.size: " + potentialRelatedItems.size());
+			Random rand = new Random();
+			int initSize = potentialRelatedItems.size();
+	       	for (int i = 0; i < initSize; i++) {
+	       		int choice = rand.nextInt(potentialRelatedItems.size());
+	       		relatedItems.add(potentialRelatedItems.remove(choice));
+	       		relatedSellers.add(util.getUserByUserId(relatedItems.get(i).getUserId()));
+	       	}
+		}
+       	
+		
 		request.setAttribute("item", item);
 		request.setAttribute("seller", user);
+		request.setAttribute("relatedItems", relatedItems);
+		request.setAttribute("relatedSellers", relatedSellers);
 		
 		util.close();
     	String pageTo = "/itemPage.jsp?itemId="+itemId;

@@ -1,5 +1,6 @@
 <%@page import="model.*" %>
 <%@page import="java.text.DateFormat" %>
+<%@page import="java.util.ArrayList" %>
 <%@page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -20,7 +21,8 @@
   	<%
        	Item item = (Item) request.getAttribute("item");
        	User seller = (User) request.getAttribute("seller");
-        	
+       	ArrayList<Item> relatedItems = (ArrayList<Item>) request.getAttribute("relatedItems");
+		ArrayList<User> relatedSellers = (ArrayList<User>) request.getAttribute("relatedSellers");       	
     %>
         
         
@@ -91,74 +93,30 @@
             <div name="relatedContainer" id="relatedContainer" style="width: 1050px; margin-left:auto; margin-right:auto;">
                 <span style="font-weight:bold; font-size: 25px; color: #1B1464;">Check Out These Other Items!</span><br />
                 <table name="relatedTable" id="relatedTable">
+                <% for(int j = 0; j < relatedItems.size()/2; j++) { %>
                     <tr>
+                    <% for(int i = 0; i < relatedItems.size() && i < 2; i++) { %>
+                    	<% Item curItem = relatedItems.get(i + j*2); %> 
+                    	<% User curUser = relatedSellers.get(i + j*2);%>
                         <td>
                             <table name="relatedItem" id="relatedItem">
                                 <tr>
-                                    <td><img alt="No Picture Available."  src="" name="relatedThumb1" id="relatedThumb1" class="relatedThumbnail"></td>
+                                    <td><img alt="No Picture Available."  src="<%=curItem.getImage()%>" name="relatedThumb1" id="relatedThumb1" class="relatedThumbnail"></td>
                                     <td class="relatedDescription">
-                                        <a name="itemName1" id="itemName1" class="itemName" href="">Item Name</a>
-                                        <p name="itemDescription1" id="itemDescription1" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
+                                        <a name="itemName1" id="itemName1" class="itemName" href=""><%=curItem.getItemName() %></a>
+                                        <p name="itemDescription1" id="itemDescription1" class="itemDescription"><%=curItem.getDescription() %></p>
                                     </td>
                                     <td class="traderInfo">
-                                        <span name="zipCode1" id="zipCode1" class="relatedZips">XXXXX</span><br />
-                                        <span name="traderName1" id="traderName1" class="relatedtrader">Trader Name</span><br />
+                                        <span name="zipCode1" id="zipCode1" class="relatedZips"><%=curUser.getLocation() %></span><br />
+                                        <span name="traderName1" id="traderName1" class="relatedtrader"><%=curUser.getFirstName() + " " + curUser.getLastName() %></span><br />
                                         <span name="traderRating1" id="traderRating1" class="relatedtrader">X.xx</span><br />
                                     </td>
                                 </tr>
                             </table>
                         </td>
-                        <td>
-                            <table name="relatedItem" id="relatedItem">
-                                <tr>
-                                    <td><img alt="No Picture Available."  src="" name="relatedThumb2" id="relatedThumb2" class="relatedThumbnail"></td>
-                                    <td class="relatedDescription">
-                                        <a name="itemName2" id="itemName2" class="itemName" href="">Item Name</a>
-                                        <p name="itemDescription2" id="itemDescription2" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
-                                    </td>
-                                    <td class="traderInfo">
-                                        <span name="zipCode2" id="zipCode2" class="relatedZips">XXXXX</span><br />
-                                        <span name="traderName2" id="traderName2" class="relatedtrader">Trader Name</span><br />
-                                        <span name="traderRating2" id="traderRating2" class="relatedtrader">X.xx</span><br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
+                    <% } %>
                     </tr>
-                    <tr>
-                        <td>
-                            <table name="relatedItem" id="relatedItem">
-                                <tr>
-                                    <td><img alt="No Picture Available."  src="" name="relatedThumb3" id="relatedThumb3" class="relatedThumbnail"></td>
-                                    <td class="relatedDescription">
-                                        <a name="itemName3" id="itemName3" class="itemName" href="">Item Name</a>
-                                        <p name="itemDescription3" id="itemDescription3" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
-                                    </td>
-                                    <td class="traderInfo">
-                                        <span name="zipCode3" id="zipCode3" class="relatedZips">XXXXX</span><br />
-                                        <span name="traderName3" id="traderName3" class="relatedtrader">Trader Name</span><br />
-                                        <span name="traderRating3" id="traderRating3" class="relatedtrader">X.xx</span><br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td>
-                            <table name="relatedItem" id="relatedItem">
-                                <tr>
-                                    <td><img alt="No Picture Available."  src="" name="relatedThumb4" id="relatedThumb4" class="relatedThumbnail"></td>
-                                    <td class="relatedDescription">
-                                        <a name="itemName4" id="itemName4" class="itemName" href="">Item Name</a>
-                                        <p name="itemDescription4" id="itemDescription4" class="itemDescription">Williamsburg pour-over jean shorts, organic lumbersexual blue bottle keytar microdosing umami vegan single-origin coffee aesthetic mlkshk vape fingerstache.</p>
-                                    </td>
-                                    <td class="traderInfo">
-                                        <span name="zipCode4" id="zipCode4" class="relatedZips">XXXXX</span><br />
-                                        <span name="traderName4" id="traderName4" class="relatedtrader">Trader Name</span><br />
-                                        <span name="traderRating4" id="traderRating4" class="relatedtrader">X.xx</span><br />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+                <% } %>    
                 </table>
             </div>
         
