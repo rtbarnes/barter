@@ -14,37 +14,14 @@
         <link href="style/itemPage.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDynRsjTcTXk9FrA-SH7kJ3GO33mWdkqTg&callback=initMap">
-    </script>
-    
-          <script>
-      function initMap() {
-        var uluru = {lat: 34.0224, lng: -118.2851};
-        var map = new google.maps.Map(document.getElementById('googleMapsContainer'), {
-          zoom: 13,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
- <style>
-     #googleMapsContainer{
-      height: 180px;
-      width: 180px;
-     }
-  </style>
   </head>
   
   <body>
-   <%
-        	Item item = (Item) request.getAttribute("item");
-        	User seller = (User) request.getAttribute("seller");
+  	<%
+       	Item item = (Item) request.getAttribute("item");
+       	User seller = (User) request.getAttribute("seller");
         	
-        %>
+    %>
         
         
         <div name="headerContainer" id="headerContainer">
@@ -101,13 +78,6 @@
                     <td class="singleTd">
                         <!-- holds the window from the GMaps API -->
                         <div name="googleMapsContainer" id="googleMapsContainer"></div>
-<<<<<<< HEAD
-                        <!-- temporary image -->
-                        <!-- <img alt="No Picture Available."  src="stock%20images/mapstand-in.png" style="height:180px; width: 180px;"> -->
-=======
-                        <!-- temporary image
-                        <img alt="No Picture Available."  src="stock%20images/mapstand-in.png" style="height:180px; width: 180px;"> --> 
->>>>>>> bbdf5ab22532c363ce22ba2e3b677caf40848b98
                         
                         <br />
                         <span name="zipCode" id="zipCode" style="font-weight:bold; font-size: 35px; color: #1B1464;"><%=seller.getLocation() %></span><br />
@@ -201,7 +171,6 @@
                 <a name="contactUs" id="contactUs" href="">Contact Us</a>
             </div>
         </div>
-<<<<<<< HEAD
         
          <script>
             function initMap() {
@@ -242,8 +211,4 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDynRsjTcTXk9FrA-SH7kJ3GO33mWdkqTg&callback=initMap"></script>
     </body>
-=======
-  
-  </body>
->>>>>>> bbdf5ab22532c363ce22ba2e3b677caf40848b98
 </html>
