@@ -85,12 +85,21 @@
 				var firstName = document.querySelector("#firstName").value;
 				var lastName = document.querySelector("#lastName").value;
 				var email = document.querySelector("#contactEmail").value;
-				var inquiery = document.querySelector("#inquiry").value;
+				var inquiry = document.querySelector("#inquiry").value;
 
+				document.querySelector("#firstName").value = "";
+				document.querySelector("#lastName").value = "";
+				document.querySelector("#contactEmail").value = "";
+				document.querySelector("#inquiry").value = "";
 
 				xhttp.open("GET", "ContactUs?firstName=" + firstName + 
-						"&lastName=" + lastName, false);
+						"&lastName=" + lastName + 
+						"&email=" + email + 
+						"&inquiry=" + inquiry
+						, false);
 				xhttp.send();
+
+
 				return false;
 			}
 		</script>
