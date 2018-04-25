@@ -101,7 +101,7 @@
             <div name="relatedContainer" id="relatedContainer" style="width: 1050px; margin-left:auto; margin-right:auto;">
                 <span style="font-weight:bold; font-size: 25px; color: #1B1464;">Check Out These Other Items!</span><br />
                 <table name="relatedTable" id="relatedTable">
-                <% for(int j = 0; j < relatedItems.size()/2; j++) { %>
+                <% for(int j = 0; j < Math.ceil(relatedItems.size()/2.0); j++) { %>
                     <tr>
                     <% for(int i = 0; i < relatedItems.size() && i < 2; i++) { %>
                     	<% Item curItem = relatedItems.get(i + j*2); %> 

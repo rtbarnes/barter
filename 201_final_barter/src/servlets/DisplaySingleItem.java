@@ -36,7 +36,7 @@ public class DisplaySingleItem extends HttpServlet {
 		
 		
 		if (!potentialRelatedItems.isEmpty()){
-			System.out.println("pri.size: " + potentialRelatedItems.size());
+			System.out.println("related items size: " + potentialRelatedItems.size());
 			Random rand = new Random();
 			int initSize = potentialRelatedItems.size();
 	       	for (int i = 0; i < initSize; i++) {
