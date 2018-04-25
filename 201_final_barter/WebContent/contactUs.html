@@ -10,17 +10,6 @@
         <link href="style/footer.css" type="text/css" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     
-    	<script>
-			function sendInquiry (){
-				var xhttp = new XMLHttpRequest();
-				var firstName = document.querySelector("#firstName").value;
-				var 
-				xhttp.open("GET", "ContactUs?firstName=" + document.myform.fname.value + 
-						"&lname=" + document.myform.lname.value, false);
-				xhttp.send();
-				return false;
-			}
-		</script>
     </head>
     
     <body>
@@ -59,18 +48,18 @@
             
             <span name="contactUsHeading" id="contactUsHeading">Contact Us</span><br />
 
-            <form name="contactUsForm" action="">
+            <form name="contactUsForm" action="" id="contactUsForm">
                 <table name="contactFormTable" id="contactFormTable">
                     <tr>
-                        <td class="contactTd"><label class="contactUsLab">First Name</label><input type="text" name="firstName" class="contactInput"></td>
-                        <td class="contactTd"><label class="contactUsLab">Last Name</label><input type="text" name="lastName" class="contactInput"></td>
+                        <td class="contactTd"><label class="contactUsLab">First Name</label><input type="text" id="firstName" class="contactInput"></td>
+                        <td class="contactTd"><label class="contactUsLab">Last Name</label><input type="text" id="lastName" class="contactInput"></td>
                     </tr>
                     <tr>
-                        <td class="contactTd"><label class="contactUsLab">Contact Email</label><input type="text" name="contactEmail" class="contactInput"></td>
+                        <td class="contactTd"><label class="contactUsLab">Contact Email</label><input type="text" id="contactEmail" class="contactInput"></td>
                     </tr>
                     
                     <tr>
-                        <td class="contactTd" colspan="2"><label class="contactUsLab">Inquiry</label><textarea form="contactUsForm" type="textarea" name="inquiry" class="contactInput" rows="3" style="width: 590px;"></textarea> </td>
+                        <td class="contactTd" colspan="2"><label class="contactUsLab">Inquiry</label><textarea form="contactUsForm" type="textarea" id="inquiry" class="contactInput" rows="3" style="width: 590px;"></textarea> </td>
                     </tr>
                 </table>
                 <br />
@@ -88,5 +77,22 @@
             </div>
         </div>
         
+
+    	<script>
+			document.querySelector("#contactUsForm").onsubmit = function(e){
+				e.preventDefault();
+				var xhttp = new XMLHttpRequest();
+				var firstName = document.querySelector("#firstName").value;
+				var lastName = document.querySelector("#lastName").value;
+				var email = document.querySelector("#contactEmail").value;
+				var inquiery = document.querySelector("#inquiry").value;
+
+
+				xhttp.open("GET", "ContactUs?firstName=" + firstName + 
+						"&lastName=" + lastName, false);
+				xhttp.send();
+				return false;
+			}
+		</script>
     </body>
 </html>

@@ -74,9 +74,11 @@ public class Test {
 		
 //		dbUtil.addMessageToTrade(1, "neeeeeewww message!!");
 		
-		System.out.println(dbUtil.getMessagesByTradeId(1));
+//		System.out.println(dbUtil.getMessagesByTradeId(1));
 		util.close();
 		dbUtil.close();
+		
+		
 		
 	}
 
