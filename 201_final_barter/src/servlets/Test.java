@@ -70,8 +70,11 @@ public class Test {
 //			System.out.println(item.getItemName());
 //			System.out.println(item.getDescription());
 //		}
-		dbUtil.updateItemStatus(1, false);
+//		dbUtil.updateItemStatus(1, false);
 		
+//		dbUtil.addMessageToTrade(1, "neeeeeewww message!!");
+		
+		System.out.println(dbUtil.getMessagesByTradeId(1));
 		util.close();
 		dbUtil.close();
 		

@@ -442,6 +442,11 @@
         		}
     			
         		
+        		// messages
+        		ArrayList<String> messages = request.getAttribute("messages") == null ? 
+        								new ArrayList<String>() : (ArrayList<String>) request.getAttribute("messages");
+        		
+        		
         %>
         
        <div name="headerContainer" id="headerContainer">
@@ -645,53 +650,24 @@
             <div name="messagesContainer" id="messagesContainer">
                 <div name="tableContainer" id="tableContainer">
                     <table name="messagesTable" id="messagesTable">
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">username:</div></td>
-                            <td class="messageTD"><div name="message" id="message">ah jeez rick</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
-                        <tr>
-                            <td class="messageTD"><div name="senderName" id="senderName">traderusername:</div></td>
-                            <td class="messageTD"><div name="message" id="message">oh hi mark</div></td>
-                        </tr>
+	                        <tr>
+	                            <td class="messageTD"><div name="senderName" id="senderName">qingshen:</div></td>
+                            	<td class="messageTD"><div name="message" id="message">------Teeeeeeeest------</div></td>
+	                        </tr>
+                    	<% for(int i=0; i<messages.size(); i++){ %>
+	                        <tr>
+	                            <td class="messageTD"><div name="senderName" id="senderName"><%=messages.get(i) %></div></td>
+                            	<td class="messageTD"><div name="message" id="message"></div></td>
+	                        </tr>
+                        <% } %>
                     </table>
                 </div>
             </div>
             <div name="sendMessageContainer" id="sendMessageContainer">
                     <div name="sendMessageInner" id="sendMessageInner">
-                        <form name="sendMessage" id="sendMessage">
+                        <form name="sendMessage" id="sendMessage" action="SendMessage" method="POST">
                             <input type="text" name="sendMessageInput" id="sendMessageInput" placeholder="Compose Message ...">
+                            <input type="hidden" name="tradeId" value="<%=tradeObject.getTradeId() %>">
                             <input type="submit" value="Send" id="sendButton">
                         </form>
                     </div>
