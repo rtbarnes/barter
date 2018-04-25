@@ -134,7 +134,7 @@
         <div name="footerContainer" id="footerContainer">
             <div class="footer" name="footer" id="footer">
                 <span name="copyright" id="copyright">copyright Barter 2018</span>
-                <a name="contactUs" id="contactUs" href="">Contact Us</a>
+                <a name="contactUs" id="contactUs" href="contactUs.html">Contact Us</a>
             </div>
         </div>
         
