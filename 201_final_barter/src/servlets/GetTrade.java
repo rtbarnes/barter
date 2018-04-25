@@ -27,12 +27,17 @@ public class GetTrade extends HttpServlet {
 		HttpSession session = request.getSession();
 		User curUser = (User) session.getAttribute("user");
 		Util util = new Util();
+		DBUtil dbUtil = new DBUtil();
 		
 		int tradeId = Integer.parseInt(request.getParameter("tradeId"));
 		Trade trade = util.getTradeByTradeId(tradeId);
 		ArrayList<Trade> trades = util.getAllTradesForUser(curUser.getUserID());
 		request.setAttribute("trade", trade);
 		request.setAttribute("tradesForUser", trades);
+		
+		// get all messages of a trade
+		ArrayList<String> messages = dbUtil.getMessagesByTradeId(tradeId);
+		request.setAttribute("messages", messages);
 		
 		util.close();
 		

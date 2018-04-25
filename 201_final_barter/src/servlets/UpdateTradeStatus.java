@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -60,6 +61,10 @@ public class UpdateTradeStatus extends HttpServlet {
 			dbUtil.updateItemStatus(util.getTradeByTradeId(tradeId).getRecItem().getItemId(), true);
 			dbUtil.updateItemStatus(util.getTradeByTradeId(tradeId).getReqItem().getItemId(), true);
 		}
+		
+		
+		dbUtil.close();
+		util.close();
 		
 		request.setAttribute("trade", curTrade);
 		

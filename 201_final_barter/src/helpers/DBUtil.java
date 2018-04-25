@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import com.sun.javafx.scene.traversal.Hueristic2D;
+
 import model.Item;
 import model.Trade;
 import model.User;
@@ -441,6 +443,37 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		return items;
+	}
+
+	public void addMessageToTrade(int tradeId, String message) {
+		String sql = "INSERT INTO messages (trade_id, msg_text)" + 
+						"VALUES(?, ?);";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, tradeId);
+			ps.setString(2, message);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<String> getMessagesByTradeId(int tradeId){
+		ArrayList<String> messages = new ArrayList<>();
+		String sql = "SELECT * FROM messages" + 
+							" WHERE trade_id = ?;";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, tradeId);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				messages.add(rs.getString("msg_text"));
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		return messages;
 	}
 }
 
