@@ -31,6 +31,7 @@
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
                 </form>
                 
+                <% if(session.getAttribute("user") != null) { %>
                 <div id="linkContainer" name="linkContainer">
                     <a class="headerButtons" name="button1" id="button1" href="postItem.html" style="display: inline;">+ Post Item</a>
 
@@ -40,6 +41,14 @@
 
                     <a class="headerButtons" name="button4" id="button4" href="./Logout" style="display: inline;">Log Out</a>
                 </div>
+               <% } 
+               else { %>
+               <div id="linkContainer" name="linkContainer">
+                    <a class="headerButtons" name="button5" id="button5" href="signUp.html" style="display: inline;">Sign Up</a>
+
+                    <a class="headerButtons" name="button6" id="button6" href="logIn.html" style="display: inline;">Log In</a>
+                </div>
+                <% } %>
                 
             </div>
         </div>
@@ -78,7 +87,10 @@
             <div name="resultsContainer" id="resultsContainer">
                 <table name="resultsTable" id="resultsTable">
                     <%for (int i = 0; i < items.size(); i++) {
-                    	if(items.get(i).getUserId() != curUser.getUserID() && !items.get(i).isSold()) {%>
+                    	int userID = 0;
+                    	if (curUser != null) userID = curUser.getUserID();
+                    	else userID = -1;
+                    	if(items.get(i).getUserId() != userID && !items.get(i).isSold()) {%>
                     <tr>
                         <td>
                             <table class="itemResultTable">
