@@ -451,7 +451,7 @@
         
        <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-                <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
+                <a href="DisplayItemResults"><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm" action="./DisplayItemResults" method="GET">
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
@@ -650,14 +650,16 @@
             <div name="messagesContainer" id="messagesContainer">
                 <div name="tableContainer" id="tableContainer">
                     <table name="messagesTable" id="messagesTable">
+                    <!-- 
 	                        <tr>
 	                            <td class="messageTD"><div name="senderName" id="senderName">qingshen:</div></td>
-                            	<td class="messageTD"><div name="message" id="message">------Teeeeeeeest------</div></td>
+                            		<td class="messageTD"><div name="message" id="message">------Teeeeeeeest------</div></td>
 	                        </tr>
+	                -->
                     	<% for(int i=0; i<messages.size(); i++){ %>
 	                        <tr>
-	                            <td class="messageTD"><div name="senderName" id="senderName"><%=messages.get(i) %></div></td>
-                            	<td class="messageTD"><div name="message" id="message"></div></td>
+	                             <td class="messageTD"><div name="senderName" id="senderName"></div></td>
+                            	    <td class="messageTD"><div name="message" id="message"><%=messages.get(i) %></div></td>
 	                        </tr>
                         <% } %>
                     </table>

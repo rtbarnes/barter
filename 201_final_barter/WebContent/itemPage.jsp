@@ -32,7 +32,7 @@
         
         <div name="headerContainer" id="headerContainer">
             <div class="header" name="header" id="header">
-                <a href=""><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
+                <a href="DisplayItemResults"><img src="stock%20images/barterlogo.png" name="barterLogoThumbnail" id="barterLogoThumbnail"></a>
                 
                 <form name="searchForm" id="searchForm" action="./DisplayItemResults" method="GET">
                     <input name="searchBar" id="searchBar" type="text" placeholder="Search Barters"><button type="submit" id="searchButton"><i class="fas fa-search" id="searchIcon" style="font-size: 200%;"></i></button>
@@ -105,7 +105,7 @@
                         <br />
                         <span name="zipCode" id="zipCode" style="font-weight:bold; font-size: 35px; color: #1B1464;"><%=seller.getLocation() %></span><br />
                         <span name="traderName" id="traderName" style="font-weight:bold; font-size: 20px; color: #1B1464;"><%=seller.getFirstName() + " " + seller.getLastName() %></span><br />
-                        <span name="rating" id="rating" style="font-weight:bold; font-size: 15px; color: #1B1464;">Rating: X.xx</span><br />
+                        <!-- <span name="rating" id="rating" style="font-weight:bold; font-size: 15px; color: #1B1464;">Rating: X.xx</span><br /> -->
                     </td>
                 </tr>
             </table>
@@ -114,7 +114,7 @@
             <div name="relatedContainer" id="relatedContainer" style="width: 1050px; margin-left:auto; margin-right:auto;">
                 <span style="font-weight:bold; font-size: 25px; color: #1B1464;">Check Out These Other Items!</span><br />
                 <table name="relatedTable" id="relatedTable">
-                <% for(int j = 0; j < Math.ceil(relatedItems.size()/2.0); j++) { %>
+                <% for(int j = 0; j < Math.ceil(relatedItems.size()/2.0) && j < 2; j++) { %>
                     <tr>
                     <% for(int i = 0; i < relatedItems.size() && i < 2; i++) { %>
                     	<% Item curItem = relatedItems.get(i + j*2); %> 
@@ -130,7 +130,7 @@
                                     <td class="traderInfo">
                                         <span name="zipCode1" id="zipCode1" class="relatedZips"><%=curUser.getLocation() %></span><br />
                                         <span name="traderName1" id="traderName1" class="relatedtrader"><%=curUser.getFirstName() + " " + curUser.getLastName() %></span><br />
-                                        <span name="traderRating1" id="traderRating1" class="relatedtrader">X.xx</span><br />
+                                        <!-- <span name="traderRating1" id="traderRating1" class="relatedtrader">X.xx</span><br /> -->
                                     </td>
                                 </tr>
                             </table>
