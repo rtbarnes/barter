@@ -33,13 +33,13 @@ public class SendMail {
 
             Message message = new MimeMessage(session);
             try {
-				message.setFrom(new InternetAddress("qingshen@gmail.com", "Qingshen"));
+				message.setFrom(new InternetAddress("qingshen@gmail.com", "Attention Barter!"));
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse("gannys_h@outlook.com"));
+            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse("qingsheh@usc.edu, gannys_h@outlook.com, rtbarnes@usc.edu, changnat@usc.edu, srishtim@usc.edu"));
+            
             message.setSubject("User Feedback");
             message.setText("User feedback from: \n" + 
             		firstName + " " + lastName + "\n" +

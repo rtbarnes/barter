@@ -77,8 +77,8 @@ public class Test {
 		
 //		System.out.println(dbUtil.getMessagesByTradeId(1));
 //		
-//		SendMail sMail  = new SendMail();
-//		sMail.send();
+		SendMail sMail  = new SendMail();
+		sMail.send("Mr", "Bean", "beans@jars.com", "I like beans---------------------------------------------For testing ");
 		util.close();
 		dbUtil.close();
 		
