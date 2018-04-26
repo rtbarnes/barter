@@ -38,7 +38,7 @@ public class SendMail {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse("qingsheh@usc.edu, gannys_h@outlook.com, rtbarnes@usc.edu, changnat@usc.edu, srishtim@usc.edu"));
+            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse("gannys_h@outlook.com, nathan98chang@gmail.com, reedbarnes98@gmail.com, miglani_srishti@yahoo.com"));
             
             message.setSubject("User Feedback");
             message.setText("User feedback from: \n" + 
