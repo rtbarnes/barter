@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helpers.SendMail;
+
 /**
  * Servlet implementation class ContactUs
  */
@@ -26,6 +28,8 @@ public class ContactUs extends HttpServlet {
 		System.out.println(email);
 		System.out.println(inquiry);
 		
+		SendMail sendMail = new SendMail();
+		sendMail.send(firstName, lastName, email, inquiry);
 		
 	}
 

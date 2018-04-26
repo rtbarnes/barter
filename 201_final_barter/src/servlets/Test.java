@@ -8,6 +8,7 @@ import java.util.Calendar;
 import com.google.gson.annotations.Until;
 
 import helpers.DBUtil;
+import helpers.SendMail;
 import helpers.Util;
 import model.Item;
 import model.Trade;
@@ -75,6 +76,9 @@ public class Test {
 //		dbUtil.addMessageToTrade(1, "neeeeeewww message!!");
 		
 //		System.out.println(dbUtil.getMessagesByTradeId(1));
+//		
+//		SendMail sMail  = new SendMail();
+//		sMail.send();
 		util.close();
 		dbUtil.close();
 		
