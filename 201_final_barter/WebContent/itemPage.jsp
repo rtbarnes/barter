@@ -22,7 +22,11 @@
        	Item item = (Item) request.getAttribute("item");
        	User seller = (User) request.getAttribute("seller");
        	ArrayList<Item> relatedItems = (ArrayList<Item>) request.getAttribute("relatedItems");
-		ArrayList<User> relatedSellers = (ArrayList<User>) request.getAttribute("relatedSellers");       	
+		ArrayList<User> relatedSellers = (ArrayList<User>) request.getAttribute("relatedSellers"); 
+		
+		User sessionUser = null;
+		if (session.getAttribute("user") != null) sessionUser = (User) session.getAttribute("user");
+		
     %>
         
         
@@ -80,7 +84,16 @@
                         </div>
                     </td>
                     <td class="singleTd" style="padding-top: 10px; width: 660px;">
-                    	<%String tradeUrl ="AddNewTrade?recItemId="+item.getItemId()+"&recUserId="+seller.getUserID();%>
+                    	
+                    	<%
+                    	String tradeUrl = "";
+                    	if (sessionUser == null) {
+                			tradeUrl = "signUp.html";
+                		}
+                    	else {
+                    		tradeUrl ="AddNewTrade?recItemId="+item.getItemId()+"&recUserId="+seller.getUserID();
+                    	}
+                    	%>
                         <div style="text-align: right; width: 640px;"><button name="tradeButton" id="tradeButton"><a href="<%=tradeUrl %>" name="tradeLink" id="tradeLink">Trade</a></button><br/></div>
                         <div style="text-align: left; width: 640px;"><span name="resultName" id="resultName"><%=item.getItemName()%></a></div>
                         <p name="description"><%=item.getDescription()%></p>
